@@ -20,8 +20,8 @@
         float: right;
     }
     &__searchbox {
-        text-align: center;
         width: 25%;
+        float: left;
         & .fas {
             color: $color-primary-dark;
         }

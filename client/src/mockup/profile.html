@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test: Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3f7d57fead.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../App.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__logobox">
+            <i class="fas fa-globe-europe"></i> &nbsp;
+                Pairigy
+        </div>
+    
+        <div class="navbar__searchbox">
+            <form class="form-inline">
+                <i class="fas fa-search fa-2x" aria-hidden="true"></i>
+                <input class="form-control form-control-lg ml-3 w-50" type="text" placeholder="Search"
+                    aria-label="Search" id="user-query" />
+            </form>
+        </div>
+    
+        <div class="navbar__link">
+            <a href="/favorites">Favorites <i class="fas fa-star"></i></a>
+            <a href="/mail">Mail <i class="fas fa-envelope"></i></a>
+            <a href="/profile">Profile <i class="fas fa-user"></i></a>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <section class="section-profile">
+            <div class="row mb-5">
+                <div class="col-sm-12 text-center">
+                    <h1 class="heading-profile heading-profile--main mb-3">Tyroil Smoochie-Wallace</h1>
+                    <h2 class="heading-profile heading-profile--sub">Full Stack Web Developer</h2>
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row mt-5">
+                <div class="col-md-6 col-sm-12 text-center">
+                    <img src="../images/default-profile-avatar.jpg" alt="user avatar" class="avatar avatar--lg w-75 mb-5" />
+                </div>
+
+                <div class="col-md-6 col-sm-12">
+                    <div class="buttons text-center mb-5">
+                        <a href="#" class="button button--user-action mr-5"><i class="far fa-envelope"></i> Message</a>
+                        <a href="#" class="button button--user-action"> <i class="far fa-star"> </i>Favorite</a>
+                    </div>
+                <ul>
+                    <li><span class="font-weight-bold">Location: </span> Philadelphia</li>
+                    <li><span class="font-weight-bold">Skills: </span> 
+                        <li class="skill-list-item">UX</li>
+                        <li class="skill-list-item">UI</li>
+                        <li class="skill-list-item">React</li>
+                        <li class="skill-list-item">Node.js</li>
+                    </li>
+                    <li><span class="font-weight-bold">Website: </span> www.macaronincheese.com</li>
+                    <li><span class="font-weight-bold">Social Media: </span> 
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i> 
+                        <i class="fab fa-github-alt"></i> 
+                    </li>
+                </ul>
+                </div>
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>
