@@ -1,0 +1,36 @@
+.button {
+    &--main {
+        background: linear-gradient(to bottom right, $color-primary-light, $color-primary);
+        padding: 1rem 2rem;
+        border-radius: .2rem;
+        box-shadow: 0 .5rem 1rem rgba($color-black, .3);
+        outline: none;
+        overflow: hidden;
+
+        font-size: 1.8rem;
+        font-weight: bold;
+        font-variant: small-caps;
+        color: $color-primary-dark;
+
+        transition: all .5s;
+
+        &:hover {
+            box-shadow: 0 1rem 2rem rgba($color-white, .3);
+
+            color: $color-white;
+            text-decoration: none;
+
+            transition: all 1s;
+        }
+
+        &:active,
+        &:focus {
+        background: linear-gradient(to bottom right, $color-primary, $color-primary-light);
+        box-shadow: 0 .5rem 1rem rgba($color-primary, .3);
+
+        color: yellow;
+        text-decoration: none;
+    }
+    }
+
+}

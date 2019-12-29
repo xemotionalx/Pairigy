@@ -12,6 +12,39 @@ body {
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif; }
 
+.heading-splash {
+  color: #D8D8D8;
+  text-shadow: 0.3rem 0.5rem 1rem rgba(11, 11, 10, 0.5); }
+  .heading-splash--main {
+    font-size: 10rem;
+    letter-spacing: 1.5rem; }
+  .heading-splash--sub {
+    font-size: 2rem;
+    letter-spacing: .3rem; }
+
+.button--main {
+  background: linear-gradient(to bottom right, #D8D8D8, #817D91);
+  padding: 1rem 2rem;
+  border-radius: .2rem;
+  box-shadow: 0 0.5rem 1rem rgba(11, 11, 10, 0.3);
+  outline: none;
+  overflow: hidden;
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-variant: small-caps;
+  color: #494949;
+  transition: all .5s; }
+  .button--main:hover {
+    box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.3);
+    color: #fff;
+    text-decoration: none;
+    transition: all 1s; }
+  .button--main:active, .button--main:focus {
+    background: linear-gradient(to bottom right, #817D91, #D8D8D8);
+    box-shadow: 0 0.5rem 1rem rgba(129, 125, 145, 0.3);
+    color: yellow;
+    text-decoration: none; }
+
 .navbar {
   overflow: hidden;
   z-index: 100;
@@ -50,6 +83,20 @@ body {
       display: inline-block; }
     .navbar a:hover {
       color: #817D91; }
+
+.section-splash {
+  position: relative;
+  background: url("./images/splash-bg.jpg") no-repeat center center/cover;
+  height: 100vh; }
+  .section-splash--inner {
+    height: 100%;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; }
 
 .user-profile--img {
   border-radius: 50%; }
