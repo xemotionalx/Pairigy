@@ -8,8 +8,11 @@ const App = () =>
 <Router>
     <Fragment>
       <Navbar />
+      <Switch>
       <h1>Testing</h1>
+      </Switch>
     </Fragment>
+   
 </Router>
 
 export default App;

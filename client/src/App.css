@@ -133,9 +133,12 @@ li {
   .section-profile ul {
     font-size: 1.6rem;
     color: #817D91;
-    line-height: 1.8; }
+    line-height: 2; }
 
 .skill-list-item {
   display: inline-block;
   padding: .5rem 1rem;
   border: 1px solid #D8D8D8; }
+
+.social-list-item {
+  display: inline-block; }
