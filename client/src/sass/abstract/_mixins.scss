@@ -1,0 +1,13 @@
+@mixin gradientText ($direction, $color-1, $color-2) {
+    background-image: linear-gradient(to $direction, $color-1, $color-2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+@mixin absolutePosition ($X, $Y) {
+    position: absolute;
+    top: $Y;
+    left: $X;
+}
+

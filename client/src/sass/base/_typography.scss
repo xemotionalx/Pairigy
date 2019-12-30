@@ -1,0 +1,28 @@
+.heading {
+    &-splash {
+        color: $color-primary-light;
+        text-shadow: .3rem .5rem 1rem rgba($color-black, .5);
+        &--main {
+            font-size: 10rem;
+            letter-spacing: 1.5rem;
+        }
+
+        &--sub {
+            font-size: 2rem;
+            letter-spacing: .3rem;
+        }
+    }
+
+    &-profile {
+        &--main {
+            font-size: 4rem;
+            font-weight: bold;
+            font-variant: small-caps;
+        }
+        &--sub {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+    }
+    
+}
