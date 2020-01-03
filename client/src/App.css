@@ -57,7 +57,7 @@ li {
 
 .button {
   border-radius: .2rem;
-  box-shadow: 0 0.5rem 1rem rgba(11, 11, 10, 0.3);
+  box-shadow: 0 0.3rem 0.8rem rgba(11, 11, 10, 0.3);
   outline: none;
   overflow: hidden; }
   .button--main {
@@ -68,23 +68,23 @@ li {
     font-variant: small-caps;
     color: #494949; }
     .button--main:hover {
-      box-shadow: 0 1rem 2rem rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0.8rem 1.6rem rgba(255, 255, 255, 0.3);
       color: #fff;
       text-decoration: none;
       transition: all 1s; }
     .button--main:active, .button--main:focus {
       background: linear-gradient(to bottom right, #817D91, #D8D8D8); }
   .button--user-action {
-    color: #817D91;
     padding: 1rem 1rem;
+    color: #817D91;
     font-size: 1.6rem;
     transition: all .3s; }
     .button--user-action:hover {
-      box-shadow: 0 1rem 1.5rem rgba(11, 11, 10, 0.3);
+      box-shadow: 0 0.8rem 1.2rem rgba(11, 11, 10, 0.3);
       color: hotpink;
       text-decoration: none; }
   .button:active {
-    box-shadow: 0 0.5rem 1rem rgba(129, 125, 145, 0.3);
+    box-shadow: 0 3rem 0.8rem rgba(129, 125, 145, 0.3);
     color: hotpink;
     text-decoration: none; }
 
@@ -154,12 +154,12 @@ li {
     color: #817D91;
     line-height: 2; }
 
-.skill-list-item {
+.list-item--skill {
   display: inline-block;
-  padding: .5rem 1rem;
+  padding: 0 1rem;
   border: 1px solid #D8D8D8; }
 
-.social-list-item {
+.list-item--social {
   display: inline-block; }
 
 .project-box {

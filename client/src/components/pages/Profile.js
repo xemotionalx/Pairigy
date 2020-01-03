@@ -18,17 +18,30 @@ const Profile = () => {
                 <hr />
                 <div className="row mt-5">
                     {/* Col 1: Avatar */}
-                    <div className="col-md-6 col-sm-12 text-center">
+                    <div className="col-md-5 col-sm-12 text-center">
                         <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
                     </div>
                 {/* Col 2: User overview */}
-                <div className="col-md-6 col-sm-12">
-                    <div className="buttons text-center mb-5">
-                        <Link to="#" className="button button--user-action mr-5"><i className="far fa-envelope"></i> Message</Link>
+                <div className="col-md-7 col-sm-12">
+                    <div className="buttons  mb-5">
+                        <Link to="#" className="button button--user-action mr-3"><i className="far fa-envelope"></i> Message</Link>
                         <Link to="#" className="button button--user-action"> <i className="far fa-star"> </i>Favorite</Link>
                     </div>
-                    {/* city */}
+                    
                     <ul>
+                    {/* social media */}
+                    <li className="mt-5"> 
+                        <li className="list-item--social">
+                            <i className="fab fa-twitter fa-2x mr-3"></i>
+                        </li>
+                        <li className="list-item--social">
+                            <i className="fab fa-instagram fa-2x mr-3"></i>
+                        </li> 
+                        <li className="list-item--social">
+                            <i className="fab fa-github-alt fa-2x mr-3"></i>
+                        </li> 
+                    </li>
+                    {/* city */}
                     <li>
                         <span className="font-weight-bold">Location: </span> 
                         Philadelphia
@@ -41,22 +54,10 @@ const Profile = () => {
                     {/* skills */}
                     <li>
                         <span className="font-weight-bold">Skills: </span> 
-                        <li className="skill-list-item mr-1">UX</li>
-                        <li className="skill-list-item mr-1">UI</li>
-                        <li className="skill-list-item mr-1">React</li>
-                        <li className="skill-list-item mr-1">Node.js</li>
-                    </li>
-                     {/* social media */}
-                    <li className="mt-5"> 
-                        <li className="social-list-item">
-                            <i className="fab fa-twitter fa-2x mr-3"></i>
-                        </li>
-                        <li className="social-list-item">
-                            <i className="fab fa-instagram fa-2x mr-3"></i>
-                        </li> 
-                        <li className="social-list-item">
-                            <i className="fab fa-github-alt fa-2x mr-3"></i>
-                        </li> 
+                        <li className="list-item--skill mr-1">UX</li>
+                        <li className="list-item--skill mr-1">UI</li>
+                        <li className="list-item--skill mr-1">React</li>
+                        <li className="list-item--skill mr-1">Node.js</li>
                     </li>
                 </ul>
                 </div>

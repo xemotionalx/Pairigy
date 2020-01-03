@@ -1,5 +1,4 @@
 .section-profile {
-
     border: .5rem $color-primary solid;
     padding: 2rem;
     box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
@@ -12,14 +11,15 @@
     }
 }
 
-.skill-list-item {
-    display: inline-block;
-    padding: .5rem 1rem;
-    border: 1px solid $color-primary-light;
-}
-
-.social-list-item {
-    display: inline-block;
+.list-item {
+    &--skill {
+        display: inline-block;
+        padding: 0 1rem;
+        border: 1px solid $color-primary-light;
+    }
+    &--social {
+        display: inline-block;
+    }
 }
 
 .project {

@@ -1,6 +1,6 @@
 .button {
     border-radius: .2rem;
-    box-shadow: 0 .5rem 1rem rgba($color-black, .3);
+    box-shadow: 0 .3rem .8rem rgba($color-black, .3);
     outline: none;
     overflow: hidden;
 
@@ -14,7 +14,7 @@
         color: $color-primary-dark;
 
         &:hover {
-            box-shadow: 0 1rem 2rem rgba($color-white, .3);
+            box-shadow: 0 .8rem 1.6rem rgba($color-white, .3);
 
             color: $color-white;
             text-decoration: none;
@@ -29,15 +29,15 @@
     }
 
     &--user-action {
-        color: $color-primary;
         padding: 1rem 1rem;
         
+        color: $color-primary;
         font-size: $default-font-size;
 
         transition: all .3s;
 
         &:hover {
-            box-shadow: 0 1rem 1.5rem rgba($color-black, .3);
+            box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
 
             color: hotpink;
             text-decoration: none;
@@ -46,7 +46,7 @@
     }
 
     &:active {
-        box-shadow: 0 .5rem 1rem rgba($color-primary, .3);
+        box-shadow: 0 3rem .8rem rgba($color-primary, .3);
 
         color: hotpink;
         text-decoration: none;
