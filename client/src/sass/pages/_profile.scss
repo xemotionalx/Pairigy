@@ -22,3 +22,23 @@
     display: inline-block;
 }
 
+.project {
+    &-box {
+    box-shadow: 0 .3rem .7rem rgba($color-primary, .5);
+    padding: 2rem;
+    }
+    
+    &-tag {
+        font-size: 1.1rem;
+
+        padding: 2px .5rem;
+        margin-right: .5rem;
+        border: 1px solid $color-black;
+        border-radius: 2px;
+
+        &--box {
+            margin-bottom: 2rem;
+        }
+    }
+}
+
