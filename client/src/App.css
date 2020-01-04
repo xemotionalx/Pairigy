@@ -145,6 +145,7 @@ li {
     text-align: center; }
 
 .section-profile {
+  color: #494949;
   border: 0.5rem #817D91 solid;
   padding: 2rem;
   box-shadow: 0 0.5rem 1rem rgba(129, 125, 145, 0.5);
