@@ -1,5 +1,5 @@
 .section-profile {
-
+    color: $color-primary-dark;
     border: .5rem $color-primary solid;
     padding: 2rem;
     box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
@@ -12,13 +12,34 @@
     }
 }
 
-.skill-list-item {
-    display: inline-block;
-    padding: .5rem 1rem;
-    border: 1px solid $color-primary-light;
+.list-item {
+    &--skill {
+        display: inline-block;
+        padding: 0 1rem;
+        border: 1px solid $color-primary-light;
+    }
+    &--social {
+        display: inline-block;
+    }
 }
 
-.social-list-item {
-    display: inline-block;
+.project {
+    &-box {
+    box-shadow: 0 .3rem .7rem rgba($color-primary, .5);
+    padding: 2rem;
+    }
+    
+    &-tag {
+        font-size: 1.1rem;
+
+        padding: 2px .5rem;
+        margin-right: .5rem;
+        border: 1px solid $color-black;
+        border-radius: 2px;
+
+        &--box {
+            margin-bottom: 2rem;
+        }
+    }
 }
 
