@@ -226,7 +226,6 @@ router.put('/experience', [auth, [
     );
 
 
-// USE THE "EXPERIENCES" & "POSTS" ROUTES AS A BASE TO BUILD MESSAGES ROUTE
-// PUT & DELETE
+
 
 module.exports = router;
