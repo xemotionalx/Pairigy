@@ -8,6 +8,7 @@ import Navbar from './components/layout/Navbar';
 import Index from './components/pages/Index';
 import EditProfile from './components/pages/EditProfile';
 import Login from './components/pages/Login';
+import EditProfile from './components/pages/EditProfile';
 import Profile from './components/pages/Profile';
 import Register from './components/pages/Register';
 
