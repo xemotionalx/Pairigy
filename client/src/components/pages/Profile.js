@@ -60,6 +60,8 @@ const Profile = () => {
                         <li className="list-item--skill mr-1">Node.js</li>
                     </li>
                 </ul>
+                <br />
+                <Link to="/editprofile" className="button button--user-action">Edit Profile</Link>
                 </div>
                 </div>
              </section>
