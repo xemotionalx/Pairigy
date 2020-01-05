@@ -6,6 +6,7 @@ import DefaultAvatar from './../../images/default-profile-avatar.jpg';
 const Profile = () => {
     return (
         
+        
         <div className="container mt-5 mb-5">
              <section className="section-profile">
                 {/* Heading : Name & Title */}
