@@ -11,7 +11,7 @@ const Profile = () => {
                 {/* Heading : Name & Title */}
                 <div className="row mb-5">
                     <div className="col-sm-12 text-center">
-                        <h1 className="heading-profile heading-profile--main mb-3">Tyroil Smoochie-Wallace</h1>
+                    <input type="text" name="name" placeholder="First and Last Name" />
                         <h2 className="heading-profile heading-profile--sub">Full Stack Web Developer</h2>
                     </div>
                 </div>
