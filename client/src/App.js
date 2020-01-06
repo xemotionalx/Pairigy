@@ -18,13 +18,11 @@ const App = () => (
   <Router>
     <Fragment>
       <Navbar />
-
       <Switch>
         <Route path='/' exact component={Index} />
         <Route path='/editprofile/' exact component={EditProfile} />
         <Route path='/login/' exact component={Login} />
         <Route path='/profile/' exact component={Profile} />
-        <Route path='/home' exact component={Profile} />
         <Route path='/register/' exact component={Register} />
       </Switch>
     </Fragment>
