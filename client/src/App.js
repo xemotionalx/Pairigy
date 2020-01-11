@@ -8,6 +8,7 @@ import Navbar from './components/layout/Navbar';
 import Index from './components/pages/Index';
 import EditProfile from './components/pages/EditProfile';
 import Profile from './components/pages/Profile';
+import MyProfile from './components/pages/profile/MyProfile';
 //auth
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -37,9 +38,12 @@ return (
       <Navbar />
       <Switch>
         <Route path='/' exact component={Index} />
+        
+        <Route path='/myprofile/' exact component={MyProfile} />
         <Route path='/editprofile/' exact component={EditProfile} />
-        <Route path='/login/' exact component={Login} />
         <Route path='/profile/' exact component={Profile} />
+
+        <Route path='/login/' exact component={Login} />
         <Route path='/register/' exact component={Register} />
       </Switch>
     </Fragment>
