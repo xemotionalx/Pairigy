@@ -25,8 +25,7 @@ export const getCurrentProfile = () => async dispatch => {
 }
 
 //edit profile
-export const createProfile = ( formData ) => async dispatch => {
-    
+export const createProfile = ( formData ) => async dispatch => {   
     try {
         //set the header type so route can receive json
         const config = {
@@ -60,6 +59,5 @@ export const createProfile = ( formData ) => async dispatch => {
             }
         })
 
-    }
-    
-}
+    }  
+};
