@@ -18,6 +18,7 @@ const Login = () => {
     
 
     return (
+        <div class="container mt-5 mb-5">
         <Fragment>
             <h1 className="large text-primary">Sign In</h1>
             <p className="lead">
@@ -51,6 +52,7 @@ const Login = () => {
                 Don't have an account? <Link to="/login">Sign Up</Link>
             </p>
         </Fragment>
+        </div>
     );
 };
 

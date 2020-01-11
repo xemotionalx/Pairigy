@@ -27,6 +27,7 @@ const Register = ({ setAlert, register }) => {
     };
 
     return (
+        <div class="container mt-5 mb-5">
         <Fragment>
             <h1 className="large text-primary">Sign Up</h1>
             <p className="lead">
@@ -80,6 +81,7 @@ const Register = ({ setAlert, register }) => {
                 Already have an account? <Link to="/login">Sign In</Link>
             </p>
         </Fragment>
+        </div>
     );
 };
 
