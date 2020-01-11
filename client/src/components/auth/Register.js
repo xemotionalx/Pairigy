@@ -27,7 +27,7 @@ const Register = ({ setAlert, register }) => {
     };
 
     return (
-        <div class="container mt-5 mb-5">
+        <div className="container mt-5 mb-5">
         <Fragment>
             <h1 className="large text-primary">Sign Up</h1>
             <p className="lead">

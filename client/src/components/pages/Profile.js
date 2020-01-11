@@ -25,7 +25,9 @@ const Profile = () => {
                 {/* Col 2: User overview */}
                 <div className="col-md-7 col-sm-12">
                     <div className="buttons  mb-5">
-                        <Link to="#" className="button button--user-action mr-3"><i className="far fa-envelope"></i> Message</Link>
+                        <Link to="/createmessage" className="button button--user-action mr-3">
+                            <i className="far fa-envelope"></i> Message
+                        </Link>
                         <Link to="#" className="button button--user-action"> <i className="far fa-star"> </i>Favorite</Link>
                     </div>
                     
