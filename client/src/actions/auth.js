@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
+import setAuthToken from '../components/utils/setAuthToken';
 import {
     REGISTER_SUCCESS,
     REGISTER_FAIL,
