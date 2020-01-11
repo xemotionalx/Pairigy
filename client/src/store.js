@@ -7,6 +7,7 @@ import rootReducer from './reducers';
 
 const initialState = {};
 
+//allows async logic
 const middleware = [thunk];
 
 const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));

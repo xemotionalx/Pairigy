@@ -1,0 +1,17 @@
+.form {
+    &-editprofile {
+        background-color: $color-primary-light;
+        padding: 5rem 10rem;
+        border-radius: 2px;
+        box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
+
+        &--label {
+            color: $color-primary-dark;
+            font-size: $default-font-size;
+            font-weight: bold;
+
+
+        }
+    }
+}
+
