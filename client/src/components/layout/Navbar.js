@@ -18,8 +18,8 @@ function Navbar() {
             </div>
 
             <div className="navbar__link">
-                <Link to="/favorites">Favorites <i class="fas fa-star"></i></Link>
-                <Link to="/mail">Mail <i class="fas fa-envelope"></i></Link>
+                <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
+                <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
                 <Link to="/profile">Profile <i className="fas fa-user"></i></Link>
                 <Link to="logout">Logout</Link>
             </div>
