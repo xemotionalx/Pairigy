@@ -6,6 +6,7 @@ import DefaultAvatar from './../../images/default-profile-avatar.jpg';
 const Profile = () => {
     return (
         
+        
         <div className="container mt-5 mb-5">
              <section className="section-profile">
                 {/* Heading : Name & Title */}
@@ -60,6 +61,8 @@ const Profile = () => {
                         <li className="list-item--skill mr-1">Node.js</li>
                     </li>
                 </ul>
+                <br />
+                <Link to="/editprofile" className="button button--user-action">Edit Profile</Link>
                 </div>
                 </div>
              </section>

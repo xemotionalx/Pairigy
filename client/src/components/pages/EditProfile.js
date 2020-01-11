@@ -1,160 +1,130 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-// Import images
-import DefaultAvatar from './../../images/default-profile-avatar.jpg';
+// eslint-disable-next-line
+import React, { useState } from 'react';
 
-const Profile = () => {
-    return (
-        
+
+const EditProfile = () => {
+    return ( 
         <div className="container mt-5 mb-5">
-             <section className="section-profile">
-                {/* Heading : Name & Title */}
-                <div className="row mb-5">
-                    <div className="col-sm-12 text-center">
-                    <input type="text" name="name" placeholder="First and Last Name" />
-                        <h2 className="heading-profile heading-profile--sub">Full Stack Web Developer</h2>
-                    </div>
-                </div>
+             <section className="section-editprofile form-editprofile text-center">
+               <h1 className="heading-profile--main mb-5">Edit Your Profile</h1>
                 <hr />
-                <div className="row mt-5">
-                    {/* Col 1: Avatar */}
-                    <div className="col-md-5 col-sm-12 text-center">
-                        <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
+                <form className="form-group">
+                  <div className="row">
+                    <label for='name' className="form-editprofile--label">Name:</label>
+                    <input type="text" name='name' className="form-control mb-4"></input>
+
+                    <label for='title' className="form-editprofile--label">Title:</label>
+                    <input type="text" name='title' className="form-control mb-4"></input>
+
+                    <label for='location' className="form-editprofile--label">Location:</label>
+                    <input type="text" name='location' className="form-control mb-4"></input> 
+
+                    <label for='website' className="form-editprofile--label">Website:</label>
+                    <input type="text" name='website' className="form-control mb-4"></input>
+
+                    <label for='skills' className="form-editprofile--label">Skills (please seperate with commas):</label>
+                    <input type="text" name='skills' className="form-control mb-4"></input> 
+
+                    <label for='bio' className="form-editprofile--label">Bio:</label>
+                    <textarea type="text" name='bio' className="form-control mb-4" rows="5"></textarea> 
+                  </div>
+                  
+                  <hr />
+
+                  <div className="row">
+                    <h2 className="mb-4">Social Media</h2>
+                  </div>
+                   
+                  <div className="row">
+                    <div className="col-sm-2">
+                      <label for='twitter' className="form-editprofile--label mr-2">Twitter:</label>
                     </div>
-                {/* Col 2: User overview */}
-                <div className="col-md-7 col-sm-12">
-                    <div className="buttons  mb-5">
-                        <Link to="#" className="button button--user-action mr-3"><i className="far fa-envelope"></i> Message</Link>
-                        <Link to="#" className="button button--user-action"> <i className="far fa-star"> </i>Favorite</Link>
+                    <div className="col-sm-10">
+                      <input type="text" name='twitter' className="form-control mb-4 w-50"></input>
                     </div>
-                    
-                    <ul>
-                    {/* social media */}
-                    <li className="mt-5"> 
-                        <li className="list-item--social">
-                            <i className="fab fa-twitter fa-2x mr-3"></i>
-                        </li>
-                        <li className="list-item--social">
-                            <i className="fab fa-instagram fa-2x mr-3"></i>
-                        </li> 
-                        <li className="list-item--social">
-                            <i className="fab fa-github-alt fa-2x mr-3"></i>
-                        </li> 
-                    </li>
-                    {/* city */}
-                    <li>
-                        <span className="font-weight-bold">Location: </span> 
-                        Philadelphia
-                    </li>
-                    {/* website */}
-                    <li>
-                        <span className="font-weight-bold">Website: </span> 
-                        www.macaronincheese.com
-                    </li>
-                    {/* skills */}
-                    <li>
-                        <span className="font-weight-bold">Skills: </span> 
-                        <li className="list-item--skill mr-1">UX</li>
-                        <li className="list-item--skill mr-1">UI</li>
-                        <li className="list-item--skill mr-1">React</li>
-                        <li className="list-item--skill mr-1">Node.js</li>
-                    </li>
-                </ul>
-                </div>
-                </div>
-             </section>
-
-             {/* BIO */}
-             <section className="section-profile mt-5">               
-                {/* Bio - Heading */}
-                <h2 className="heading-profile heading-profile--sub">
-                    Bio
-                </h2>            
-                {/* Bio - Text */}
-                <p>
-                    Here is where the user can write whatever they want about who they are and what they're doing on the platform.
-                </p>        
-             </section>
-
-             {/* PROJECTS */}
-             <section className="section-profile mt-5 mb-5">               
-                {/* Projects - Heading */}
-                <h2 className="heading-profile heading-profile--sub">
-                    Projects
-                </h2>            
-                {/* Projects - Text */}
-                <div className="project-box">
-                    <h3 className="heading-project--main ml-1 mt-2">
-                        Project Name
-                    </h3>
-
-                    <hr className="mb-5"/>
-
-
-                    <h3 className="heading-project--sub">
-                        Description
-                    </h3>
-                    <div className="project-tag--box">
-                    <span className="project-tag">Link</span>
-                    <span className="project-tag">Code</span>
-                    <span className="project-tag">Status</span>
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-2">
+                      <label for='instagram' className="form-editprofile--label mr-2">Instagram:</label>
                     </div>
-                    <p>A brief description of the project and maybe what kinds of team members are being sought</p>
-
-                    <hr className="mb-5"/>
-
-
-                    
-                    <h3 className="heading-project--sub">
-                        Team
-                    </h3>
-                    <div className="project-tag--box">
-                    <span className="project-tag">Status: Open</span>
+                    <div className="col-sm-10">
+                      <input type="text" name='instagram' className="form-control mb-4 w-50"></input>
                     </div>
-
-                    <div className="row">
-                        <div className="col-lg-3 col-md-6 col-sm-12">
-                            <div className="card__team text-center">
-                            <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--sm w-50" />
-                            <hr />
-                            <p><b>Name: </b> Team member name</p>
-                            <p><b>Role: </b> Role title</p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-sm-12">
-                            <div className="card__team text-center">
-                            <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--sm w-50" />
-                            <hr />
-                            <p><b>Name: </b> Team member name</p>
-                            <p><b>Role: </b> Role title</p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-sm-12">
-                            <div className="card__team text-center">
-                            <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--sm w-50" />
-                            <hr />
-                            <p><b>Name: </b> Team member name</p>
-                            <p><b>Role: </b> Role title</p>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-md-6 col-sm-12">
-                            <div className="card__team text-center">
-                            <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--sm w-50" />
-                            <hr />
-                            <p><b>Name: </b> Team member name</p>
-                            <p><b>Role: </b> Role title</p>
-                            </div>
-                        </div>
-
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-2">
+                      <label for='facebook' className="form-editprofile--label mr-2">Facebook:</label>
                     </div>
-                </div>     
+                    <div className="col-sm-10">
+                      <input type="text" name='facebook' className="form-control mb-4 w-50"></input>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-2">
+                      <label for='linkedin' className="form-editprofile--label mr-2">LinkedIn:</label>
+                    </div>
+                    <div className="col-sm-10">
+                      <input type="text" name='linkedin' className="form-control mb-4 w-50"></input>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-2">
+                      <label for='github' className="form-editprofile--label mr-2">Github:</label>
+                    </div>
+                    <div className="col-sm-10">
+                      <input type="text" name='github' className="form-control mb-4 w-50"></input>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-sm-2">
+                      <label for='dribbble' className="form-editprofile--label mr-2">Dribbble:</label>
+                    </div>
+                    <div className="col-sm-10">
+                      <input type="text" name='dribbble' className="form-control mb-4 w-50"></input>
+                    </div>
+                  </div>
+
+                </form>
+
+                <input type='submit' className="btn btn-dark btn-lg" />
+
              </section>
 
         </div>
     )
-}
+};
 
-export default Profile;
+export default EditProfile;
+
+
+
+//useState holds the information passed through from the form submit
+    // const [formData, updateFormData] = useState({
+    //     name: "",
+    //     title: "",
+    //     location: "",
+    //     website: "",
+    //     skills: "",
+    //     bio: "",
+    //     twitter: "",
+    //     instagram: "",
+    //     facebook: "",
+    //     linkedin: "",
+    //     github: "",
+    //     dribbble: "",
+    // });
+
+    // const {
+    //     name,
+    //     title,
+    //     location,
+    //     website,
+    //     skills,
+    //     bio,
+    //     twitter,
+    //     instagram,
+    //     facebook,
+    //     linkedin,
+    //     github,
+    //     dribbble,
+    // } = formData;

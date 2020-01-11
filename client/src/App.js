@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/layout/Navbar';
 // Import pages
 import Index from './components/pages/Index';
-import Login from './components/pages/Login';
 import EditProfile from './components/pages/EditProfile';
+import Login from './components/pages/Login';
 import Profile from './components/pages/Profile';
 import Register from './components/pages/Register';
 
@@ -18,11 +18,10 @@ const App = () => (
   <Router>
     <Fragment>
       <Navbar />
-
       <Switch>
         <Route path='/' exact component={Index} />
+        <Route path='/editprofile/' exact component={EditProfile} />
         <Route path='/login/' exact component={Login} />
-        <Route path='/edit-profile/' exact component={EditProfile} />
         <Route path='/profile/' exact component={Profile} />
         <Route path='/register/' exact component={Register} />
       </Switch>
