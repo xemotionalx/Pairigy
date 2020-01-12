@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../../actions/profile';
@@ -7,13 +7,26 @@ function MyProfile({ getCurrentProfile, auth, profile }) {
 //calls the getCurrentProfile function
     useEffect(() => {
         getCurrentProfile();
-    }, [getCurrentProfile]);
+    }, []);
+
+    const [profileData, setProfileData] = useState({
+        
+    });
+
 
     return (
-        <div>
-            <h1>
-                My Profile
-            </h1>
+
+        <div className="container mt-5 mb-5">
+            <section className="section-profile">
+            {/* Heading : Name & Title */}
+                <div className="row mb-5">
+                    <div className="col-sm-12 text-center">
+    <h1 className="heading-profile heading-profile--main mb-3">{name}</h1>
+                        <h2 className="heading-profile heading-profile--sub"></h2>
+                    </div>
+                </div>
+            <hr />
+            </section>
         </div>
     )
 }
