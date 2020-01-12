@@ -18,6 +18,7 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import { loadUser } from './actions/auth';
 import setAuthToken from './components/utils/setAuthToken';
+import PrivateRoute from './components/routing/PrivateRoute';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
@@ -26,8 +27,16 @@ import store from './store';
 //import CSS
 import './App.css';
 
+if (localStorage.token) { 
+  setAuthToken(localStorage.token);
+};
 
 const App = () => {
+  
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+  
 return (
   <Provider store={store}>
   <Router>
@@ -36,7 +45,7 @@ return (
       <Switch>
         <Route path='/' exact component={Index} />
         
-        <Route path='/myprofile/' exact component={MyProfile} />
+        <PrivateRoute path='/myprofile/' exact component={MyProfile} />
         <Route path='/editprofile/' exact component={EditProfile} />
         <Route path='/profile/' exact component={Profile} />
 
