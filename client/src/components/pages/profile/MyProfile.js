@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../../actions/profile';
 import MySkills from './MySkills';
-import MySocials from './MySocials'; 
 
 const MyProfile = ({ 
     getCurrentProfile, 
@@ -20,6 +19,7 @@ const MyProfile = ({
         website: loading || !profile.website ? "" : profile.website,
         location: loading || !profile.location ? "" : profile.location,
         skills: loading || !profile.skills ? "" : profile.skills,
+        bio: loading || !profile.bio ? "" : profile.bio,
     };
 
     return loading && profile === null ? ( <div>loading</div> ) : (
@@ -74,12 +74,33 @@ const MyProfile = ({
                     </li>
                     {/* social media */}
                     <li className="mt-5"> 
-                        <MySocials profile={profile} />
+                        <li className="list-item--social">
+                            <i className="fab fa-twitter fa-2x mr-3"></i>
+                        </li>
+                        <li className="list-item--social">
+                            <i className="fab fa-instagram fa-2x mr-3"></i>
+                        </li> 
+                        <li className="list-item--social">
+                            <i className="fab fa-github-alt fa-2x mr-3"></i>
+                        </li> 
                     </li>
                 </ul>
+
                 </div>
                 </div>
             </section>
+
+            {/* BIO */}
+            <section className="section-profile mt-5">               
+                {/* Bio - Heading */}
+                <h2 className="heading-profile heading-profile--sub">
+                    Bio
+                </h2>            
+                {/* Bio - Text */}
+                <p>
+                    {profileData.bio}
+                </p>        
+             </section>
         </div>
         )
  
