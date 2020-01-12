@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../../actions/profile';
+import MySkills from './MySkills';
+import MySocials from './MySocials'; 
 
 const MyProfile = ({ 
     getCurrentProfile, 
@@ -68,24 +70,11 @@ const MyProfile = ({
                     </li>
                     {/* skills */}
                     <li>
-                        <span className="font-weight-bold">Skills: </span> 
-                        
-                        <li className="list-item--skill mr-1">UX</li>
-                        <li className="list-item--skill mr-1">UI</li>
-                        <li className="list-item--skill mr-1">React</li>
-                        <li className="list-item--skill mr-1">Node.js</li>
+                        <MySkills profile={profile} /> 
                     </li>
                     {/* social media */}
                     <li className="mt-5"> 
-                        <li className="list-item--social">
-                            <i className="fab fa-twitter fa-2x mr-3"></i>
-                        </li>
-                        <li className="list-item--social">
-                            <i className="fab fa-instagram fa-2x mr-3"></i>
-                        </li> 
-                        <li className="list-item--social">
-                            <i className="fab fa-github-alt fa-2x mr-3"></i>
-                        </li> 
+                        <MySocials profile={profile} />
                     </li>
                 </ul>
                 </div>

@@ -10,6 +10,7 @@ import Index from './components/pages/Index';
 import EditProfile from './components/pages/EditProfile';
 import Profile from './components/pages/Profile';
 import MyProfile from './components/pages/profile/MyProfile';
+import MySkills from './components/pages/profile/MySkills';
 // messages
 import CreateMessage from './components/pages/messages/CreateMsg';
 import Inbox from './components/pages/messages/Inbox';
@@ -46,6 +47,7 @@ return (
         <Route path='/' exact component={Index} />
         
         <PrivateRoute path='/myprofile/' exact component={MyProfile} />
+        <PrivateRoute path='/myskills/' exact component={MySkills} />
         <Route path='/editprofile/' exact component={EditProfile} />
         <Route path='/profile/' exact component={Profile} />
 
