@@ -23,6 +23,13 @@ const MyProfile = ({
     };
 
     return loading && profile === null ? ( <div>loading</div> ) : (
+
+        profile === null ? (
+            <div>You do not yet have a profile, create one 
+                <Link to="/editprofile">here</Link>
+            </div>
+            ) : (
+
         <div className="container mt-5 mb-5">
             <section className="section-profile">
 
@@ -102,6 +109,7 @@ const MyProfile = ({
                 </p>        
              </section>
         </div>
+        )
         )
  
 }
