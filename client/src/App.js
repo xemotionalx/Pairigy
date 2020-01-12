@@ -6,9 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/layout/Navbar';
 // Import pages
 import Index from './components/pages/Index';
+//profile
 import EditProfile from './components/pages/EditProfile';
 import Profile from './components/pages/Profile';
 import MyProfile from './components/pages/profile/MyProfile';
+// messages
+import CreateMessage from './components/pages/messages/CreateMsg';
+import Inbox from './components/pages/messages/Inbox';
 //auth
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
@@ -17,6 +21,7 @@ import setAuthToken from './components/utils/setAuthToken';
 //Redux
 import { Provider } from 'react-redux';
 import store from './store';
+
 
 //import CSS
 import './App.css';
@@ -34,6 +39,9 @@ return (
         <Route path='/myprofile/' exact component={MyProfile} />
         <Route path='/editprofile/' exact component={EditProfile} />
         <Route path='/profile/' exact component={Profile} />
+
+        <Route path='/createmessage/' exact component={CreateMessage} />
+        <Route path='/inbox/' exact component={Inbox} />
 
         <Route path='/login/' exact component={Login} />
         <Route path='/register/' exact component={Register} />

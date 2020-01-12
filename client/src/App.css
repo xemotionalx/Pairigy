@@ -48,6 +48,14 @@ li {
   font-variant: small-caps;
   margin-bottom: 1rem; }
 
+.heading-messages--main {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem; }
+
+.bg-col-light {
+  background-color: #D8D8D8; }
+
 .avatar {
   border-radius: 50%; }
   .avatar--lg {
