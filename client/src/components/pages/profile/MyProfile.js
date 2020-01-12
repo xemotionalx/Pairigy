@@ -10,7 +10,7 @@ function MyProfile({ getCurrentProfile, auth, profile }) {
     }, []);
 
     const [profileData, setProfileData] = useState({
-        
+
     });
 
 
@@ -21,7 +21,7 @@ function MyProfile({ getCurrentProfile, auth, profile }) {
             {/* Heading : Name & Title */}
                 <div className="row mb-5">
                     <div className="col-sm-12 text-center">
-    <h1 className="heading-profile heading-profile--main mb-3">{name}</h1>
+    <h1 className="heading-profile heading-profile--main mb-3"></h1>
                         <h2 className="heading-profile heading-profile--sub"></h2>
                     </div>
                 </div>
