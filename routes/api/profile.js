@@ -1,8 +1,9 @@
 const express = require('express');
+const request = require('request');
+const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');
-const { check, validationResult } = require('express-validator');
-
+const { check, validationResult } = require('express-validator/check');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -53,40 +54,38 @@ router.post(
         }
 
         const {
-            company,
+            status,
             website,
             location,
-            bio,
-            status,
-            githubusername,
             skills,
-            youtube,
-            facebook,
+            bio,
             twitter,
-            instagram,
+            facebook,
             linkedin,
+            instagram,
+            github,
+            dribbble
         } = req.body;
 
         // Build proflie objevt
         const profileFields = {};
         profileFields.user = req.user.id;
-        if (company) profileFields.company = company;
+        if (status) profileFields.status = status;
         if (website) profileFields.website = website;
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;
-        if (status) profileFields.status = status;
-        if (githubusername) profileFields.githubusername = githubusername;
         if (skills) {
             profileFields.skills = skills.split(',').map(skill => skill.trim());
         }
 
         // Build social object 
         profileFields.social = {}
-        if (youtube) profileFields.youtube = youtube;
         if (twitter) profileFields.twitter = twitter;
         if (facebook) profileFields.facebook = facebook;
         if (linkedin) profileFields.linkedin = linkedin;
         if (instagram) profileFields.instagram = instagram;
+        if (github) profileFields.github = github;
+        if (dribbble) profileFields.dribbble = dribbble;
 
         try {
             let profile = await Profile.findOne({ user: req.user.id });
@@ -168,9 +167,6 @@ router.delete('/', auth, async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
-
-
-
 
 
 module.exports = router;

@@ -50,7 +50,7 @@ const EditProfile = ({
       //get the existing profile
       getCurrentProfile();
     }, [getCurrentProfile]);
-    
+
     const {
       status,
       website,

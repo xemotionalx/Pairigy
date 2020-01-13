@@ -27,7 +27,10 @@ export const getCurrentProfile = () => async dispatch => {
 //edit profile
 //the history object has a "push" method
 // edit startes as false to flag that we are creating a profile for the first time
-export const createProfile = ( formData, history, edit = false ) => async dispatch => {   
+export const createProfile = ( 
+    formData, 
+    history, 
+    edit = false ) => async dispatch => {   
     try {
         //set the header type so route can receive json
         const config = {
