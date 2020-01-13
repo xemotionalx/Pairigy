@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../../actions/profile';
+// eslint-disable-next-line
 import MySkills from './MySkills';
 
 const MyProfile = ({ 
@@ -12,7 +13,7 @@ const MyProfile = ({
 }) => {
     useEffect(() => {
         getCurrentProfile();
-    }, []);
+    }, [getCurrentProfile]);
 
     return loading && profile === null ? ( <div>loading</div> ) : (
 
@@ -22,15 +23,27 @@ const MyProfile = ({
                 <section className="section-profile ">
                     <div className="row mb-5">
                     <div className="col-sm-12 text-center">
-                        <h1 className="heading-profile heading-profile--main mb-5">Welcome, {user.name}</h1>
-                         <Link to="/createprofile" className="button button--main">Create A Profile</Link>
+                        <h1 className="heading-profile heading-profile--main mb-5">
+                            Welcome, {user.name}
+                        </h1>
+                         <Link to="/createprofile" className="button button--main">
+                             Create A Profile
+                        </Link>
                     </div>
                     </div>
                 </section>
             </div>
             </div>
             ) : 
-            (   <div>has a profile</div>)
+            (   
+                <div className="container mt-5 mb-5">
+                    <p>
+                        <Link to="/editprofile" className="button button--main">
+                            Edit Your Profile
+                        </Link>
+                    </p>
+                </div>
+            )
         )
  
 }

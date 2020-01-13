@@ -50,8 +50,8 @@ return (
         <PrivateRoute path='/myprofile/' exact component={MyProfile} />
         <PrivateRoute path='/myskills/' exact component={MySkills} />
 
-        <Route path='/editprofile/' exact component={EditProfile} />
-        <Route path='/createprofile/' exact component={CreateProfile} />
+        <PrivateRoute path='/editprofile/' exact component={EditProfile} />
+        <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
 
         <Route path='/profile/' exact component={Profile} />
 

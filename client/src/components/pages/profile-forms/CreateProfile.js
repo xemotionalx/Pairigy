@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile } from '../../../actions/profile';
@@ -11,7 +11,6 @@ const CreateProfile = ({ createProfile, history }) => {
         location: '',
         skills: '',
         bio: '',
-        youtube: '',
         twitter: '',
         facebook: '',
         linkedin: '',
@@ -26,7 +25,6 @@ const CreateProfile = ({ createProfile, history }) => {
         location,
         skills,
         bio,
-        youtube,
         twitter,
         facebook,
         linkedin,
