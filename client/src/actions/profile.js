@@ -25,7 +25,9 @@ export const getCurrentProfile = () => async dispatch => {
 }
 
 //edit profile
-export const createProfile = ( formData ) => async dispatch => {   
+//the history object has a "push" method
+// edit startes as false to flag that we are creating a profile for the first time
+export const createProfile = ( formData, history, edit = false ) => async dispatch => {   
     try {
         //set the header type so route can receive json
         const config = {
@@ -43,14 +45,12 @@ export const createProfile = ( formData ) => async dispatch => {
             payload: res.data
         });
 
+        //history object used to be able to redirect
+        if (!edit) {
+            history.push('/myprofile');
+        };
+
     } catch(err) {
-        //save the errors array from the post route to this variable
-        const errors = err.response.data.errors;
-
-        errors.forEach(error => {
-            console.log(error.msg)
-        });
-
         dispatch({
             type: PROFILE_ERROR,
             payload: { 

@@ -40,6 +40,9 @@ const ProfileSchema = new mongoose.Schema({
         },
         github: {
             type: String
+        },
+        dribbble: {
+            type: String
         }
     },
     date: {

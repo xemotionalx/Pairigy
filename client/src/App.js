@@ -7,7 +7,8 @@ import Navbar from './components/layout/Navbar';
 // Import pages
 import Index from './components/pages/Index';
 //profile
-import EditProfile from './components/pages/EditProfile';
+import EditProfile from './components/pages/profile-forms/EditProfile';
+import CreateProfile from './components/pages/profile-forms/CreateProfile';
 import Profile from './components/pages/Profile';
 import MyProfile from './components/pages/profile/MyProfile';
 import MySkills from './components/pages/profile/MySkills';
@@ -48,7 +49,10 @@ return (
         
         <PrivateRoute path='/myprofile/' exact component={MyProfile} />
         <PrivateRoute path='/myskills/' exact component={MySkills} />
+
         <Route path='/editprofile/' exact component={EditProfile} />
+        <Route path='/createprofile/' exact component={CreateProfile} />
+
         <Route path='/profile/' exact component={Profile} />
 
         <Route path='/createmessage/' exact component={CreateMessage} />
