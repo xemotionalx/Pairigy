@@ -36,12 +36,12 @@ const EditProfile = ({
         skills: loading || !profile.skills ? '' : profile.skills.join(','),
         bio: loading || !profile.bio ? '' : profile.bio,
         //for socials, just need to check if 'social' object exists
-        // twitter: loading || !profile.social ? '' : profile.social.twitter,
-        // facebook: loading || !profile.social ? '' : profile.social.facebook,
-        // linkedin: loading || !profile.social ? '' : profile.social.linkedin,
-        // instagram: loading || !profile.social ? '' : profile.social.instagram,
-        // github: loading || !profile.social ? '' : profile.social.github,
-        // dribbble: loading || !profile.social ? '' : profile.social.dribbble,
+        twitter: loading || !profile.social ? '' : profile.social.twitter,
+        facebook: loading || !profile.social ? '' : profile.social.facebook,
+        linkedin: loading || !profile.social ? '' : profile.social.linkedin,
+        instagram: loading || !profile.social ? '' : profile.social.instagram,
+        github: loading || !profile.social ? '' : profile.social.github,
+        dribbble: loading || !profile.social ? '' : profile.social.dribbble,
       });
     }, [loading, profile])
     //once loading is done (profile.loading = false), that is when useEffect runs

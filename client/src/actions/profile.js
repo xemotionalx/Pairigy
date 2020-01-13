@@ -54,6 +54,13 @@ export const createProfile = (
         };
 
     } catch(err) {
+
+        const errors = err.response.data.errors;
+
+        if (errors) {
+            errors.forEach(error => dispatch(console.log(error.msg)));
+        }
+
         dispatch({
             type: PROFILE_ERROR,
             payload: { 

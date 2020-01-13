@@ -1,4 +1,4 @@
-import { GET_PROFILE, UPDATE_PROFILE, PROFILE_ERROR } from '../actions/types';
+import { GET_PROFILE, PROFILE_ERROR } from '../actions/types';
 
 const initialState = {
     profile: null,
@@ -12,7 +12,6 @@ export default function(state = initialState, action) {
     switch(type) {
         // a copy of state is created, and the payload is pushed to the profile object
         case GET_PROFILE:
-        case UPDATE_PROFILE:
             return {
                 ...state,
                 profile: payload,

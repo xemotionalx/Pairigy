@@ -38,7 +38,7 @@ const MyProfile = ({
             (   
                 <div className="container mt-5 mb-5">
                     <p>
-                        <Link to="/editprofile" className="button button--main">
+                        <Link to="/createprofile" className="button button--main">
                             Edit Your Profile
                         </Link>
                     </p>
