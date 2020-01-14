@@ -5,7 +5,7 @@ import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
 //get current profile
 export const getCurrentProfile = () => async dispatch => {
     try {
-        //axios call to the route that will match profile to user's id
+        //axios call to the route that will match profile to current user
         const res = await axios.get('/api/profile/me');
 
         dispatch ({
@@ -24,8 +24,38 @@ export const getCurrentProfile = () => async dispatch => {
     }
 }
 
+//get any profile
+export const getUserProfile = () => async dispatch => {
+    try {
+        //axios call to the route that will match profile to user's id
+        const res = await axios.get(`/api/profile/user/:userid`);
+
+        dispatch ({
+            type: GET_PROFILE,
+            payload: res.data //get this data from the database - above route
+        });
+
+
+    } catch (err) {
+
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { 
+                msg: err.response.statusText, 
+                status: err.response.status 
+            }
+        })
+
+    }
+}
+
 //edit profile
-export const createProfile = ( formData ) => async dispatch => {   
+//the history object has a "push" method
+// edit startes as false to flag that we are creating a profile for the first time
+export const createProfile = ( 
+    formData, 
+    history, 
+    edit = false ) => async dispatch => {   
     try {
         //set the header type so route can receive json
         const config = {
@@ -43,13 +73,18 @@ export const createProfile = ( formData ) => async dispatch => {
             payload: res.data
         });
 
+        //history object used to be able to redirect
+        if (!edit) {
+            history.push('/myprofile');
+        };
+
     } catch(err) {
-        //save the errors array from the post route to this variable
+
         const errors = err.response.data.errors;
 
-        errors.forEach(error => {
-            console.log(error.msg)
-        });
+        if (errors) {
+            errors.forEach(error => dispatch(console.log(error.msg)));
+        }
 
         dispatch({
             type: PROFILE_ERROR,
