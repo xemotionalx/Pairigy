@@ -1,6 +1,6 @@
 import axios from 'axios';
 // eslint-disable-next-line
-import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
+import { GET_PROFILE, PROFILE_ERROR } from './types';
 
 //get current profile
 export const getCurrentProfile = () => async dispatch => {
@@ -22,13 +22,13 @@ export const getCurrentProfile = () => async dispatch => {
             }
         })
     }
-}
+};
 
 //get any profile
-export const getUserProfile = () => async dispatch => {
+export const getProfileById = userId => async dispatch => {
     try {
         //axios call to the route that will match profile to user's id
-        const res = await axios.get(`/api/profile/user/:userid`);
+        const res = await axios.get(`/api/profile/user/${userId}`);
 
         dispatch ({
             type: GET_PROFILE,
@@ -37,7 +37,6 @@ export const getUserProfile = () => async dispatch => {
 
 
     } catch (err) {
-
         dispatch({
             type: PROFILE_ERROR,
             payload: { 

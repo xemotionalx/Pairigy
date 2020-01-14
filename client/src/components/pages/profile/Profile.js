@@ -1,26 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { getProfileById } from '../../../actions/profile';
 import { Link } from 'react-router-dom';
-import { getCurrentProfile } from '../../../actions/profile';
 import MySkills from './MySkills';
 import MySocials from './MySocials';
 
-const MyProfile = ({ 
-    getCurrentProfile, 
-    auth: { user }, 
-    profile: { profile, loading} 
-}) => {
+const Profile = ({ 
+    match,
+    getProfileById,
+    profile: { profile, loading}
+ }) => {
 
     useEffect(() => {
-        getCurrentProfile();
-    }, [getCurrentProfile]);
+        getProfileById(match.params.userId)
+    }, [match, getProfileById]);
 
     const [profileData, setProfileData] = useState({
+        name: '',
+        avatar: '',
         status: '',
         website: '',
         location: '',
         bio: '',
+        skills: '',
+        socials: ''
     });
 
     //these functions will be called once the DOM is rendered
@@ -28,51 +32,36 @@ const MyProfile = ({
       //once getting the profile, if each item is loading or doesn't exist, leave the field blank
       //otherwise, will set the existing data into the form
       setProfileData({
+        name: loading ? '' : profile.user.name,
+        avatar: loading ? '' : profile.user.avatar,
         status: loading || !profile.status ? '' : profile.status,
         website: loading || !profile.website ? '' : profile.website,
         location: loading || !profile.location ? '' : profile.location,
         bio: loading || !profile.bio ? '' : profile.bio,
+        skills: loading || !profile.skills ? '' : profile.skills,
+        socials: loading || !profile.socials ? '' : profile.socials
       });
     }, [loading, profile])
     //once loading is done (profile.loading = false), that is when useEffect runs
     
     const {
+        name,
+        avatar,
         status,
         website,
         location,
         bio,
+        skills,
+        socials
     } = profileData
 
-
     return loading && profile === null ? ( <div>loading</div> ) : (
-
-        profile === null ? (
-            <div className="splash--no-profile">
-            <div className="container mt-5 mb-5">
-                <section className="section-profile ">
-                    <div className="row mb-5">
-                    <div className="col-sm-12 text-center">
-                        <h1 className="heading-profile heading-profile--main mb-5">
-                            Welcome, {user.name}
-                        </h1>
-                         <Link to="/createprofile" className="button button--main">
-                             Create A Profile
-                        </Link>
-                    </div>
-                    </div>
-                </section>
-            </div>
-            </div>
-            
-            ) : 
-            (   
-
-                <div className="container mt-5 mb-5">
+        <div className="container mt-5 mb-5">
                 <section className="section-profile">
                 {/* Heading : Name & Title */}
                     <div className="row mb-5">
                         <div className="col-sm-12 text-center">
-                            <h1 className="heading-profile heading-profile--main mb-3">{user && user.name}</h1>
+                            <h1 className="heading-profile heading-profile--main mb-3">{name}</h1>
                             <h2 className="heading-profile heading-profile--sub">{status}</h2>
                         </div>
                     </div>
@@ -80,7 +69,7 @@ const MyProfile = ({
                     <div className="row mt-5">
                     {/* Col 1: Avatar */}
                         <div className="col-md-5 col-sm-12 text-center">
-                            <img src={user.avatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
+                            <img src={avatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
                         </div>
                     {/* Col 2: User overview */}
                         <div className="col-md-7 col-sm-12">
@@ -90,9 +79,6 @@ const MyProfile = ({
                                 </Link>
                                 <Link to="#" className="button button--user-action mr-3"> 
                                     <i className="far fa-star"></i> Favorite
-                                </Link>
-                                <Link to="/createprofile" className="button button--user-action">
-                                 Edit Profile
                                 </Link>
                             </div>
                     <ul>
@@ -110,11 +96,15 @@ const MyProfile = ({
                         </li>
                     {/* skills */}
                         <li>
-                            <MySkills profile={profile} /> 
+                            {skills === null || skills === undefined || !skills ? "" : 
+                            <MySkills profile={profile} />
+                            } 
                         </li>
                     </ul>
                     {/* social media */}
-                        <MySocials profile={profile} />
+                            {socials === null || socials === undefined || !socials ? "" : 
+                            <MySocials profile={profile} />
+                            } 
                 
                     </div>
                 </div>
@@ -131,23 +121,18 @@ const MyProfile = ({
                             </p>        
                 </section>
             </div>
-                
-            )
-        )
- 
+    )
 }
 
 //brings in the state/actions and defined what type they are
-MyProfile.propTypes = {
-    getCurrentProfile: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
-    profile: PropTypes.object.isRequired
+Profile.propTypes = {
+    getProfileById: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
 };
 
 //connects state to be passed through as props
 const mapStateToProps = state => ({
-    auth: state.auth,
     profile: state.profile
 });
 
-export default connect( mapStateToProps, { getCurrentProfile })(MyProfile);
+export default connect( mapStateToProps, { getProfileById })(Profile);

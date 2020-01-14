@@ -9,9 +9,8 @@ import Index from './components/pages/Index';
 //profile
 import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
-import Profile from './components/pages/Profile';
 import MyProfile from './components/pages/profile/MyProfile';
-import MySkills from './components/pages/profile/MySkills';
+import Profile from './components/pages/profile/Profile';
 // messages
 import CreateMessage from './components/pages/messages/CreateMsg';
 import Inbox from './components/pages/messages/Inbox';
@@ -48,12 +47,10 @@ return (
         <Route path='/' exact component={Index} />
         
         <PrivateRoute path='/myprofile/' exact component={MyProfile} />
-        <PrivateRoute path='/myskills/' exact component={MySkills} />
+        <Route path='/profile/:userId' exact component={Profile} />
 
         <PrivateRoute path='/editprofile/' exact component={EditProfile} />
         <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
-
-        <Route path='/profile/' exact component={Profile} />
 
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/inbox/' exact component={Inbox} />
