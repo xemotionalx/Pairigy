@@ -5,7 +5,7 @@ import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
 //get current profile
 export const getCurrentProfile = () => async dispatch => {
     try {
-        //axios call to the route that will match profile to user's id
+        //axios call to the route that will match profile to current user
         const res = await axios.get('/api/profile/me');
 
         dispatch ({
@@ -21,6 +21,31 @@ export const getCurrentProfile = () => async dispatch => {
                 status: err.response.status 
             }
         })
+    }
+}
+
+//get any profile
+export const getUserProfile = () => async dispatch => {
+    try {
+        //axios call to the route that will match profile to user's id
+        const res = await axios.get(`/api/profile/user/:userid`);
+
+        dispatch ({
+            type: GET_PROFILE,
+            payload: res.data //get this data from the database - above route
+        });
+
+
+    } catch (err) {
+
+        dispatch({
+            type: PROFILE_ERROR,
+            payload: { 
+                msg: err.response.statusText, 
+                status: err.response.status 
+            }
+        })
+
     }
 }
 

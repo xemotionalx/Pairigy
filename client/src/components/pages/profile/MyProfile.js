@@ -150,19 +150,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect( mapStateToProps, { getCurrentProfile })(MyProfile);
-
-
-    
-
-// {/* BIO */}
-// <section className="section-profile mt-5">               
-// {/* Bio - Heading */}
-// <h2 className="heading-profile heading-profile--sub">
-//     Bio
-// </h2>            
-// {/* Bio - Text */}
-// <p>
-//     {profileData.bio}
-// </p>        
-// </section>
-// </div>
