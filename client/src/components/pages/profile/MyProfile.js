@@ -20,7 +20,6 @@ const MyProfile = ({
         status: '',
         website: '',
         location: '',
-        skills: '',
         bio: '',
     });
 
@@ -32,7 +31,6 @@ const MyProfile = ({
         status: loading || !profile.status ? '' : profile.status,
         website: loading || !profile.website ? '' : profile.website,
         location: loading || !profile.location ? '' : profile.location,
-        skills: loading || !profile.skills ? '' : profile.skills.join(','),
         bio: loading || !profile.bio ? '' : profile.bio,
       });
     }, [loading, profile])
@@ -42,7 +40,6 @@ const MyProfile = ({
         status,
         website,
         location,
-        skills,
         bio,
     } = profileData
 
@@ -116,9 +113,7 @@ const MyProfile = ({
                         </li>
                     </ul>
                     {/* social media */}
-                        <div className="section-profile--socials">
                         <MySocials profile={profile} />
-                        </div>
                 
                     </div>
                 </div>

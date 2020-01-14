@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../../actions/profile';
 
 const MySocials = ({ 
@@ -49,9 +48,24 @@ const MySocials = ({
         dribbble
     } = profileData
 
-    return !twitter ? ( <span>""</span> ) : (
-        <a href={twitter}><i class="fab fa-twitter"></i></a>
+    const twitterIcon = !twitter ? "" : <a href={twitter} target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>;
+    const facebookIcon = !facebook ? "" : <a href={facebook} target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>;
+    const linkedinIcon = !linkedin ? "" : <a href={linkedin} target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>;
+    const instagramIcon = !instagram ? "" : <a href={instagram} target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>;
+    const githubIcon = !github ? "" : <a href={github} target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>;
+    const dribbbleIcon = !dribbble ? "" : <a href={dribbble} target="_blank" rel="noopener noreferrer"><i class="fab fa-dribbble"></i></a>;
+
+    return !profile.social ? ( <span>""</span> ) : (
+        <div>
+        {twitterIcon}
+        {facebookIcon}
+        {linkedinIcon}
+        {instagramIcon}
+        {githubIcon}
+        {dribbbleIcon}
+        </div>
     )
+
 }
 
 //brings in the state/actions and defined what type they are
