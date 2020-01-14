@@ -80,12 +80,12 @@ router.post(
 
         // Build social object 
         profileFields.social = {}
-        if (twitter) profileFields.twitter = twitter;
-        if (facebook) profileFields.facebook = facebook;
-        if (linkedin) profileFields.linkedin = linkedin;
-        if (instagram) profileFields.instagram = instagram;
-        if (github) profileFields.github = github;
-        if (dribbble) profileFields.dribbble = dribbble;
+        if (twitter) profileFields.social.twitter = twitter;
+        if (facebook) profileFields.social.facebook = facebook;
+        if (linkedin) profileFields.social.linkedin = linkedin;
+        if (instagram) profileFields.social.instagram = instagram;
+        if (github) profileFields.social.github = github;
+        if (dribbble) profileFields.social.dribbble = dribbble;
 
         try {
             let profile = await Profile.findOne({ user: req.user.id });

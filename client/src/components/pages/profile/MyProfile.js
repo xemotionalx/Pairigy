@@ -1,19 +1,51 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../../actions/profile';
-// eslint-disable-next-line
 import MySkills from './MySkills';
+import MySocials from './MySocials';
 
 const MyProfile = ({ 
     getCurrentProfile, 
     auth: { user }, 
     profile: { profile, loading} 
 }) => {
+
     useEffect(() => {
         getCurrentProfile();
     }, [getCurrentProfile]);
+
+    const [profileData, setProfileData] = useState({
+        status: '',
+        website: '',
+        location: '',
+        skills: '',
+        bio: '',
+    });
+
+    //these functions will be called once the DOM is rendered
+    useEffect(() => {
+      //once getting the profile, if each item is loading or doesn't exist, leave the field blank
+      //otherwise, will set the existing data into the form
+      setProfileData({
+        status: loading || !profile.status ? '' : profile.status,
+        website: loading || !profile.website ? '' : profile.website,
+        location: loading || !profile.location ? '' : profile.location,
+        skills: loading || !profile.skills ? '' : profile.skills.join(','),
+        bio: loading || !profile.bio ? '' : profile.bio,
+      });
+    }, [loading, profile])
+    //once loading is done (profile.loading = false), that is when useEffect runs
+    
+    const {
+        status,
+        website,
+        location,
+        skills,
+        bio,
+    } = profileData
+
 
     return loading && profile === null ? ( <div>loading</div> ) : (
 
@@ -36,13 +68,74 @@ const MyProfile = ({
             </div>
             ) : 
             (   
+
                 <div className="container mt-5 mb-5">
-                    <p>
-                        <Link to="/createprofile" className="button button--main">
-                            Edit Your Profile
-                        </Link>
-                    </p>
+                <section className="section-profile">
+                {/* Heading : Name & Title */}
+                    <div className="row mb-5">
+                        <div className="col-sm-12 text-center">
+                            <h1 className="heading-profile heading-profile--main mb-3">{user && user.name}</h1>
+                            <h2 className="heading-profile heading-profile--sub">{status}</h2>
+                        </div>
+                    </div>
+                    <hr />
+                    <div className="row mt-5">
+                    {/* Col 1: Avatar */}
+                        <div className="col-md-5 col-sm-12 text-center">
+                            <img src={user.avatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
+                        </div>
+                    {/* Col 2: User overview */}
+                        <div className="col-md-7 col-sm-12">
+                            <div className="buttons  mb-5">
+                                <Link to="/createmessage" className="button button--user-action mr-3">
+                                    <i className="far fa-envelope"></i> Message
+                                </Link>
+                                <Link to="#" className="button button--user-action mr-3"> 
+                                    <i className="far fa-star"></i> Favorite
+                                </Link>
+                                <Link to="/createprofile" className="button button--user-action">
+                                 Edit Profile
+                                </Link>
+                            </div>
+                    <ul>
+                    {/* city, state */}
+                         <li>
+                            <span className="font-weight-bold">Location: </span> 
+                            {location}
+                        </li>
+                    {/* website */}
+                        <li>
+                            <span className="font-weight-bold">Website: </span> 
+                                <a href={website} target="_blank" rel="noopener noreferrer">
+                                {website}
+                                </a>
+                        </li>
+                    {/* skills */}
+                        <li>
+                            <MySkills profile={profile} /> 
+                        </li>
+                    </ul>
+                    {/* social media */}
+                        <div className="section-profile--socials">
+                        <MySocials profile={profile} />
+                        </div>
+                
+                    </div>
                 </div>
+                </section>
+                {/* BIO */}
+                    <section className="section-profile mt-5">               
+                        {/* Bio - Heading */}
+                        <h2 className="heading-profile heading-profile--sub">
+                            Bio
+                        </h2>            
+                        {/* Bio - Text */}
+                            <p>
+                                {bio}
+                            </p>        
+                </section>
+            </div>
+                
             )
         )
  
@@ -64,81 +157,7 @@ const mapStateToProps = state => ({
 export default connect( mapStateToProps, { getCurrentProfile })(MyProfile);
 
 
-
-// const profileData = {
-//     status: loading || !profile.status ? "" : profile.status,
-//     website: loading || !profile.website ? "" : profile.website,
-//     location: loading || !profile.location ? "" : profile.location,
-//     skills: loading || !profile.skills ? "" : profile.skills,
-//     bio: loading || !profile.bio ? "" : profile.bio,
-// };
-
-// <div className="container mt-5 mb-5">
-// <section className="section-profile">
-
-// {/* Heading : Name & Title */}
-// <div className="row mb-5">
-//     <div className="col-sm-12 text-center">
-//         <h1 className="heading-profile heading-profile--main mb-3">{user.name}</h1>
-//         <h2 className="heading-profile heading-profile--sub">{profileData.status}</h2>
-//     </div>
-// </div>
-
-// <hr />
-
-// <div className="row mt-5">
-//     {/* Col 1: Avatar */}
-//     <div className="col-md-5 col-sm-12 text-center">
-//         <img src={user.avatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
-//     </div>
-// {/* Col 2: User overview */}
-// <div className="col-md-7 col-sm-12">
-//     <div className="buttons  mb-5">
-//         <Link to="/createmessage" className="button button--user-action mr-3">
-//             <i className="far fa-envelope"></i> Message
-//         </Link>
-//         <Link to="#" className="button button--user-action mr-3"> 
-//             <i className="far fa-star"></i> Favorite
-//         </Link>
-//         <Link to="/editprofile" className="button button--user-action">
-//             Edit Profile
-//         </Link>
-//     </div>
     
-//     <ul>
-//     {/* city, state */}
-//     <li>
-//         <span className="font-weight-bold">Location: </span> 
-//         {profileData.location}
-//     </li>
-//     {/* website */}
-//     <li>
-//         <span className="font-weight-bold">Website: </span> 
-//         <a href={profileData.website} target="_blank" rel="noopener noreferrer">
-//         {profileData.website}
-//         </a>
-//     </li>
-//     {/* skills */}
-//     <li>
-//         <MySkills profile={profile} /> 
-//     </li>
-//     {/* social media */}
-//     <li className="mt-5"> 
-//         <li className="list-item--social">
-//             <i className="fab fa-twitter fa-2x mr-3"></i>
-//         </li>
-//         <li className="list-item--social">
-//             <i className="fab fa-instagram fa-2x mr-3"></i>
-//         </li> 
-//         <li className="list-item--social">
-//             <i className="fab fa-github-alt fa-2x mr-3"></i>
-//         </li> 
-//     </li>
-// </ul>
-
-// </div>
-// </div>
-// </section>
 
 // {/* BIO */}
 // <section className="section-profile mt-5">               
