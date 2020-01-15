@@ -11,6 +11,7 @@ import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
 import MyProfile from './components/pages/profile/MyProfile';
 import Profile from './components/pages/profile/Profile';
+import Dashboard from './components/pages/Dashboard';
 // messages
 import CreateMessage from './components/pages/messages/CreateMsg';
 import Inbox from './components/pages/messages/Inbox';
@@ -49,6 +50,8 @@ return (
         <PrivateRoute path='/myprofile/' exact component={MyProfile} />
         <Route path='/profile/:userId' exact component={Profile} />
 
+        <PrivateRoute path='/dashboard' exact component={Dashboard} />
+      
         <PrivateRoute path='/editprofile/' exact component={EditProfile} />
         <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
 

@@ -74,7 +74,7 @@ export const createProfile = (
 
         //history object used to be able to redirect
         if (!edit) {
-            history.push('/myprofile');
+            history.push('/dashboard');
         };
 
     } catch(err) {

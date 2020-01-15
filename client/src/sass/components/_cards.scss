@@ -2,4 +2,19 @@
     &__team {
         box-shadow: .3rem .3rem .5rem rgba($color-primary, .5);
     }
+
+    &__dashboard {
+       text-align: center;
+       box-shadow: .3rem .3rem .5rem rgba($color-primary, .5);
+       background-color: $color-white;
+       padding: 2rem 1rem;
+       border: 1px solid $color-primary-light;
+    }
+
+    &--icon {
+        font-size: 5rem;
+        color: $color-primary-dark;
+    }
+
 }
+
