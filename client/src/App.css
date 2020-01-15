@@ -53,6 +53,15 @@ li {
   font-weight: bold;
   margin-bottom: 1rem; }
 
+.heading-dashboard--main {
+  font-size: 3.2rem; }
+
+.heading-dashboard--sub {
+  font-size: 2.5rem; }
+
+.heading-card--main {
+  font-size: 2.5rem; }
+
 .bg-col-light {
   background-color: #D8D8D8; }
 
@@ -95,6 +104,17 @@ li {
       color: hotpink;
       text-decoration: none;
       font-weight: bold; }
+  .button--dashboard {
+    border: 2px solid #817D91;
+    padding: .5rem;
+    font-size: 1.6rem;
+    color: #494949; }
+    .button--dashboard:hover {
+      box-shadow: 0 0.8rem 1.2rem rgba(11, 11, 10, 0.3);
+      background-color: #fff;
+      color: hotpink;
+      text-decoration: none;
+      font-weight: bold; }
   .button:active {
     box-shadow: 0 3rem 0.8rem rgba(129, 125, 145, 0.3);
     color: hotpink;
@@ -102,6 +122,17 @@ li {
 
 .card__team {
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(129, 125, 145, 0.5); }
+
+.card__dashboard {
+  text-align: center;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(129, 125, 145, 0.5);
+  background-color: #fff;
+  padding: 2rem 1rem;
+  border: 1px solid #D8D8D8; }
+
+.card--icon {
+  font-size: 5rem;
+  color: #494949; }
 
 .form-editprofile {
   background-color: #D8D8D8;

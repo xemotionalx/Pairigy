@@ -49,6 +49,23 @@
 
     }
 
+    &--dashboard {
+        border: 2px solid $color-primary;
+        padding: .5rem;
+    
+        font-size: $default-font-size;
+        color: $color-primary-dark;
+
+        &:hover {
+            box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
+            background-color: $color-white;
+
+            color: hotpink;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+
     &:active {
         box-shadow: 0 3rem .8rem rgba($color-primary, .3);
 
