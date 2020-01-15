@@ -170,16 +170,35 @@ li {
   border-radius: .3rem; }
   .section-profile ul {
     font-size: 1.6rem;
-    color: #817D91;
-    line-height: 2; }
+    color: #494949;
+    line-height: 2;
+    font-size: 2rem; }
+  .section-profile--socials {
+    background-color: #D8D8D8;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 7rem; }
+    .section-profile--socials a {
+      color: #494949;
+      font-size: 4rem; }
+    .section-profile--socials a:hover,
+    .section-profile--socials a:active,
+    .section-profile--socials a:focus {
+      color: #fff; }
 
 .list-item--skill {
   display: inline-block;
   padding: 0 1rem;
-  border: 1px solid #D8D8D8; }
+  border: 1px solid #D8D8D8;
+  margin: 2px;
+  color: #fff;
+  background-color: #817D91; }
 
 .list-item--social {
-  display: inline-block; }
+  display: inline-block;
+  margin: 2rem .5rem; }
 
 .project-box {
   box-shadow: 0 0.3rem 0.7rem rgba(129, 125, 145, 0.5);

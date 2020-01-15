@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentProfile } from '../../../actions/profile';
-import MySkills from './MySkills';
-import MySocials from './MySocials';
+import Skills from './Skills';
+import Socials from './Socials';
 
 const MyProfile = ({ 
     getCurrentProfile, 
@@ -110,11 +110,11 @@ const MyProfile = ({
                         </li>
                     {/* skills */}
                         <li>
-                            <MySkills profile={profile} /> 
+                            <Skills profile={profile} /> 
                         </li>
                     </ul>
                     {/* social media */}
-                        <MySocials profile={profile} />
+                        <Socials profile={profile} />
                 
                     </div>
                 </div>

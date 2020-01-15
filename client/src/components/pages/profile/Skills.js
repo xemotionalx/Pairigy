@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MySkills = ({profile: { skills }}) => {
+const Skills = ({profile: { skills }}) => {
     return (
-        <div>
+        <div className="section-profile--skills">
          <span className="font-weight-bold">Skills: </span>
 
             {skills.map((skill, index) => (
@@ -15,9 +15,9 @@ const MySkills = ({profile: { skills }}) => {
     )
 }
 
-MySkills.propTypes = {
+Skills.propTypes = {
     profile: PropTypes.object.isRequired
 }
 
-export default MySkills;
+export default Skills;
 

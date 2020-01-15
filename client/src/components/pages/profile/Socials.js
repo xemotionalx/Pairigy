@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getCurrentProfile } from '../../../actions/profile';
+import { getProfileById } from '../../../actions/profile';
 
-const MySocials = ({ 
-    getCurrentProfile, 
-    auth: { user }, 
-    profile: { profile, loading} 
+const Socials = ({ 
+    match,
+    getProfileById,
+    profile: { profile, loading}
 }) => {
 
     useEffect(() => {
-        getCurrentProfile();
-    }, [getCurrentProfile]);
+        getProfileById(match.params.userId)
+    }, [match, getProfileById]);
 
     const [profileData, setProfileData] = useState({
         youtube: '',
@@ -38,7 +38,7 @@ const MySocials = ({
       });
     }, [loading, profile])
     //once loading is done (profile.loading = false), that is when useEffect runs
-    
+
     const {
         twitter,
         facebook,
@@ -56,7 +56,7 @@ const MySocials = ({
     const dribbbleIcon = !dribbble ? "" : <a href={dribbble} target="_blank" rel="noopener noreferrer"><i class="fab fa-dribbble"></i></a>;
 
     return !profile.social ? ( <span>""</span> ) : (
-        <div>
+        <div className="section-profile--socials">
         {twitterIcon}
         {facebookIcon}
         {linkedinIcon}
@@ -69,17 +69,15 @@ const MySocials = ({
 }
 
 //brings in the state/actions and defined what type they are
-MySocials.propTypes = {
-    getCurrentProfile: PropTypes.func.isRequired,
-    auth: PropTypes.object.isRequired,
+Socials.propTypes = {
+    getProfileById: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired
 };
 
 //connects state to be passed through as props
 const mapStateToProps = state => ({
-    auth: state.auth,
     profile: state.profile
 });
 
-export default connect( mapStateToProps, { getCurrentProfile })(MySocials);
+export default connect( mapStateToProps, { getProfileById })(Socials);
 

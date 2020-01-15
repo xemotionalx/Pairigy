@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getProfileById } from '../../../actions/profile';
 import { Link } from 'react-router-dom';
-import MySkills from './MySkills';
-import MySocials from './MySocials';
+import Skills from './Skills';
+//import Socials from './Socials';
 
 const Profile = ({ 
     match,
@@ -24,7 +24,14 @@ const Profile = ({
         location: '',
         bio: '',
         skills: '',
-        socials: ''
+        socials: '',
+        youtube: '',
+        twitter: '',
+        facebook: '',
+        linkedin: '',
+        instagram: '',
+        github: '',
+        dribbble: ''
     });
 
     //these functions will be called once the DOM is rendered
@@ -39,7 +46,13 @@ const Profile = ({
         location: loading || !profile.location ? '' : profile.location,
         bio: loading || !profile.bio ? '' : profile.bio,
         skills: loading || !profile.skills ? '' : profile.skills,
-        socials: loading || !profile.socials ? '' : profile.socials
+        socials: loading || !profile.social ? '' : profile.social,
+        twitter: loading || !profile.social ? '' : profile.social.twitter,
+        facebook: loading || !profile.social ? '' : profile.social.facebook,
+        linkedin: loading || !profile.social ? '' : profile.social.linkedin,
+        instagram: loading || !profile.social ? '' : profile.social.instagram,
+        github: loading || !profile.social ? '' : profile.social.github,
+        dribbble: loading || !profile.social ? '' : profile.social.dribbble
       });
     }, [loading, profile])
     //once loading is done (profile.loading = false), that is when useEffect runs
@@ -52,8 +65,21 @@ const Profile = ({
         location,
         bio,
         skills,
-        socials
+        socials,
+        twitter,
+        facebook,
+        linkedin,
+        instagram,
+        github,
+        dribbble
     } = profileData
+
+    const twitterIcon = !twitter ? "" : <a href={twitter} target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>;
+    const facebookIcon = !facebook ? "" : <a href={facebook} target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>;
+    const linkedinIcon = !linkedin ? "" : <a href={linkedin} target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>;
+    const instagramIcon = !instagram ? "" : <a href={instagram} target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>;
+    const githubIcon = !github ? "" : <a href={github} target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>;
+    const dribbbleIcon = !dribbble ? "" : <a href={dribbble} target="_blank" rel="noopener noreferrer"><i class="fab fa-dribbble"></i></a>;
 
     return loading && profile === null ? ( <div>loading</div> ) : (
         <div className="container mt-5 mb-5">
@@ -97,13 +123,23 @@ const Profile = ({
                     {/* skills */}
                         <li>
                             {skills === null || skills === undefined || !skills ? "" : 
-                            <MySkills profile={profile} />
+                            <Skills profile={profile} />
                             } 
                         </li>
                     </ul>
                     {/* social media */}
-                            {socials === null || socials === undefined || !socials ? "" : 
-                            <MySocials profile={profile} />
+    
+                            { socials ?  
+                            <div className="section-profile--socials">
+                                <ul>
+                                <li className="list-item--social mr-1">{twitterIcon}</li>
+                                <li className="list-item--social mr-1">{facebookIcon}</li>
+                                <li className="list-item--social mr-1">{linkedinIcon}</li>
+                                <li className="list-item--social mr-1">{instagramIcon}</li>
+                                <li className="list-item--social mr-1">{githubIcon}</li>
+                                <li className="list-item--social mr-1">{dribbbleIcon}</li>
+                                </ul>
+                            </div> : ""
                             } 
                 
                     </div>

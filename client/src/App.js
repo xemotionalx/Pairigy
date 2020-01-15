@@ -48,7 +48,7 @@ return (
         
         <PrivateRoute path='/myprofile/' exact component={MyProfile} />
         <Route path='/profile/:userId' exact component={Profile} />
-
+      
         <PrivateRoute path='/editprofile/' exact component={EditProfile} />
         <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
 
