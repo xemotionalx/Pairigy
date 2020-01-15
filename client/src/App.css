@@ -101,7 +101,7 @@ li {
     .button--user-action:hover {
       box-shadow: 0 0.8rem 1.2rem rgba(11, 11, 10, 0.3);
       background-color: #fff;
-      color: hotpink;
+      color: purple;
       text-decoration: none;
       font-weight: bold; }
   .button--dashboard {
@@ -112,12 +112,12 @@ li {
     .button--dashboard:hover {
       box-shadow: 0 0.8rem 1.2rem rgba(11, 11, 10, 0.3);
       background-color: #fff;
-      color: hotpink;
+      color: purple;
       text-decoration: none;
       font-weight: bold; }
   .button:active {
     box-shadow: 0 3rem 0.8rem rgba(129, 125, 145, 0.3);
-    color: hotpink;
+    color: purple;
     text-decoration: none; }
 
 .card__team {
@@ -143,6 +143,9 @@ li {
     color: #494949;
     font-size: 1.6rem;
     font-weight: bold; }
+
+.form--auth {
+  font-size: 1.6rem; }
 
 .navbar {
   overflow: hidden;
@@ -182,6 +185,29 @@ li {
       display: inline-block; }
     .navbar a:hover {
       color: #817D91; }
+
+.section-auth {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  color: #494949; }
+  .section-auth a {
+    color: #0b0b0a; }
+  .section-auth__login {
+    background: url("./images/auth-bg-1.jpg") no-repeat top center/cover; }
+  .section-auth__register {
+    background: url("./images/auth-bg-2.jpg") no-repeat top center/cover; }
+  .section-auth--inner {
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: linear-gradient(to bottom right, rgba(216, 216, 216, 0.95), rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95), rgba(129, 125, 145, 0.95));
+    padding: 5rem 8rem;
+    border-radius: 3px;
+    box-shadow: 0.3 0.8rem 1rem rgba(73, 73, 73, 0.8);
+    border: 1rem solid #494949; }
 
 .section-splash {
   position: relative;
