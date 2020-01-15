@@ -101,7 +101,8 @@ li {
     .button--user-action:hover {
       box-shadow: 0 0.8rem 1.2rem rgba(11, 11, 10, 0.3);
       background-color: #fff;
-      color: purple;
+      background-color: #F0F93B;
+      color: #0b0b0a;
       text-decoration: none;
       font-weight: bold; }
   .button--dashboard {
@@ -112,12 +113,14 @@ li {
     .button--dashboard:hover {
       box-shadow: 0 0.8rem 1.2rem rgba(11, 11, 10, 0.3);
       background-color: #fff;
-      color: purple;
+      background-color: #F0F93B;
+      color: #0b0b0a;
       text-decoration: none;
       font-weight: bold; }
   .button:active {
     box-shadow: 0 3rem 0.8rem rgba(129, 125, 145, 0.3);
-    color: purple;
+    background-color: #F0F93B;
+    color: #0b0b0a;
     text-decoration: none; }
 
 .card__team {
