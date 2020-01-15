@@ -2,21 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile, getCurrentProfile } from '../../../actions/profile';
+import { getCurrentProfile, createProfile } from '../../../actions/profile';
 
 const EditProfile = ({ 
   profile: { profile, loading }, 
+  getCurrentProfile,
   createProfile, 
-  getCurrentProfile, 
-  history
- }) => {
+  history }) => {
+
     const [formData, setFormData] = useState({
         status: '',
         website: '',
         location: '',
         skills: '',
         bio: '',
-        youtube: '',
         twitter: '',
         facebook: '',
         linkedin: '',
@@ -25,45 +24,39 @@ const EditProfile = ({
         dribbble: ''
     });
 
-    //these functions will be called once the DOM is rendered
     useEffect(() => {
-      //once getting the profile, if each item is loading or doesn't exist, leave the field blank
-      //otherwise, will set the existing data into the form
+      getCurrentProfile();
+    }, [getCurrentProfile]);
+
+    useEffect(() => {
       setFormData({
         status: loading || !profile.status ? '' : profile.status,
         website: loading || !profile.website ? '' : profile.website,
         location: loading || !profile.location ? '' : profile.location,
         skills: loading || !profile.skills ? '' : profile.skills.join(','),
         bio: loading || !profile.bio ? '' : profile.bio,
-        //for socials, just need to check if 'social' object exists
         twitter: loading || !profile.social ? '' : profile.social.twitter,
         facebook: loading || !profile.social ? '' : profile.social.facebook,
         linkedin: loading || !profile.social ? '' : profile.social.linkedin,
         instagram: loading || !profile.social ? '' : profile.social.instagram,
         github: loading || !profile.social ? '' : profile.social.github,
         dribbble: loading || !profile.social ? '' : profile.social.dribbble,
-      });
-    }, [loading, profile])
-    //once loading is done (profile.loading = false), that is when useEffect runs
-
-    useEffect(() => {
-      //get the existing profile
-      getCurrentProfile();
-    }, [getCurrentProfile]);
+      })
+    }, [profile, loading])
 
     const {
-      status,
-      website,
-      location,
-      skills,
-      bio,
-      twitter,
-      facebook,
-      linkedin,
-      instagram,
-      github,
-      dribbble
-  } = formData
+        status,
+        website,
+        location,
+        skills,
+        bio,
+        twitter,
+        facebook,
+        linkedin,
+        instagram,
+        github,
+        dribbble
+    } = formData
 
     //the value of that text field will be put in that part of the state of the formData
     // ...formData create a copy of formdata, set a key:value pair with the name & value of each input field
@@ -72,7 +65,7 @@ const EditProfile = ({
     const onSubmit = e => {
         e.preventDefault();
         //this will submit all the fields in the formData state
-        createProfile(formData, history, true);
+        createProfile(formData, history);
     };
 
     return (
@@ -165,16 +158,15 @@ const EditProfile = ({
 }
 
 EditProfile.propTypes = {
-  createProfile: PropTypes.func.isRequired,
-  getCurrentProfile: PropTypes.func.isRequired,
-  profile: PropTypes.object.isRequired
-};
+    createProfile: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired,
+    profile: PropTypes.object.isRequired,
+}
 
-const mapStateToProps = state => ({
+const mapStateToProps = state =>({
   profile: state.profile
 })
 
 //with router allows for the redirect through the action
-export default connect(mapStateToProps, 
-  {createProfile, getCurrentProfile })(withRouter(EditProfile));
+export default connect(mapStateToProps, {createProfile, getCurrentProfile})(withRouter(EditProfile));
 

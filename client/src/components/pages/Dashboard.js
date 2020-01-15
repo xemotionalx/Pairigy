@@ -24,10 +24,10 @@ function Dashboard() {
                         </h3>
                         <i class="fas fa-user card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to="/createprofile" className="button button--dashboard mr-3">
+                        <Link to="/editprofile" className="button button--dashboard mr-3">
                             Edit Profile
                         </Link>
-                        <Link to="/myprofile" className="button button--dashboard">
+                        <Link to="/profile" className="button button--dashboard">
                             View Your Profile
                         </Link>
                     </div>
@@ -40,7 +40,7 @@ function Dashboard() {
                         </h3>
                         <i class="fas fa-mail-bulk card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to="/createprofile" className="button button--dashboard">
+                        <Link to="/inbox" className="button button--dashboard">
                             View Inbox
                         </Link>
                     </div>
@@ -53,7 +53,7 @@ function Dashboard() {
                         </h3>
                         <i class="fas fa-users card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to="/createprofile" className="button button--dashboard">
+                        <Link to="/teams" className="button button--dashboard">
                             Manage Your Teams
                         </Link>
                     </div>
