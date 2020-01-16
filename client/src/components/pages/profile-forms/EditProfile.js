@@ -62,10 +62,11 @@ const EditProfile = ({
     // ...formData create a copy of formdata, set a key:value pair with the name & value of each input field
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
 
-    const onSubmit = e => {
+    const onSubmit = async e => {
         e.preventDefault();
         //this will submit all the fields in the formData state
-        createProfile(formData, history);
+        await createProfile(formData, history);
+        await getCurrentProfile();
     };
 
     return (
