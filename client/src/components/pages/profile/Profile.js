@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { getProfileById } from '../../../actions/profile';
 import { Link } from 'react-router-dom';
 import Skills from './Skills';
-//import Socials from './Socials';
 
 const Profile = ({ 
     match,

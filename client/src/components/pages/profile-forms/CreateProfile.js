@@ -47,7 +47,7 @@ const CreateProfile = ({ createProfile, history }) => {
         <div className="container mt-5 mb-5">
 
              <section className="section-editprofile form-editprofile text-center">
-               <h1 className="heading-profile--main mb-5">Edit Your Profile</h1>
+               <h1 className="heading-profile--main mb-5">Create A Profile</h1>
                 <hr />
                 <form className="form-group" onSubmit={e => onSubmit(e)}>
                   <div className="row">

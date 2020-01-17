@@ -22,9 +22,9 @@ function Dashboard({
                 </div>
             </div>
             
-            <div class="row mt-5">
-                <div class="col-md-4 col-sm-12">
-                    <div class="card__dashboard">
+            <div className="row mt-5">
+                <div className="col-md-4 col-sm-12">
+                    <div className="card__dashboard">
                         <h3 className="heading-card--main mb-2">
                             Profile
                         </h3>
@@ -39,28 +39,34 @@ function Dashboard({
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-12">
-                    <div class="card__dashboard">
+                <div className="col-md-4 col-sm-12">
+                    <div className="card__dashboard">
                         <h3 className="heading-card--main mb-2">
                             Mail
                         </h3>
-                        <i class="fas fa-mail-bulk card--icon mb-1"></i>
+                        <i className="fas fa-mail-bulk card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to="/inbox" className="button button--dashboard">
+                        <Link to="/inbox" className="button button--dashboard mr-2">
                             View Inbox
+                        </Link>
+                        <Link to="/favorites" className="button button--dashboard">
+                            View Favorites
                         </Link>
                     </div>
                 </div>
 
-                <div class="col-md-4 col-sm-12">
-                    <div class="card__dashboard">
+                <div className="col-md-4 col-sm-12">
+                    <div className="card__dashboard">
                         <h3 className="heading-card--main mb-2">
-                            Teams
+                            Projects
                         </h3>
-                        <i class="fas fa-users card--icon mb-1"></i>
+                        <i className="fas fa-users card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to="/teams" className="button button--dashboard">
-                            Manage Your Teams
+                        <Link to={`/projects/${user && user._id}`} className="button button--dashboard mr-2">
+                            Manage Projects
+                        </Link>
+                        <Link to="/createproject" className="button button--dashboard">
+                            Create New Project
                         </Link>
                     </div>
                 </div>

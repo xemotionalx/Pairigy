@@ -11,6 +11,7 @@ import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
 import Profile from './components/pages/profile/Profile';
 import Project from './components/pages/projects/Project';
+import CreateProject from './components/pages/projects/CreateProject';
 import Dashboard from './components/pages/Dashboard';
 
 // messages
@@ -56,7 +57,8 @@ return (
         <PrivateRoute path='/editprofile/' exact component={EditProfile} />
         <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
 
-        <Route path='/project' exact component={Project} />
+        <Route path='/project/:projectId' exact component={Project} />
+        <Route path='/createproject/' exact component={CreateProject} />
     
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/inbox/' exact component={Inbox} />

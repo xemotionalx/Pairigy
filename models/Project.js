@@ -20,79 +20,8 @@ const ProjectSchema = new mongoose.Schema({
         type: String
     },
     team: {
-        role_1: {
-            role: {
-                type: String,
-            },
-            status: {
-                type: String,
-            },
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'user' 
-            }
+        type: [],
         },
-        role_2: {
-            role: {
-                type: String,
-            },
-            status: {
-                type: String,
-            },
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'user' 
-            }
-        },
-        role_3: {
-            role: {
-                type: String,
-            },
-            status: {
-                type: String,
-            },
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'user' 
-            }
-        },
-        role_4: {
-            role: {
-                type: String,
-            },
-            status: {
-                type: String,
-            },
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'user' 
-            }
-        },
-        role_5: {
-            role: {
-                type: String,
-            },
-            status: {
-                type: String,
-            },
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'user' 
-            }
-        },
-        role_6: {
-            role: {
-                type: String,
-            },
-            status: {
-                type: String,
-            },
-            user: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'user' 
-            }
-        }
-    },
     date: {
         type: Date,
         default: Date.now
