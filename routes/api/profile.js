@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
+
 const { check, validationResult } = require('express-validator');
 
 
@@ -188,8 +189,8 @@ router.put('/experience', [auth, [
 ],
     async (req, res) => {
         const errors = validationResult(req);
-        if(!errors.isEmpty()) {
-            return res.status(400).json({erros: errors.array() });
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ erros: errors.array() });
         }
 
         const {
@@ -220,10 +221,10 @@ router.put('/experience', [auth, [
         } catch (err) {
             console.error(err.message);
             res.status(400).send('Server Error');
-            
+
         }
     }
-    );
+);
 
 
 
