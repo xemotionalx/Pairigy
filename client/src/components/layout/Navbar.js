@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Search from '../search/SearchState';;
 
 function Navbar() {
     return (
@@ -9,13 +10,15 @@ function Navbar() {
                     Pairigy
             </div>
 
-            <div className="navbar__searchbox">
+            {/* <div className="navbar__searchbox">
                 <form className="form-inline">
                     <i className="fas fa-search fa-2x" aria-hidden="true"></i>
                     <input className="form-control form-control-lg ml-3 w-50" type="text" placeholder="Search"
                         aria-label="Search" id="user-query" />
+
                 </form>
-            </div>
+            </div> */}
+            <Search />
 
             <div className="navbar__link">
                 <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
