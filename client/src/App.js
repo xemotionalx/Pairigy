@@ -29,42 +29,42 @@ import store from './store';
 //import CSS
 import './App.css';
 
-if (localStorage.token) { 
+if (localStorage.token) {
   setAuthToken(localStorage.token);
 };
 
 const App = () => {
-  
+
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
-  
-return (
-  <Provider store={store}>
-  <Router>
-    <Fragment>
-      <Navbar />
-      <Switch>
-        <Route path='/' exact component={Index} />
-        
-        <PrivateRoute path='/myprofile/' exact component={MyProfile} />
-        <Route path='/profile/:userId' exact component={Profile} />
 
-        <PrivateRoute path='/dashboard' exact component={Dashboard} />
-      
-        <PrivateRoute path='/editprofile/' exact component={EditProfile} />
-        <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
+  return (
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Switch>
+            <Route path='/' exact component={Index} />
 
-        <Route path='/createmessage/' exact component={CreateMessage} />
-        <Route path='/inbox/' exact component={Inbox} />
+            <PrivateRoute path='/myprofile/' exact component={MyProfile} />
+            <Route path='/profile/:userId' exact component={Profile} />
 
-        <Route path='/login/' exact component={Login} />
-        <Route path='/register/' exact component={Register} />
-      </Switch>
-    </Fragment>
-  </Router>
-  </Provider>
-)
+            <PrivateRoute path='/dashboard' exact component={Dashboard} />
+
+            <PrivateRoute path='/editprofile/' exact component={EditProfile} />
+            <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
+
+            <Route path='/createmessage/' exact component={CreateMessage} />
+            <Route path='/inbox/' exact component={Inbox} />
+
+            <Route path='/login/' exact component={Login} />
+            <Route path='/register/' exact component={Register} />
+          </Switch>
+        </Fragment>
+      </Router>
+    </Provider>
+  )
 };
 
 export default App;
