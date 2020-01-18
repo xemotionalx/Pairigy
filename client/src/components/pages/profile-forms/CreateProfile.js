@@ -35,7 +35,7 @@ const CreateProfile = ({ createProfile, history }) => {
 
     //the value of that text field will be put in that part of the state of the formData
     // ...formData create a copy of formdata, set a key:value pair with the name & value of each input field
-    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
+    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
 
     const onSubmit = e => {
         e.preventDefault();

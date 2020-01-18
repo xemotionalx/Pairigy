@@ -2,7 +2,7 @@ import axios from 'axios';
 // eslint-disable-next-line
 import { GET_PROJECT, GET_USER_PROJECTS, PROJECT_ERROR } from './types';
 
-//edit project
+//create project
 //the history object has a "push" method
 // edit startes as false to flag that we are creating a project for the first time
 export const createProject = ( 

@@ -13,12 +13,32 @@ function CreateProject({
         description: '',
         website: '',
         status: '',
-        role_1: '',
-        id_1: '',
-        role_2: '',
-        id_2: '',
-        role_3: '',
-        id_3: '',
+        team: [
+            {
+                role: '',
+                id: ''
+            },
+            {
+                role: '',
+                id: ''
+            },
+            {
+                role: '',
+                id: ''
+            },
+            {
+                role: '',
+                id: ''
+            },
+            {
+                role: '',
+                id: ''
+            },
+            {
+                role: '',
+                id: ''
+            } 
+        ],
     });
 
     const {
@@ -26,15 +46,18 @@ function CreateProject({
         description,
         website,
         status,
-        role_1,
-        id_1,
-        role_2,
-        id_2,
-        role_3,
-        id_3,
+        team
     } = formData
 
-   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
+    const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value});
+
+    const onTeamChange = e => {
+        const { dataset: {order}, name, value } = e.target;
+        const newTeamMember = team.slice();
+        newTeamMember[order] = {[name] : value };
+        
+        setFormData({...formData, team: newTeamMember });
+    };
 
    const onSubmit = e => {
     e.preventDefault();
@@ -58,36 +81,21 @@ function CreateProject({
                     <label htmlFor='status' className="form-editprofile--label">Status:</label>
                         <input type="text" name='status' value={status} onChange={e => onChange(e)} className="form-control mb-4"></input>
                     </div>
-                <div className="row">
-                        <h2>Build Your Team</h2>
-                </div>
-                <div className="row">
+
+                    <div className="row">
                 {/* Role 1 */}
-                <div className="col-md-4 col-sm-12">
-                <label htmlFor='role_1' className="form-editprofile--label">Role*:</label>
-                    <input type="text" name="role_1" value={role_1} onChange={e => onChange(e)} className="form-control" required></input>
-                <label htmlFor='id_1' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
-                    <input type="text" name="id_1" value={id_1} onChange={e => onChange(e)} className="form-control" required></input>               
+                {team.map((teamMember, index) =>
+                (<div className="col-md-4 col-sm-12">
+                <label htmlFor='role' className="form-editprofile--label">Role*:</label>
+                    <input type="text" name="role" defaultValue="role" data-order={index} value={teamMember.role} onChange={e => onTeamChange(e)} className="form-control" required></input>
+                <label htmlFor='id' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
+                    <input type="text" name="id" defaultValue="id" data-order={index} value={teamMember.id} onChange={e => onTeamChange(e)} className="form-control"></input>               
                 </div>
-
-                {/* Role 2 */}
-                <div className="col-md-4 col-sm-12">
-                <label htmlFor='role_2' className="form-editprofile--label">Role*:</label>
-                    <input type="text" name="role_2" value={role_2} onChange={e => onChange(e)} className="form-control" ></input>
-                <label htmlFor='id_2' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
-                    <input type="text" name="id_2" value={id_2} onChange={e => onChange(e)} className="form-control"></input>               
-                </div>
-
-                {/* Role 1 */}
-                <div className="col-md-4 col-sm-12">
-                <label htmlFor='role_3' className="form-editprofile--label">Role*:</label>
-                    <input type="text" name="role_3" value={role_3} onChange={e => onChange(e)} className="form-control" ></input>
-                <label htmlFor='id_3' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
-                    <input type="text" name="id_3" value={id_3} onChange={e => onChange(e)} className="form-control"></input>               
-                </div>
-
-
+                )
+                )}
+            
                </div>
+              
                 <input type='submit' className="btn btn-dark btn-lg" />
             </form>
         </div>
