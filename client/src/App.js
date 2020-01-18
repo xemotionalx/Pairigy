@@ -14,6 +14,7 @@ import Profile from './components/pages/profile/Profile';
 import CreateProject from './components/pages/projects/CreateProject';
 import Project from './components/pages/projects/Project';
 import ListProjects from './components/pages/projects/ListProjects';
+import MyProjects from './components/pages/projects/MyProjects';
 
 import Dashboard from './components/pages/Dashboard';
 
@@ -62,7 +63,8 @@ return (
 
         <Route path='/project/:projectId' exact component={Project} />
         <Route path='/projects/user/:userId' exact component={ListProjects} />
-        <Route path='/createproject/' exact component={CreateProject} />
+        <PrivateRoute path='/myprojects' exact component={MyProjects} />
+        <PrivateRoute path='/createproject/' exact component={CreateProject} />
     
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/inbox/' exact component={Inbox} />

@@ -28,7 +28,7 @@ function Dashboard({
                         <h3 className="heading-card--main mb-2">
                             Profile
                         </h3>
-                        <i class="fas fa-user card--icon mb-1"></i>
+                        <i className="fas fa-user card--icon mb-1"></i>
                         <hr className="mb-5" />
                         <Link to="/editprofile" className="button button--dashboard mr-3">
                             Edit Profile
@@ -62,7 +62,7 @@ function Dashboard({
                         </h3>
                         <i className="fas fa-users card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to={`/projects/${user && user._id}`} className="button button--dashboard mr-2">
+                        <Link to={`/myprojects/`} className="button button--dashboard mr-2">
                             Manage Projects
                         </Link>
                         <Link to="/createproject" className="button button--dashboard">

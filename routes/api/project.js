@@ -125,7 +125,7 @@ router.get('/user/:user_id', async (req, res) => {
 });
 
 // @route   GET api/project/:project_id
-// @desc    Get array of all projects that the user is part of by user ID
+// @desc    Get a single project by its id
 // @access  public
 
 router.get('/:project_id', async (req, res) => {

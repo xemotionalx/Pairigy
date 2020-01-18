@@ -94,3 +94,26 @@ export const getProjectsByUserId = userId => async dispatch => {
 
     }
 }
+
+//get any all user's projects that they OWN by user id
+export const getProjectsByOwnerId = userId => async dispatch => {
+    try {
+        //axios call to the route that will match profile to user's id
+        const res = await axios.get(`/api/project/me`);
+
+        dispatch ({
+            type: GET_USER_PROJECTS,
+            payload: res.data //get this data from the database - above route
+        });
+
+
+    } catch (err) {
+        dispatch({
+            type: PROJECT_ERROR,
+            payload: { 
+                msg: err.response.statusText, 
+                status: err.response.status 
+            }
+        })
+    }
+}
