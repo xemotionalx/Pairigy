@@ -18,26 +18,6 @@ function CreateProject({
                 role: '',
                 id: ''
             },
-            {
-                role: '',
-                id: ''
-            },
-            {
-                role: '',
-                id: ''
-            },
-            {
-                role: '',
-                id: ''
-            },
-            {
-                role: '',
-                id: ''
-            },
-            {
-                role: '',
-                id: ''
-            } 
         ],
     });
 
@@ -58,6 +38,19 @@ function CreateProject({
         
         setFormData({...formData, team: newTeamMember });
     };
+
+    const addTeamMember = () =>{
+        setFormData({
+            ...formData, 
+            team: [
+                ...team,
+                { 
+                role: '',
+                id: ''
+        }]
+        
+        })
+    }
 
    const onSubmit = e => {
     e.preventDefault();
@@ -97,6 +90,7 @@ function CreateProject({
                </div>
               
                 <input type='submit' className="btn btn-dark btn-lg" />
+                <input type='button' onClick={addTeamMember} className="btn btn-dark btn-lg" />
             </form>
         </div>
     )
