@@ -26,11 +26,13 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Sign In</h1>
-      <p className='lead'>
+      <section className="section-auth section-auth__login">
+      <div className="section-auth--inner">
+      <h1 className='heading-profile--main'>Sign In</h1>
+      <p className='lead mb-5'>
         <i className='fas fa-user' /> Sign Into Your Account
       </p>
-      <form className='form' onSubmit={e => onSubmit(e)}>
+      <form className='form form--auth' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='email'
@@ -51,11 +53,13 @@ const Login = ({ login, isAuthenticated }) => {
             minLength='6'
           />
         </div>
-        <input type='submit' className='btn btn-primary' value='Login' />
+        <input type='submit' className='button button--dashboard' value='Login' />
       </form>
-      <p className='my-1'>
+      <p className="mt-4">
         Don't have an account? <Link to='/register'>Sign Up</Link>
       </p>
+      </div>
+      </section>
     </Fragment>
   );
 };

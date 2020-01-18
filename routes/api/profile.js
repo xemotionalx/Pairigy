@@ -1,9 +1,10 @@
 const express = require('express');
+const request = require('request');
+const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 
 const { check, validationResult } = require('express-validator');
-
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -54,40 +55,38 @@ router.post(
         }
 
         const {
-            company,
+            status,
             website,
             location,
-            bio,
-            status,
-            githubusername,
             skills,
-            youtube,
-            facebook,
+            bio,
             twitter,
-            instagram,
+            facebook,
             linkedin,
+            instagram,
+            github,
+            dribbble
         } = req.body;
 
         // Build proflie objevt
         const profileFields = {};
         profileFields.user = req.user.id;
-        if (company) profileFields.company = company;
+        if (status) profileFields.status = status;
         if (website) profileFields.website = website;
         if (location) profileFields.location = location;
         if (bio) profileFields.bio = bio;
-        if (status) profileFields.status = status;
-        if (githubusername) profileFields.githubusername = githubusername;
         if (skills) {
             profileFields.skills = skills.split(',').map(skill => skill.trim());
         }
 
         // Build social object 
         profileFields.social = {}
-        if (youtube) profileFields.youtube = youtube;
-        if (twitter) profileFields.twitter = twitter;
-        if (facebook) profileFields.facebook = facebook;
-        if (linkedin) profileFields.linkedin = linkedin;
-        if (instagram) profileFields.instagram = instagram;
+        if (twitter) profileFields.social.twitter = twitter;
+        if (facebook) profileFields.social.facebook = facebook;
+        if (linkedin) profileFields.social.linkedin = linkedin;
+        if (instagram) profileFields.social.instagram = instagram;
+        if (github) profileFields.social.github = github;
+        if (dribbble) profileFields.social.dribbble = dribbble;
 
         try {
             let profile = await Profile.findOne({ user: req.user.id });
@@ -97,7 +96,7 @@ router.post(
                 profile = await Profile.findOneAndUpdate(
                     { user: req.user.id },
                     { $set: profileFields },
-                    { new: true }
+                    { new: true, upsert: true }
                 );
                 return res.json(Profile);
             }
@@ -169,64 +168,6 @@ router.delete('/', auth, async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
-
-// @route   PUT api/profile/experience
-// @desc    Add profile experience
-// @access  private
-
-router.put('/experience', [auth, [
-    check('title', 'Title is required')
-        .not()
-        .isEmpty(),
-    check('company', 'Company is required')
-        .not()
-        .isEmpty(),
-    check('from', 'From date is required')
-        .not()
-        .isEmpty(),
-
-]
-],
-    async (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ erros: errors.array() });
-        }
-
-        const {
-            title,
-            company,
-            location,
-            from,
-            to,
-            current,
-            description
-        } = req.body;
-
-        const newExp = {
-            title,
-            company,
-            location,
-            from,
-            to,
-            current,
-            description
-        }
-
-        try {
-            const profile = await Profile.findOne({ user: req.user.id });
-            profile.experience.unshift(newExp);
-            await profile.save();
-            res.json(profile);
-        } catch (err) {
-            console.error(err.message);
-            res.status(400).send('Server Error');
-
-        }
-    }
-);
-
-
 
 
 module.exports = router;

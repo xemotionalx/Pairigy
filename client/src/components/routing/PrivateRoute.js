@@ -14,10 +14,12 @@ const PrivateRoute = ({ component: Component, auth: { isAuthenticated, loading},
         : (<Component {...props} /> )} />
 );
 
+//define what type the prop is
 PrivateRoute.propTypes = {
     auth: PropTypes.object.isRequired
 };
 
+//pull out the state in the auth reducer
 const mapStateToProps = state => ({
     auth: state.auth
 });

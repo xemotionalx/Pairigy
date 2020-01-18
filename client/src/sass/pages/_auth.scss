@@ -1,0 +1,33 @@
+.section-auth {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  color: $color-primary-dark;
+
+  & a {
+    color: $color-black;
+  }
+
+  &__login {
+    background: url('./images/auth-bg-1.jpg') no-repeat top center/cover;
+  }
+
+  &__register {
+    background: url('./images/auth-bg-2.jpg') no-repeat top center/cover;
+  }
+
+  &--inner {
+    margin: auto;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-image: linear-gradient(to bottom right, rgba($color-primary-light, .95), rgba($color-white, .95), rgba($color-white, .95), rgba($color-primary, .95));
+    padding: 5rem 8rem;
+    border-radius: 3px;
+    box-shadow: .3 .8rem 1rem rgba($color-primary-dark, .8);
+    border: 1rem solid $color-primary-dark;
+  }
+}
