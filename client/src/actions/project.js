@@ -1,6 +1,6 @@
 import axios from 'axios';
 // eslint-disable-next-line
-import { GET_PROJECT, PROJECT_ERROR } from './types';
+import { GET_PROJECT, GET_USER_PROJECTS, PROJECT_ERROR } from './types';
 
 //edit project
 //the history object has a "push" method
@@ -51,7 +51,6 @@ export const createProject = (
 };
 
 //get any project by id
-//get any profile
 export const getProjectById = projectId => async dispatch => {
     try {
         //axios call to the route that will match profile to user's id
@@ -59,6 +58,27 @@ export const getProjectById = projectId => async dispatch => {
 
         dispatch ({
             type: GET_PROJECT,
+            payload: res.data //get this data from the database - above route
+        });
+    } catch (err) {
+        dispatch({
+            type: PROJECT_ERROR,
+            payload: { 
+                msg: err.response.statusText, 
+                status: err.response.status 
+            }
+        })
+    }
+}
+
+//get any all user's projects by user id
+export const getProjectsByUserId = userId => async dispatch => {
+    try {
+        //axios call to the route that will match profile to user's id
+        const res = await axios.get(`/api/project/user/${userId}`);
+
+        dispatch ({
+            type: GET_USER_PROJECTS,
             payload: res.data //get this data from the database - above route
         });
 

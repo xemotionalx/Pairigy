@@ -1,19 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getProfileById } from '../../../actions/profile';
-import { Link } from 'react-router-dom';
+import { getProjectsByUserId } from '../../../actions/project';
 import Skills from './Skills';
+import DefaultAvatar from '../../../images/default-profile-avatar.jpg';
 
 const Profile = ({ 
     match,
     getProfileById,
-    profile: { profile, loading}
+    profile: { profile, loading},
+    getProjectsByUserId,
+    project: { projects },
  }) => {
 
     useEffect(() => {
         getProfileById(match.params.userId)
     }, [match, getProfileById]);
+
+    useEffect(() => {
+        getProjectsByUserId(match.params.userId) 
+    }, [match, getProjectsByUserId]);
 
     const [profileData, setProfileData] = useState({
         name: '',
@@ -145,16 +153,64 @@ const Profile = ({
                 </div>
                 </section>
                 {/* BIO */}
-                    <section className="section-profile mt-5">               
-                        {/* Bio - Heading */}
-                        <h2 className="heading-profile heading-profile--sub">
-                            Bio
-                        </h2>            
-                        {/* Bio - Text */}
-                            <p>
-                                {bio}
-                            </p>        
+                <section className="section-profile mt-5">               
+                    {/* Bio - Heading */}
+                    <h2 className="heading-profile heading-profile--sub">
+                        Bio
+                    </h2>            
+                    {/* Bio - Text */}
+                        <p> {bio} </p>        
                 </section>
+                <section className="section-profile mt-5">
+                <h2 className="heading-profile heading-profile--sub">
+                        Projects
+                    </h2> 
+                {projects.map((project) => (
+                <div className="project-box mt-5">
+                    <h3 className="heading-project--main ml-1 mt-2">
+                        {project.name}
+                    </h3>
+
+                    <hr className="mb-5"/>
+                    
+                    <h3 className="heading-project--sub">
+                        Description
+                    </h3>
+                    <div className="project-tag--box">
+                    {project.website}
+                    </div>
+                    <p>{project.description}</p>
+
+                    <hr className="mb-5"/>
+     
+                    <h3 className="heading-project--sub">
+                        Team
+                    </h3>
+                    <div className="project-tag--box">
+                    <span className="project-tag">Status: {project.status}</span>
+                    </div>
+
+
+                    <div className="row">
+                        
+                    {project.team.map((user, index) => (
+                        <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
+                        <div className="card__team text-center">
+                        <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--sm w-50" />
+                        <hr />
+                    { user.id ? <p><b>Name: </b> {user.id}</p> : <p><b> Position Open </b></p> }
+                        <p><b>Role: </b> {user.role} </p>
+                        </div>
+                    </div>
+                    ))}
+  
+                    </div>
+                </div>
+
+        ))}
+                </section>
+                
+
             </div>
     )
 }
@@ -163,11 +219,14 @@ const Profile = ({
 Profile.propTypes = {
     getProfileById: PropTypes.func.isRequired,
     profile: PropTypes.object.isRequired,
+    getProjectsByUserId: PropTypes.func.isRequired,
+    project: PropTypes.object.isRequired
 };
 
 //connects state to be passed through as props
 const mapStateToProps = state => ({
-    profile: state.profile
+    profile: state.profile,
+    project: state.project
 });
 
-export default connect( mapStateToProps, { getProfileById })(Profile);
+export default connect( mapStateToProps, { getProfileById, getProjectsByUserId })(Profile);

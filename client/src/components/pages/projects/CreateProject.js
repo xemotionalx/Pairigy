@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProject } from '../../../actions/project';
-import { getProfileById } from '../../../actions/profile';
 
 function CreateProject({
     createProject,
@@ -73,7 +72,7 @@ function CreateProject({
                 <label htmlFor='role_2' className="form-editprofile--label">Role*:</label>
                     <input type="text" name="role_2" value={role_2} onChange={e => onChange(e)} className="form-control" ></input>
                 <label htmlFor='id_2' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
-                    <input type="text" name="role_2" value={id_2} onChange={e => onChange(e)} className="form-control"></input>               
+                    <input type="text" name="id_2" value={id_2} onChange={e => onChange(e)} className="form-control"></input>               
                 </div>
 
                 {/* Role 1 */}

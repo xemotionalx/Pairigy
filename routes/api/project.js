@@ -58,12 +58,7 @@ router.post(
             description,
             website,
             status,
-            role_1,
-            id_1,
-            role_2,
-            id_2,
-            role_3,
-            id_3
+            team
         } = req.body;
 
         // Build project object
@@ -74,31 +69,14 @@ router.post(
         if (description) projectFields.description = description;
         if (website) projectFields.website = website;
         if (status) projectFields.status = status;
+        if (team) projectFields.team = team;
 
-        //build team array
-        projectFields.team = [];
-        if (role_1) {createRoleObject(role_1)};
-        if (role_2) {createRoleObject(role_2)};
-        if (role_3) {createRoleObject(role_3)};
-
-        const createRoleObject = role => {
-            const roleObj = {
-                role: role,
-                id: ""
-            };
-
-            switch (role) {
-                case role_1:
-                    if (id_1) roleObj.id = id_1;
-                case role_2:
-                    if (id_2) roleObj.id = id_2;
-                case role_3:
-                    if (id_3) roleObj.id = id_3;
-            }
-            
-            projectFields.team.push(roleObj);
-        }
-
+        // //build team array
+        // projectFields.team = [];
+        // if (roleObj_1) {projectFields.team.push(roleObj_1)}
+        // if (roleObj_2) {projectFields.team.push(roleObj_2)}
+        // if (roleObj_3) {projectFields.team.push(roleObj_3)}
+        
         try {
             let project = await Project.findOne({ _id: projectId });
 

@@ -10,8 +10,11 @@ import Index from './components/pages/Index';
 import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
 import Profile from './components/pages/profile/Profile';
-import Project from './components/pages/projects/Project';
+
 import CreateProject from './components/pages/projects/CreateProject';
+import Project from './components/pages/projects/Project';
+import ListProjects from './components/pages/projects/ListProjects';
+
 import Dashboard from './components/pages/Dashboard';
 
 // messages
@@ -58,6 +61,7 @@ return (
         <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
 
         <Route path='/project/:projectId' exact component={Project} />
+        <Route path='/projects/user/:userId' exact component={ListProjects} />
         <Route path='/createproject/' exact component={CreateProject} />
     
         <Route path='/createmessage/' exact component={CreateMessage} />
