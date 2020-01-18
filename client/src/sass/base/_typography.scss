@@ -27,13 +27,13 @@
     
     &-project {
         &--main {
-            font-size: 2.3rem;
+            font-size: 3.5rem;
+            font-weight: bold;
             font-variant: small-caps;
-
-            margin-bottom: 1.5rem;
+            text-align: center;
         }
         &--sub {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: bold;
             font-variant: small-caps;
 
@@ -60,5 +60,10 @@
 
     &-card--main {
         font-size: 2.5rem;
+    }
+
+    &-form--main {
+        font-size: 4rem;
+        font-weight: bold;
     }
 }

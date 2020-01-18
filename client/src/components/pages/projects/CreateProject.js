@@ -44,6 +44,9 @@ function CreateProject({
 
     return (
         <div className="container mt-5 mb-5">
+
+        <h1 className="heading-form--main mb-5">Create A New Project</h1>   
+
             <form className="form-group" onSubmit={e => onSubmit(e)}>
                 <div className="row">
                     <label htmlFor='name' className="form-editprofile--label">Project Name*:</label>

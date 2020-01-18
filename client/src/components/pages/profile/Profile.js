@@ -167,32 +167,22 @@ const Profile = ({
                     </h2> 
                 {projects.map((project) => (
                 <div className="project-box mt-5">
+                <div className="project-box--header">
                     <h3 className="heading-project--main ml-1 mt-2">
                         {project.name}
-                    </h3>
-
-                    <hr className="mb-5"/>
-                    
-                    <h3 className="heading-project--sub">
-                        Description
                     </h3>
                     <div className="project-tag--box">
                     {project.website}
                     </div>
-                    <p>{project.description}</p>
-
-                    <hr className="mb-5"/>
-     
+                    <p> 
+                        <b>Description: </b>{project.description}
+                    </p>
+                    </div>
+                    <div className="project-box--body">
                     <h3 className="heading-project--sub">
                         Team
                     </h3>
-                    <div className="project-tag--box">
-                    <span className="project-tag">Status: {project.status}</span>
-                    </div>
-
-
-                    <div className="row">
-                        
+                    <div className="row">  
                     {project.team.map((user, index) => (
                         <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
                         <div className="card__team text-center">
@@ -203,7 +193,7 @@ const Profile = ({
                         </div>
                     </div>
                     ))}
-  
+                    </div>
                     </div>
                 </div>
 

@@ -20,12 +20,6 @@ function ListProjects({
                     <h3 className="heading-project--main ml-1 mt-2">
                         {project.name}
                     </h3>
-
-                    <hr className="mb-5"/>
-                    
-                    <h3 className="heading-project--sub">
-                        Description
-                    </h3>
                     <div className="project-tag--box">
                     {project.website}
                     </div>
