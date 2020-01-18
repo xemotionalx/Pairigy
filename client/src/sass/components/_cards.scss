@@ -1,6 +1,9 @@
 .card {
     &__team {
+        background-color: $color-white;
+        padding: .3rem;
         box-shadow: .3rem .3rem .5rem rgba($color-primary, .5);
+        color: $color-black;
     }
 
     &__dashboard {

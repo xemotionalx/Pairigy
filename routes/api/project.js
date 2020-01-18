@@ -5,7 +5,29 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 
+const Project = require('../../models/Project');
 const User = require('../../models/User');
+
+// @route   GET api/profile/me 
+// @desc    get current user's projects that they're the owner of
+// @access  private
+router.get('/me', auth, async (req, res) => {
+    try {
+        const project = await Project.find({ owner: req.user.id })
+            .populate('user', ['name', 'avatar']);
+
+        // if no profile then return 400 message 
+        if (!project) {
+            return res.status(400).json({ msg: 'there are no projects for this user' });
+        }
+        // if project res.json will  send project
+        res.json(project);
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('server error');
+    }
+});
 
 // @route   POST api/project
 // @desc    create or update a project
@@ -31,42 +53,37 @@ router.post(
         }
 
         const {
+            projectId,
             name,
             description,
             website,
             status,
-            role_1,
-            role_2,
-            role_3,
-            role_4,
-            role_5,
-            role_6
+            team
         } = req.body;
 
-        // Build proflie objevt
+        // Build project object
         const projectFields = {};
         projectFields.owner = req.user.id;
+        if (projectId) projectFields.id = projectId;
         if (name) projectFields.name = name;
         if (description) projectFields.description = description;
         if (website) projectFields.website = website;
         if (status) projectFields.status = status;
+        if (team) projectFields.team = team;
 
-        // Build social object 
-        projectFields.project = {}
-        if (role_1) projectFields.social.role_1 = role_1;
-        if (role_2) projectFields.social.role_2 = role_2;
-        if (role_3) projectFields.social.role_3 = role_3;
-        if (role_4) projectFields.social.role_4 = role_4;
-        if (role_5) projectFields.social.role_5 = role_5;
-        if (role_6) projectFields.social.role_6 = role_6;
-
+        // //build team array
+        // projectFields.team = [];
+        // if (roleObj_1) {projectFields.team.push(roleObj_1)}
+        // if (roleObj_2) {projectFields.team.push(roleObj_2)}
+        // if (roleObj_3) {projectFields.team.push(roleObj_3)}
+        
         try {
-            let project = await Project.findOne({ owner: req.user.id });
+            let project = await Project.findOne({ _id: projectId });
 
             if (project) {
                 // Update
                 project = await Project.findOneAndUpdate(
-                    { owner: req.user.id },
+                    { _id: projectId },
                     { $set: projectFields },
                     { new: true, upsert: true }
                 );
@@ -84,3 +101,51 @@ router.post(
         }
     }
 );
+
+
+// @route   GET api/project/user/:user_id
+// @desc    Get array of all projects that the user is part of by user ID
+// @access  public
+
+router.get('/user/:user_id', async (req, res) => {
+    try {
+
+        const project = await Project.find({ 'team.id' : { $lte: req.params.user_id } });
+
+        if (!project) return res.status(400).json({ msg: 'project not found' });
+        res.json(project);
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(400).json({ msg: 'project not found' });
+
+        }
+        res.status(500).send('Server Error');
+    }
+});
+
+// @route   GET api/project/:project_id
+// @desc    Get a single project by its id
+// @access  public
+
+router.get('/:project_id', async (req, res) => {
+    try {
+
+        const project = await Project.findById(req.params.project_id);
+
+        if (!project) return res.status(400).json({ msg: 'project not found' });
+
+        res.json(project);
+
+    } catch (err) {
+        console.error(err.message);
+        if (err.kind === 'ObjectId') {
+            return res.status(400).json({ msg: 'project not found' });
+
+        }
+        res.status(500).send('Server Error');
+    }
+});
+
+
+module.exports = router;

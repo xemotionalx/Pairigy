@@ -9,9 +9,15 @@ import Index from './components/pages/Index';
 //profile
 import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
-import MyProfile from './components/pages/profile/MyProfile';
 import Profile from './components/pages/profile/Profile';
+
+import CreateProject from './components/pages/projects/CreateProject';
+import Project from './components/pages/projects/Project';
+import ListProjects from './components/pages/projects/ListProjects';
+import MyProjects from './components/pages/projects/MyProjects';
+
 import Dashboard from './components/pages/Dashboard';
+
 // messages
 import CreateMessage from './components/pages/messages/CreateMsg';
 import Inbox from './components/pages/messages/Inbox';
@@ -38,33 +44,36 @@ const App = () => {
   useEffect(() => {
     store.dispatch(loadUser());
   }, []);
+  
+return (
+  <Provider store={store}>
+  <Router>
+    <Fragment>
+      <Navbar />
+      <Switch>
+        <Route path='/' exact component={Index} />
+        <Route path='/login/' exact component={Login} />
+        <Route path='/register/' exact component={Register} />
 
-  return (
-    <Provider store={store}>
-      <Router>
-        <Fragment>
-          <Navbar />
-          <Switch>
-            <Route path='/' exact component={Index} />
+        <PrivateRoute path='/dashboard' exact component={Dashboard} />
+        
+        <Route path='/profile/:userId' exact component={Profile} />
+        <PrivateRoute path='/editprofile/' exact component={EditProfile} />
+        <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
 
-            <PrivateRoute path='/myprofile/' exact component={MyProfile} />
-            <Route path='/profile/:userId' exact component={Profile} />
+        <Route path='/project/:projectId' exact component={Project} />
+        <Route path='/projects/user/:userId' exact component={ListProjects} />
+        <PrivateRoute path='/myprojects' exact component={MyProjects} />
+        <PrivateRoute path='/createproject/' exact component={CreateProject} />
+    
+        <Route path='/createmessage/' exact component={CreateMessage} />
+        <Route path='/inbox/' exact component={Inbox} />
 
-            <PrivateRoute path='/dashboard' exact component={Dashboard} />
-
-            <PrivateRoute path='/editprofile/' exact component={EditProfile} />
-            <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
-
-            <Route path='/createmessage/' exact component={CreateMessage} />
-            <Route path='/inbox/' exact component={Inbox} />
-
-            <Route path='/login/' exact component={Login} />
-            <Route path='/register/' exact component={Register} />
-          </Switch>
-        </Fragment>
-      </Router>
-    </Provider>
-  )
+      </Switch>
+    </Fragment>
+  </Router>
+  </Provider>
+)
 };
 
 export default App;
