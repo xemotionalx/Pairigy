@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import SearchQuery from '../utils/APISearch'
+import SearchQuery from '../utils/APISearch';
+import { connect } from 'react-redux';
+import { getSearchProfile } from "../../actions/profile";
+
 
 class Search extends Component {
 
@@ -19,6 +22,13 @@ class Search extends Component {
         this.setState({ q: "", data: [] });
     }
 
+    componentDidMount() {
+
+        console.log(this.props.searchResults);
+        console.log(this.props.loading);
+
+    }
+
     handleSearch = e => {
         this.setState({ q: e.target.value, data: this.state.data });
         // Test
@@ -27,31 +37,33 @@ class Search extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        const profile = SearchQuery;
 
-        SearchQuery.getSearchProfile(this.state.q)
-            .then(res => {
-                if (profile === "error") {
-                    throw new Error(profile);
-                }
-                else {
-                    let results = profile
 
-                    //map through the array 
-                    results = results.map(result => {
-                        //stores book info in new object 
-                        result = {
-                            user: profile
+        this.props.getSearchProfile(this.state.q)
+        // .then(res => {
+        //     const profile = res;
+        //     console.log(profile);
+        //     if (profile === "error") {
+        //         throw new Error(profile);
+        //     }
+        //     else {
+        //         let results = profile
 
-                        }
-                        return result;
-                    })
-                    // this.setState({q:this.state.q, data})
+        //         //map through the array 
+        //         results = results.map(result => {
+        //             //stores book info in new object 
+        //             result = {
+        //                 user: profile
 
-                    this.setState({ profile: results, error: "" })
-                }
-            })
-            .catch(err => this.setState({ error: err }));
+        //             }
+        //             return result;
+        //         })
+        //         // this.setState({q:this.state.q, data})
+
+        //         this.setState({ profile: results, error: "" })
+        //     }
+        // })
+        // .catch(err => this.setState({ error: err }));
         //  Test
         // console.log(handleFormSubmit);
     }
@@ -81,4 +93,16 @@ class Search extends Component {
     }
 }
 
-export default Search;
+
+
+const mapStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated,
+    searchResults: state.profile.searchResults,
+    loading: state.profile.loading
+});
+
+export default connect(
+    mapStateToProps,
+    { getSearchProfile }
+
+)(Search);

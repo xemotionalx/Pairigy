@@ -1,11 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const Profile = require('../../models/Profile');
+const auth = require('../../middleware/auth');
+
+const { check, validationResult } = require('express-validator');
+
+
+const User = require('../../models/User');
 
 
 
 
-router.get('/search', async (req, res) => {
+
+router.get('/', auth, async (req, res) => {
     try {
         const profile = await Profile.findOne({ user: req.user.id })
             .populate('user', ['name', 'avatar']);
