@@ -76,7 +76,6 @@ function CreateProject({
                     </div>
 
                     <div className="row">
-                {/* Role 1 */}
                 {team.map((teamMember, index) =>
                 (<div className="col-md-4 col-sm-12">
                 <label htmlFor='role' className="form-editprofile--label">Role*:</label>
