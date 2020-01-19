@@ -72,7 +72,7 @@ router.post(
         if (team) projectFields.team = team;
         
         try {
-            let project = await Project.findOne({ _id: projectId });
+           let project = await Project.findOne({ _id: projectId });
 
             if (project) {
                 // Update

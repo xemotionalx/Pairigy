@@ -115,18 +115,19 @@ export const getProjectsByOwnerId = () => async dispatch => {
 //delete project by id
 //get any project by id
 export const deleteProject = (
-    projectId, 
-    edit = false, 
-    history) => async dispatch => {
+    projectId,  
+    history,
+    edit = false) => async dispatch => {
     try {
+
+        if (!edit) {
+            history.push('/dashboard');
+        };
+        
         //axios call to the route that will match profile to user's id
         await axios.delete(`/api/project/${projectId}`);
 
         dispatch ({ type: DELETE_PROJECT });
-
-        if (!edit) {
-            history.push('/myprojects');
-        };
 
     } catch (err) {
         dispatch({

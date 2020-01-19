@@ -34,7 +34,8 @@ function EditProject({
      });   
    }, [project, loading]);
 
-   const { 
+   const {
+     projectId, 
      name, 
      description, 
      website, 
@@ -45,7 +46,13 @@ function EditProject({
 
   const onSubmit = async e => {
     e.preventDefault();
-   await createProject(formData, history);
+    await createProject(formData, history);
+  };
+
+  const deleteThisProject = e => {
+    e.preventDefault();
+    const { dataset: {projectid} } = e.target;
+    deleteProject(projectid, history);
   };
 
   return loading && project === null ? (
@@ -102,7 +109,7 @@ function EditProject({
 
         <input type="submit" className="btn btn-dark btn-lg mr-3" />
       </form>
-      <input type="button" value="Delete Project" className="btn btn-danger btn-lg" />
+      <input type="button" value="Delete Project" className="btn btn-danger btn-lg" data-projectid={projectId} onClick={e => deleteThisProject(e)} />
     </div>
   );
 }

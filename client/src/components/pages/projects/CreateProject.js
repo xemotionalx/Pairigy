@@ -76,12 +76,16 @@ function CreateProject({
                     </div>
 
                     <div className="row">
+                    <input type='button' value="Add Team Member" onClick={addTeamMember} className="btn btn-dark btn-lg my-3" />
+                    </div>
+
+                    <div className="row">
                 {team.map((teamMember, index) =>
                 (<div className="col-md-4 col-sm-12">
                 <label htmlFor='role' className="form-editprofile--label">Role*:</label>
-                    <input type="text" name="role" defaultValue="role" data-order={index} value={teamMember.role} onChange={e => onTeamChange(e)} className="form-control" required></input>
+                    <input type="text" name="role" data-order={index} value={teamMember.role} onChange={e => onTeamChange(e)} className="form-control" required></input>
                 <label htmlFor='id' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
-                    <input type="text" name="id" defaultValue="id" data-order={index} value={teamMember.id} onChange={e => onTeamChange(e)} className="form-control"></input>               
+                    <input type="text" name="id" data-order={index} value={teamMember.id} onChange={e => onTeamChange(e)} className="form-control"></input>               
                 </div>
                 )
                 )}
@@ -89,7 +93,6 @@ function CreateProject({
                </div>
               
                 <input type='submit' className="btn btn-dark btn-lg" />
-                <input type='button' onClick={addTeamMember} className="btn btn-dark btn-lg" />
             </form>
         </div>
     )

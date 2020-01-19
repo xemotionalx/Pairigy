@@ -1,19 +1,19 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getProjectsByUserId, getProjectById } from "../../../actions/project";
+import { getProjectsByOwnerId, getProjectById } from "../../../actions/project";
 import DefaultAvatar from "../../../images/default-profile-avatar.jpg";
 
 function MyProjects({
-  getProjectsByUserId,
+  getProjectsByOwnerId,
   getProjectById,
   auth: { user },
   project: { projects, loading }
 }) {
 
   useEffect(() => {
-    getProjectsByUserId();
-  }, [getProjectsByUserId]);
+    getProjectsByOwnerId();
+  }, [getProjectsByOwnerId]);
 
   const setProjectState = async e => {
     e.preventDefault();
@@ -88,7 +88,7 @@ function MyProjects({
 }
 
 MyProjects.propTypes = {
-  getProjectsByUserId: PropTypes.func.isRequired,
+  getProjectsByOwnerId: PropTypes.func.isRequired,
   getProjectById: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   project: PropTypes.object.isRequired
@@ -99,4 +99,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps, { getProjectsByUserId, getProjectById })(MyProjects);
+export default connect(mapStateToProps, { getProjectsByOwnerId, getProjectById })(MyProjects);
