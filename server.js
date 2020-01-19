@@ -20,7 +20,7 @@ app.use("/api/search", require("./routes/api/search"));
 // Serve static assets in production
 if (process.env.NODE_ENV === 'production') {
     //set the static folder
-    app.use(express.static('client/build'));
+    app.use(express.static(path.join(__dirname, "client", "build")))
 
     //all pages/paths will lead to the client/build/index.html file
     app.get('*', (req, res) => {
