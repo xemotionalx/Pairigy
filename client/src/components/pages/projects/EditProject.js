@@ -1,49 +1,51 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getProjectById, createProject } from "../../../actions/project";
+import { getProjectById, createProject, deleteProject } from "../../../actions/project";
 
 function EditProject({
   match,
   getProjectById,
-  project: { project, loading },
+  project: { loading, project },
   createProject,
+  deleteProject,
   history
 }) {
 
   const [formData, setFormData] = useState({
-    name: "",
-    description: "",
-    website: "",
-    status: "",
+    projectId: '',
+    name: '',
+    description: '',
+    website: '',
+    status: '',
   });
 
   useEffect(() => {
-    getProjectById(match.params.projectId);
-  }, [match, getProjectById]);
+    getProjectById(match.params.projectId)
+   }, [getProjectById, match]); 
 
-  //these functions will be called once the DOM is rendered
   useEffect(() => {
-    //once getting the profile, if each item is loading or doesn't exist, leave the field blank
-    //otherwise, will set the existing data into the form
-    setFormData({
-      name: loading || !project.name || project === null ? "" : project.name,
-      description: loading || !project.description || project === null ? "" : project.description,
-      website: loading || !project.website || project ===  null ? "" : project.website,
-      status: loading || !project.status || project === null ? "" : project.status,
-    });
-  }, [loading, project]);
-  //once loading is done (profile.loading = false), that is when useEffect runs
+     setFormData({
+       projectId: loading || !project._id ? "" : project._id,
+       name: loading || !project.name ? "" : project.name,
+       description: loading || !project.description ? "" : project.description,
+       website: loading || !project.website ? "" : project.website,
+       status: loading || !project.status ? "" : project.status,
+     });   
+   }, [project, loading]);
 
-  const { name, description, website, status } = formData;
+   const { 
+     name, 
+     description, 
+     website, 
+     status } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const onSubmit = e => {
+  const onSubmit = async e => {
     e.preventDefault();
-    //this will submit all the fields in the formData state
-    createProject(formData, history);
+   await createProject(formData, history);
   };
 
   return loading && project === null ? (
@@ -98,9 +100,9 @@ function EditProject({
           ></input>
         </div>
 
-        <input type="submit" className="btn btn-dark btn-lg" />
-       
+        <input type="submit" className="btn btn-dark btn-lg mr-3" />
       </form>
+      <input type="button" value="Delete Project" className="btn btn-danger btn-lg" />
     </div>
   );
 }
@@ -109,6 +111,7 @@ function EditProject({
 EditProject.propTypes = {
   getProjectById: PropTypes.func.isRequired,
   createProject: PropTypes.func.isRequired,
+  deleteProject: PropTypes.func.isRequired,
   project: PropTypes.object.isRequired
 };
 
@@ -117,6 +120,6 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps, { getProjectById, createProject })(
+export default connect(mapStateToProps, { getProjectById, createProject, deleteProject })(
   EditProject
 );

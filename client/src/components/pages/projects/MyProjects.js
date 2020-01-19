@@ -1,37 +1,44 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { getProjectsByUserId} from "../../../actions/project";
+import { getProjectsByUserId, getProjectById } from "../../../actions/project";
 import DefaultAvatar from "../../../images/default-profile-avatar.jpg";
 
 function MyProjects({
   getProjectsByUserId,
+  getProjectById,
   auth: { user },
-  project: { project, projects, loading }
+  project: { projects, loading }
 }) {
-  
+
   useEffect(() => {
     getProjectsByUserId();
-  }, [getProjectsByUserId]); 
+  }, [getProjectsByUserId]);
 
-  
+  const setProjectState = async e => {
+    e.preventDefault();
+    const { dataset: {projectid} } = e.target;
+    await getProjectById(projectid);
+    window.location.replace(`project/edit/${projectid}`);
+  };
+
   return loading && projects === [] ? (
     <div>loading</div>
   ) : (
     <div className="container mt-5 mb-5">
       <h1>{user && user.name}, Edit And Manage The Projects You Own</h1>
-      {projects.map(project => (
-        <div className="project-box row mt-5" key={project._id}>
+      {projects.map((project, index) => (
+        <div className="project-box row mt-5" key={index}>
           <div className="col-sm-12">
             <div className="project-box--header row">
               <div className="col-sm-12">
-                <Link
-                  to={`/project/edit/${project._id}`}
-                  className="button button--user-action float-right"
+                <button
+                  className="button button--user-action float-right" 
+                  data-projectid={project._id}
+                  onClick={(e) => setProjectState(e)}
                 >
                   Edit Project
-                </Link>
+                </button>
                 <h3 className="heading-project--main ml-1 mt-2">
                   {project.name}
                 </h3>
@@ -82,6 +89,7 @@ function MyProjects({
 
 MyProjects.propTypes = {
   getProjectsByUserId: PropTypes.func.isRequired,
+  getProjectById: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   project: PropTypes.object.isRequired
 };
@@ -91,4 +99,4 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps, { getProjectsByUserId})(MyProjects);
+export default connect(mapStateToProps, { getProjectsByUserId, getProjectById })(MyProjects);

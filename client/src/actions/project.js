@@ -1,6 +1,6 @@
 import axios from 'axios';
 // eslint-disable-next-line
-import { GET_PROJECT, GET_USER_PROJECTS, PROJECT_ERROR } from './types';
+import { GET_PROJECT, DELETE_PROJECT, GET_USER_PROJECTS, PROJECT_ERROR } from './types';
 
 //create project
 //the history object has a "push" method
@@ -16,29 +16,22 @@ export const createProject = (
                 'Content-Type': 'application/json'
             }
         };
-
         //send formdata in json form to post route to update the database
         const res = await axios.post('/api/project', formData, config);
-
         //send data to reducer
         dispatch ({
             type: GET_PROJECT,
             payload: res.data
         });
-
         //history object used to be able to redirect
         if (!edit) {
             history.push('/dashboard');
         };
-
     } catch(err) {
-
         const errors = err.response.data.errors;
-
         if (errors) {
             errors.forEach(error => dispatch(console.log(error.msg)));
         }
-
         dispatch({
             type: PROJECT_ERROR,
             payload: { 
@@ -46,9 +39,9 @@ export const createProject = (
                 status: err.response.status 
             }
         })
-
     }  
 };
+
 
 //get any project by id
 export const getProjectById = projectId => async dispatch => {
@@ -60,6 +53,7 @@ export const getProjectById = projectId => async dispatch => {
             type: GET_PROJECT,
             payload: res.data //get this data from the database - above route
         });
+        
     } catch (err) {
         dispatch({
             type: PROJECT_ERROR,
@@ -96,7 +90,7 @@ export const getProjectsByUserId = userId => async dispatch => {
 }
 
 //get any all user's projects that they OWN by user id
-export const getProjectsByOwnerId = userId => async dispatch => {
+export const getProjectsByOwnerId = () => async dispatch => {
     try {
         //axios call to the route that will match profile to user's id
         const res = await axios.get(`/api/project/me`);
@@ -106,6 +100,33 @@ export const getProjectsByOwnerId = userId => async dispatch => {
             payload: res.data //get this data from the database - above route
         });
 
+
+    } catch (err) {
+        dispatch({
+            type: PROJECT_ERROR,
+            payload: { 
+                msg: err.response.statusText, 
+                status: err.response.status 
+            }
+        })
+    }
+}
+
+//delete project by id
+//get any project by id
+export const deleteProject = (
+    projectId, 
+    edit = false, 
+    history) => async dispatch => {
+    try {
+        //axios call to the route that will match profile to user's id
+        await axios.delete(`/api/project/${projectId}`);
+
+        dispatch ({ type: DELETE_PROJECT });
+
+        if (!edit) {
+            history.push('/myprojects');
+        };
 
     } catch (err) {
         dispatch({

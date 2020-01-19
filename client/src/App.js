@@ -65,7 +65,7 @@ return (
         <Route path='/projects/user/:userId' exact component={ListProjects} />
         <PrivateRoute path='/myprojects' exact component={MyProjects} />
         <PrivateRoute path='/createproject/' exact component={CreateProject} />
-        <Route path='/project/edit/:projectId' exact component={EditProject} />
+        <Route path='/myprojects/project/edit/:projectId' exact component={EditProject} />
     
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/inbox/' exact component={Inbox} />

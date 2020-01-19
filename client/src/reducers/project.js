@@ -1,4 +1,4 @@
-import { GET_PROJECT, GET_USER_PROJECTS, PROJECT_ERROR } from '../actions/types';
+import { GET_PROJECT, DELETE_PROJECT, GET_USER_PROJECTS, PROJECT_ERROR } from '../actions/types';
 
 const initialState = {
     project: null,
@@ -31,6 +31,13 @@ export default function(state = initialState, action) {
                     loading: false,
                     project: null
                 };
+                case DELETE_PROJECT:
+                    return {
+                        ...state,
+                        project: null,
+                        loading: false,
+                        error: {}
+                    }
         default:
             return state;
     }

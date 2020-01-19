@@ -40,7 +40,7 @@ router.post(
             check('name', 'name is required')
                 .not()
                 .isEmpty(),
-            check('description', 'description are required')
+            check('description', 'description is required')
                 .not()
                 .isEmpty()
         ]
@@ -70,12 +70,6 @@ router.post(
         if (website) projectFields.website = website;
         if (status) projectFields.status = status;
         if (team) projectFields.team = team;
-
-        // //build team array
-        // projectFields.team = [];
-        // if (roleObj_1) {projectFields.team.push(roleObj_1)}
-        // if (roleObj_2) {projectFields.team.push(roleObj_2)}
-        // if (roleObj_3) {projectFields.team.push(roleObj_3)}
         
         try {
             let project = await Project.findOne({ _id: projectId });
@@ -146,6 +140,21 @@ router.get('/:project_id', async (req, res) => {
         res.status(500).send('Server Error');
     }
 });
+
+// @route   DELETE api/project/:project_id
+// @desc    Delete a single project by its id
+// @access  private
+router.delete('/:project_id', auth, async (req, res) => {
+    try {
+      // Remove project
+      await Project.findOneAndRemove({ _id: req.params.project_id });
+     
+      res.json({ msg: 'Project deleted' });
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  });
 
 
 module.exports = router;
