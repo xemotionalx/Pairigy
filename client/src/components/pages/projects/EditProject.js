@@ -29,7 +29,7 @@ function EditProject({
     setFormData({
       name: loading || !project.name || project === null ? "" : project.name,
       description: loading || !project.description || project === null ? "" : project.description,
-      website: loading || !project.website || project === null ? "" : project.website,
+      website: loading || !project.website || project ===  null ? "" : project.website,
       status: loading || !project.status || project === null ? "" : project.status,
     });
   }, [loading, project]);
