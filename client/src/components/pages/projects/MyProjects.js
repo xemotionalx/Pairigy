@@ -2,25 +2,21 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { getProjectsByUserId } from "../../../actions/project";
-import { getProjectById } from "../../../actions/project";
+import { getProjectsByUserId, getProjectById } from "../../../actions/project";
 import DefaultAvatar from "../../../images/default-profile-avatar.jpg";
 
 function MyProjects({
   getProjectsByUserId,
   getProjectById,
   auth: { user },
-  project: { projects, loading }
+  project: { project, projects, loading }
 }) {
   
   useEffect(() => {
     getProjectsByUserId();
-  }, [getProjectsByUserId]);
+  }, [getProjectsByUserId]); 
 
-  const setProjectState = projectId => {
-    getProjectById(projectId)
-  }
-
+  
   return loading && projects === [] ? (
     <div>loading</div>
   ) : (
@@ -33,7 +29,7 @@ function MyProjects({
               <div className="col-sm-12">
                 <Link
                   to={`/project/edit/${project._id}`}
-                  className="button button--user-action float-right" onClick={setProjectState(project._id)}
+                  className="button button--user-action float-right"
                 >
                   Edit Project
                 </Link>

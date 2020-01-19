@@ -10,32 +10,27 @@ function EditProject({
   createProject,
   history
 }) {
-  useEffect(() => {
-    getProjectById(match.params.projectId);
-  }, [match, getProjectById]);
-
-  console.log(match.params.projectId);
 
   const [formData, setFormData] = useState({
-    owner: "",
     name: "",
     description: "",
     website: "",
     status: "",
   });
 
+  useEffect(() => {
+    getProjectById(match.params.projectId);
+  }, [match, getProjectById]);
+
   //these functions will be called once the DOM is rendered
   useEffect(() => {
     //once getting the profile, if each item is loading or doesn't exist, leave the field blank
     //otherwise, will set the existing data into the form
     setFormData({
-      name: loading || !project.name ? "" : project.name,
-      description: loading || !project.description ? "" : project.description,
-      website:
-        loading || !project.website
-          ? ""
-          : `<span className="project-tag">${project.website}</span>`,
-      status: loading || !project.status ? "" : project.status,
+      name: loading || !project.name || project === null ? "" : project.name,
+      description: loading || !project.description || project === null ? "" : project.description,
+      website: loading || !project.website || project === null ? "" : project.website,
+      status: loading || !project.status || project === null ? "" : project.status,
     });
   }, [loading, project]);
   //once loading is done (profile.loading = false), that is when useEffect runs
