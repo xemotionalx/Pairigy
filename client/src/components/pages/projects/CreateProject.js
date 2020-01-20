@@ -16,7 +16,7 @@ function CreateProject({
         team: [
             {
                 role: '',
-                id: ''
+                user: ''
             },
         ],
     });
@@ -46,7 +46,7 @@ function CreateProject({
                 ...team,
                 { 
                 role: '',
-                id: ''
+                user: ''
         }]
         
         })
@@ -85,7 +85,7 @@ function CreateProject({
                 <label htmlFor='role' className="form-editprofile--label">Role*:</label>
                     <input type="text" name="role" data-order={index} value={teamMember.role} onChange={e => onTeamChange(e)} className="form-control" required></input>
                 <label htmlFor='id' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
-                    <input type="text" name="id" data-order={index} value={teamMember.id} onChange={e => onTeamChange(e)} className="form-control"></input>               
+                    <input type="text" name="user" data-order={index} value={teamMember.id} onChange={e => onTeamChange(e)} className="form-control"></input>               
                 </div>
                 )
                 )}

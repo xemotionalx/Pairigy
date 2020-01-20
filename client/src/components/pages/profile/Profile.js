@@ -182,14 +182,14 @@ const Profile = ({
                     <h3 className="heading-project--sub">
                         Team
                     </h3>
-                    <div className="row">  
-                    {project.team.map((user, index) => (
+                    <div className="row ml-3">  
+                    {project.team.map((role, index) => (
                         <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
-                        <div className="card__team text-center">
+                        <div className="card__team text-center mb-3">
                         <img src={DefaultAvatar} alt="user avatar" className="avatar avatar--sm w-50" />
                         <hr />
-                    { user.id ? <p><b>Name: </b> {user.id}</p> : <p><b> Position Open </b></p> }
-                        <p><b>Role: </b> {user.role} </p>
+                    { role.user ? <p><b>Name: </b> {role.user.name}</p> : <p><b> Position Open </b></p> }
+                        <p><b>Role: </b> {role.role} </p>
                         </div>
                     </div>
                     ))}

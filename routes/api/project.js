@@ -14,7 +14,7 @@ const User = require('../../models/User');
 router.get('/me', auth, async (req, res) => {
     try {
         const project = await Project.find({ owner: req.user.id })
-            .populate('user', ['name', 'avatar']);
+            .populate('team.user', ['name', 'avatar']);
 
         // if no profile then return 400 message 
         if (!project) {
@@ -104,7 +104,7 @@ router.post(
 router.get('/user/:user_id', async (req, res) => {
     try {
 
-        const project = await Project.find({ 'team.id' : { $lte: req.params.user_id } });
+        const project = await Project.find({ 'team.user' : { $lte: req.params.user_id } });
 
         if (!project) return res.status(400).json({ msg: 'project not found' });
         res.json(project);
