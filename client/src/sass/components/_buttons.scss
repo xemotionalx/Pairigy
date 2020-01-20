@@ -4,7 +4,7 @@
     outline: none;
     overflow: hidden;
 
-    &--main {
+    &--splash {
         background: linear-gradient(to bottom right, $color-primary-light, $color-primary);
         padding: 1rem 2rem;
 
@@ -25,6 +25,23 @@
         &:active,
         &:focus {
             background: linear-gradient(to bottom right, $color-primary, $color-primary-light);
+        }
+    }
+
+    &--main {
+        border: none;
+        padding: .5rem 1rem;
+        background: linear-gradient(to bottom right, $color-primary-dark, $color-primary); 
+        font-size: $default-font-size;
+        color: $color-primary-light;
+        transition: all .5s;
+
+        &:hover {
+            box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
+            background: linear-gradient(to bottom right, $color-primary-dark, $color-secondary);
+            color: $color-white;
+            text-decoration: none;
+            font-weight: bold;
         }
     }
 

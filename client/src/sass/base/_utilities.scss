@@ -1,3 +1,11 @@
 .bg-col-light {
     background-color: $color-primary-light;
 }
+
+.text-color-white {
+    color: $color-white;
+}
+
+.text-shadow {
+    text-shadow: .3rem .3rem .5rem rgba($color-primary, .5);
+}

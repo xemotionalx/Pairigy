@@ -28,9 +28,9 @@ const Login = ({ login, isAuthenticated }) => {
     <Fragment>
       <section className="section-auth section-auth__login">
       <div className="section-auth--inner">
-      <h1 className='heading-profile--main'>Sign In</h1>
+      <h1 className='heading-size--m'>Log In</h1>
       <p className='lead mb-5'>
-        <i className='fas fa-user' /> Sign Into Your Account
+        <i className='fas fa-user' /> Get connected.
       </p>
       <form className='form form--auth' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
@@ -53,7 +53,7 @@ const Login = ({ login, isAuthenticated }) => {
             minLength='6'
           />
         </div>
-        <input type='submit' className='button button--dashboard' value='Login' />
+        <input type='submit' className='button button--main' value='Login' />
       </form>
       <p className="mt-4">
         Don't have an account? <Link to='/register'>Sign Up</Link>

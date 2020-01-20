@@ -36,7 +36,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
     <Fragment>
       <section className="section-auth section-auth__register">
       <div className="section-auth--inner">
-      <h1 className='heading-profile--main'>Sign Up</h1>
+      <h1 className='heading-size--m'>Sign Up</h1>
       <p className='lead mb-5'>
         <i className='fas fa-user' /> Create Your Account
       </p>
@@ -81,7 +81,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             onChange={e => onChange(e)}
           />
         </div>
-        <input type='submit' className='button button--dashboard' value='Register' />
+        <input type='submit' className='button button--main' value='Register' />
       </form>
       <p className='mt-4'>
         Already have an account? <Link to='/login'>Sign In</Link>

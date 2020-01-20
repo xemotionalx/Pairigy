@@ -131,10 +131,10 @@ const Profile = ({
         {/* Heading : Name & Title */}
         <div className="row mb-5">
           <div className="col-sm-12 text-center">
-            <h1 className="heading-profile heading-profile--main mb-3">
+            <h1 className="heading-size--xl mb-3">
               {name}
             </h1>
-            <h2 className="heading-profile heading-profile--sub">{status}</h2>
+            <h2 className="heading-size--m">{status}</h2>
           </div>
         </div>
         <hr />
@@ -158,9 +158,6 @@ const Profile = ({
               </Link>
               <Link to="#" className="button button--user-action mr-3">
                 <i className="far fa-star"></i> Favorite
-              </Link>
-              <Link to="#" className="button button--user-action mr-3">
-                <i className="fas fa-plus-circle"></i> Add to Project
               </Link>
             </div>
             <ul>
@@ -207,16 +204,16 @@ const Profile = ({
       {/* BIO */}
       <section className="section-profile mt-5">
         {/* Bio - Heading */}
-        <h2 className="heading-profile heading-profile--sub">Bio</h2>
+        <h2 className="heading-size--m">Bio</h2>
         {/* Bio - Text */}
         <p> {bio} </p>
       </section>
       <section className="section-profile mt-5">
-        <h2 className="heading-profile heading-profile--sub">Projects</h2>
+        <h2 className="heading-size--m">Projects</h2>
         {projects.map(project => (
           <div className="project-box mt-5">
             <div className="project-box--header">
-              <h3 className="heading-project--main ml-1 mt-2">
+              <h3 className="heading-size--s ml-1 mt-2">
                 {project.name}
               </h3>
               <div className="project-tag--box">{project.website}</div>

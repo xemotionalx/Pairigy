@@ -1,8 +1,8 @@
 .section-profile {
     color: $color-primary-dark;
-    border: .5rem $color-primary solid;
+    background-color: $color-white;
     padding: 2rem;
-    box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
+    box-shadow: 0 .5rem 1rem rgba($color-primary-dark, .5);
     border-radius: .3rem;
 
     & ul {
@@ -17,23 +17,23 @@
     }
 
     &--socials {
-        background-color: $color-primary-light;
+        background: linear-gradient(to bottom right, $color-primary, $color-secondary);
         border-radius: 3px;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 7rem;
-        box-shadow: 0 .3rem .5rem rgba($color-primary, .5);
+        box-shadow: 0 .3rem .5rem rgba($color-primary, .3);
 
         & a {
-            color: $color-primary-dark;
+            color: $color-primary-light;
             font-size: 4rem;
         }
 
         & a:hover,
         a:active,
         a:focus {
-            color: $color-white;
+            color: $color-secondary-light;
         }
     }
 }
