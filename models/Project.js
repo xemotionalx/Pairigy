@@ -19,9 +19,13 @@ const ProjectSchema = new mongoose.Schema({
     status: {
         type: String
     },
-    team: {
-        type: [],
-        },
+    team: [{
+        role: String,
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user'
+        }
+    }],
     date: {
         type: Date,
         default: Date.now

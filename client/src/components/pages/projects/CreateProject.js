@@ -16,7 +16,7 @@ function CreateProject({
         team: [
             {
                 role: '',
-                id: ''
+                user: ''
             },
         ],
     });
@@ -34,7 +34,7 @@ function CreateProject({
     const onTeamChange = e => {
         const { dataset: {order}, name, value } = e.target;
         const newTeamMember = team.slice();
-        newTeamMember[order] = {[name] : value };
+        newTeamMember[order] = { [name] : value };
         
         setFormData({...formData, team: newTeamMember });
     };
@@ -46,7 +46,7 @@ function CreateProject({
                 ...team,
                 { 
                 role: '',
-                id: ''
+                user: ''
         }]
         
         })
@@ -76,13 +76,16 @@ function CreateProject({
                     </div>
 
                     <div className="row">
-                {/* Role 1 */}
+                    <input type='button' value="Add Team Member" onClick={addTeamMember} className="btn btn-dark btn-lg my-3" />
+                    </div>
+
+                    <div className="row">
                 {team.map((teamMember, index) =>
                 (<div className="col-md-4 col-sm-12">
                 <label htmlFor='role' className="form-editprofile--label">Role*:</label>
-                    <input type="text" name="role" defaultValue="role" data-order={index} value={teamMember.role} onChange={e => onTeamChange(e)} className="form-control" required></input>
-                <label htmlFor='id' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
-                    <input type="text" name="id" defaultValue="id" data-order={index} value={teamMember.id} onChange={e => onTeamChange(e)} className="form-control"></input>               
+                    <input type="text" name="role" data-order={index} defaultValue={teamMember.role} value={teamMember.role} onChange={e => onTeamChange(e)} className="form-control" required></input>
+                <label htmlFor='user' className="form-editprofile--label mt-3">User (ID# of user who has filled the role):</label>
+                    <input type="text" name="user" data-order={index} defaultValue={teamMember.user} value={teamMember.user} onChange={e => onTeamChange(e)} className="form-control"></input>               
                 </div>
                 )
                 )}
@@ -90,7 +93,6 @@ function CreateProject({
                </div>
               
                 <input type='submit' className="btn btn-dark btn-lg" />
-                <input type='button' onClick={addTeamMember} className="btn btn-dark btn-lg" />
             </form>
         </div>
     )

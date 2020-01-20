@@ -293,10 +293,7 @@ li {
   box-shadow: 0 0.3rem 0.7rem rgba(119, 136, 153, 0.5); }
   .project-box--header {
     background-color: #778899;
-    color: #fff;
-    width: 100%;
-    padding: 2rem; }
+    color: #fff; }
   .project-box--body {
     background-color: #f7fbff;
-    color: #0b0b0a;
-    padding: 1rem 2rem; }
+    color: #0b0b0a; }

@@ -10,14 +10,14 @@ import Index from './components/pages/Index';
 import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
 import Profile from './components/pages/profile/Profile';
-
+//projects
 import CreateProject from './components/pages/projects/CreateProject';
+import EditProject from './components/pages/projects/EditProject';
 import Project from './components/pages/projects/Project';
 import ListProjects from './components/pages/projects/ListProjects';
 import MyProjects from './components/pages/projects/MyProjects';
-
+//dashboard
 import Dashboard from './components/pages/Dashboard';
-
 // messages
 import CreateMessage from './components/pages/messages/CreateMsg';
 import Inbox from './components/pages/messages/Inbox';
@@ -65,6 +65,7 @@ return (
         <Route path='/projects/user/:userId' exact component={ListProjects} />
         <PrivateRoute path='/myprojects' exact component={MyProjects} />
         <PrivateRoute path='/createproject/' exact component={CreateProject} />
+        <Route path='/myprojects/project/edit/:projectId' exact component={EditProject} />
     
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/inbox/' exact component={Inbox} />
