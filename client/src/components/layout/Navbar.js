@@ -1,9 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Search from '../search/SearchState';;
+import Search from '../search/SearchState';
 
-function Navbar() {
-    return (
+
+function Navbar({
+    auth: { user, loading }
+}) {
+    return user ? (
         <nav className="navbar">
             <div className="navbar__logobox">
                 <i className="fas fa-globe-europe"></i> &nbsp;
@@ -27,8 +32,18 @@ function Navbar() {
                 <Link to="logout">Logout</Link>
             </div>
         </nav>
-    )
+    ) : ""
 }
 
 
-export default Navbar;
+//brings in the state/actions and defined what type they are
+Navbar.propTypes = {
+    auth: PropTypes.object.isRequired,
+};
+
+//connects state to be passed through as props
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
+export default connect( mapStateToProps)(Navbar);
