@@ -46,8 +46,11 @@ function Dashboard({
                         </h3>
                         <i className="fas fa-mail-bulk card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to="/inbox" className="button button--dashboard">
+                        <Link to="/inbox" className="button button--dashboard mr-2">
                             View Inbox
+                        </Link>
+                        <Link to="/favorites" className="button button--dashboard">
+                            View Favorites
                         </Link>
                     </div>
                 </div>
@@ -55,12 +58,15 @@ function Dashboard({
                 <div className="col-md-4 col-sm-12">
                     <div className="card__dashboard">
                         <h3 className="heading-card--main mb-2">
-                            Teams
+                            Projects
                         </h3>
                         <i className="fas fa-users card--icon mb-1"></i>
                         <hr className="mb-5" />
-                        <Link to="/teams" className="button button--dashboard">
-                            Manage Your Teams
+                        <Link to={`/myprojects/`} className="button button--dashboard mr-2">
+                            Manage Projects
+                        </Link>
+                        <Link to="/createproject" className="button button--dashboard">
+                            Create New Project
                         </Link>
                     </div>
                 </div>

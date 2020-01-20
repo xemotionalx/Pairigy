@@ -11,7 +11,11 @@ export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const GET_PROFILE = 'GET_PROFILE';
 export const PROFILE_ERROR = 'PROFILE_ERROR';
 export const CLEAR_PROFILE = 'CLEAR_PROFILE';
+//project
+export const GET_PROJECT = "GET_PROJECT";
+export const GET_USER_PROJECTS = "GET_USER_PROJECTS";
+export const DELETE_PROJECT = "DELETE_PROJECT";
+export const PROJECT_ERROR = 'PROJECT_ERROR';
 // search
-
 export const SEARCH_PROFILE = 'SEARCH_PROFILE';
 export const SEARCH_PROFILE_ERROR = 'SEARCH_PROFILE_ERROR';

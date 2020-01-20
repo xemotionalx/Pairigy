@@ -1,8 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import Dashboard from './Dashboard';
 
-const Index = () => {
-    return (
+const Index = ({
+    auth: {user, loading}
+}) => {
+    return user ? (<Dashboard />) : (
         <section className="section-splash">
         <div className="section-splash--inner">
         <h1 className="heading-splash heading-splash--main mb-4">Pairigy</h1>
@@ -16,4 +21,14 @@ const Index = () => {
     )
 }
 
-export default Index;
+//brings in the state/actions and defined what type they are
+Index.propTypes = {
+    auth: PropTypes.object.isRequired,
+};
+
+//connects state to be passed through as props
+const mapStateToProps = state => ({
+    auth: state.auth,
+});
+
+export default connect( mapStateToProps)(Index);
