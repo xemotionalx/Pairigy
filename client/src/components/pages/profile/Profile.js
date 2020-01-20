@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import Skills from './Skills';
 //import Socials from './Socials';
 
-const Profile = ({ 
+const Profile = ({
     match,
     getProfileById,
-    profile: { profile, loading}
- }) => {
+    profile: { profile, loading }
+}) => {
 
     useEffect(() => {
         getProfileById(match.params.userId)
@@ -36,27 +36,27 @@ const Profile = ({
 
     //these functions will be called once the DOM is rendered
     useEffect(() => {
-      //once getting the profile, if each item is loading or doesn't exist, leave the field blank
-      //otherwise, will set the existing data into the form
-      setProfileData({
-        name: loading ? '' : profile.user.name,
-        avatar: loading ? '' : profile.user.avatar,
-        status: loading || !profile.status ? '' : profile.status,
-        website: loading || !profile.website ? '' : profile.website,
-        location: loading || !profile.location ? '' : profile.location,
-        bio: loading || !profile.bio ? '' : profile.bio,
-        skills: loading || !profile.skills ? '' : profile.skills,
-        socials: loading || !profile.social ? '' : profile.social,
-        twitter: loading || !profile.social ? '' : profile.social.twitter,
-        facebook: loading || !profile.social ? '' : profile.social.facebook,
-        linkedin: loading || !profile.social ? '' : profile.social.linkedin,
-        instagram: loading || !profile.social ? '' : profile.social.instagram,
-        github: loading || !profile.social ? '' : profile.social.github,
-        dribbble: loading || !profile.social ? '' : profile.social.dribbble
-      });
+        //once getting the profile, if each item is loading or doesn't exist, leave the field blank
+        //otherwise, will set the existing data into the form
+        setProfileData({
+            name: loading ? '' : profile.user.name,
+            avatar: loading ? '' : profile.user.avatar,
+            status: loading || !profile.status ? '' : profile.status,
+            website: loading || !profile.website ? '' : profile.website,
+            location: loading || !profile.location ? '' : profile.location,
+            bio: loading || !profile.bio ? '' : profile.bio,
+            skills: loading || !profile.skills ? '' : profile.skills,
+            socials: loading || !profile.social ? '' : profile.social,
+            twitter: loading || !profile.social ? '' : profile.social.twitter,
+            facebook: loading || !profile.social ? '' : profile.social.facebook,
+            linkedin: loading || !profile.social ? '' : profile.social.linkedin,
+            instagram: loading || !profile.social ? '' : profile.social.instagram,
+            github: loading || !profile.social ? '' : profile.social.github,
+            dribbble: loading || !profile.social ? '' : profile.social.dribbble
+        });
     }, [loading, profile])
     //once loading is done (profile.loading = false), that is when useEffect runs
-    
+
     const {
         name,
         avatar,
@@ -81,82 +81,82 @@ const Profile = ({
     const githubIcon = !github ? "" : <a href={github} target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>;
     const dribbbleIcon = !dribbble ? "" : <a href={dribbble} target="_blank" rel="noopener noreferrer"><i class="fab fa-dribbble"></i></a>;
 
-    return loading && profile === null ? ( <div>loading</div> ) : (
+    return loading && profile === null ? (<div>loading</div>) : (
         <div className="container mt-5 mb-5">
-                <section className="section-profile">
+            <section className="section-profile">
                 {/* Heading : Name & Title */}
-                    <div className="row mb-5">
-                        <div className="col-sm-12 text-center">
-                            <h1 className="heading-profile heading-profile--main mb-3">{name}</h1>
-                            <h2 className="heading-profile heading-profile--sub">{status}</h2>
-                        </div>
-                    </div>
-                    <hr />
-                    <div className="row mt-5">
-                    {/* Col 1: Avatar */}
-                        <div className="col-md-5 col-sm-12 text-center">
-                            <img src={avatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
-                        </div>
-                    {/* Col 2: User overview */}
-                        <div className="col-md-7 col-sm-12">
-                            <div className="buttons  mb-5">
-                                <Link to="/createmessage" className="button button--user-action mr-3">
-                                    <i className="far fa-envelope"></i> Message
-                                </Link>
-                                <Link to="#" className="button button--user-action mr-3"> 
-                                    <i className="far fa-star"></i> Favorite
-                                </Link>
-                            </div>
-                    <ul>
-                    {/* city, state */}
-                         <li>
-                            <span className="font-weight-bold">Location: </span> 
-                            {location}
-                        </li>
-                    {/* website */}
-                        <li>
-                            <span className="font-weight-bold">Website: </span> 
-                                <a href={website} target="_blank" rel="noopener noreferrer">
-                                {website}
-                                </a>
-                        </li>
-                    {/* skills */}
-                        <li>
-                            {skills === null || skills === undefined || !skills ? "" : 
-                            <Skills profile={profile} />
-                            } 
-                        </li>
-                    </ul>
-                    {/* social media */}
-    
-                            { socials ?  
-                            <div className="section-profile--socials">
-                                <ul>
-                                <li className="list-item--social mr-1">{twitterIcon}</li>
-                                <li className="list-item--social mr-1">{facebookIcon}</li>
-                                <li className="list-item--social mr-1">{linkedinIcon}</li>
-                                <li className="list-item--social mr-1">{instagramIcon}</li>
-                                <li className="list-item--social mr-1">{githubIcon}</li>
-                                <li className="list-item--social mr-1">{dribbbleIcon}</li>
-                                </ul>
-                            </div> : ""
-                            } 
-                
+                <div className="row mb-5">
+                    <div className="col-sm-12 text-center">
+                        <h1 className="heading-profile heading-profile--main mb-3">{name}</h1>
+                        <h2 className="heading-profile heading-profile--sub">{status}</h2>
                     </div>
                 </div>
-                </section>
-                {/* BIO */}
-                    <section className="section-profile mt-5">               
-                        {/* Bio - Heading */}
-                        <h2 className="heading-profile heading-profile--sub">
-                            Bio
-                        </h2>            
-                        {/* Bio - Text */}
-                            <p>
-                                {bio}
-                            </p>        
-                </section>
-            </div>
+                <hr />
+                <div className="row mt-5">
+                    {/* Col 1: Avatar */}
+                    <div className="col-md-5 col-sm-12 text-center">
+                        <img src={avatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
+                    </div>
+                    {/* Col 2: User overview */}
+                    <div className="col-md-7 col-sm-12">
+                        <div className="buttons  mb-5">
+                            <Link to="/createmessage" className="button button--user-action mr-3">
+                                <i className="far fa-envelope"></i> Message
+                                </Link>
+                            <Link to="#" className="button button--user-action mr-3">
+                                <i className="far fa-star"></i> Favorite
+                                </Link>
+                        </div>
+                        <ul>
+                            {/* city, state */}
+                            <li>
+                                <span className="font-weight-bold">Location: </span>
+                                {location}
+                            </li>
+                            {/* website */}
+                            <li>
+                                <span className="font-weight-bold">Website: </span>
+                                <a href={website} target="_blank" rel="noopener noreferrer">
+                                    {website}
+                                </a>
+                            </li>
+                            {/* skills */}
+                            <li>
+                                {skills === null || skills === undefined || !skills ? "" :
+                                    <Skills profile={profile} />
+                                }
+                            </li>
+                        </ul>
+                        {/* social media */}
+
+                        {socials ?
+                            <div className="section-profile--socials">
+                                <ul>
+                                    <li className="list-item--social mr-1">{twitterIcon}</li>
+                                    <li className="list-item--social mr-1">{facebookIcon}</li>
+                                    <li className="list-item--social mr-1">{linkedinIcon}</li>
+                                    <li className="list-item--social mr-1">{instagramIcon}</li>
+                                    <li className="list-item--social mr-1">{githubIcon}</li>
+                                    <li className="list-item--social mr-1">{dribbbleIcon}</li>
+                                </ul>
+                            </div> : ""
+                        }
+
+                    </div>
+                </div>
+            </section>
+            {/* BIO */}
+            <section className="section-profile mt-5">
+                {/* Bio - Heading */}
+                <h2 className="heading-profile heading-profile--sub">
+                    Bio
+                        </h2>
+                {/* Bio - Text */}
+                <p>
+                    {bio}
+                </p>
+            </section>
+        </div>
     )
 }
 
@@ -171,4 +171,4 @@ const mapStateToProps = state => ({
     profile: state.profile
 });
 
-export default connect( mapStateToProps, { getProfileById })(Profile);
+export default connect(mapStateToProps, { getProfileById })(Profile);
