@@ -1,5 +1,6 @@
 .avatar {
     border-radius: 50%;
+    box-shadow: 0 .3rem .5rem rgba($color-primary, .5);
 
     &--lg {
         max-width: 30rem;

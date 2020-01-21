@@ -1,8 +1,8 @@
 .section-profile {
     color: $color-primary-dark;
-    border: .5rem $color-primary solid;
+    background-color: $color-white;
     padding: 2rem;
-    box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
+    box-shadow: 0 .5rem 1rem rgba($color-primary-dark, .5);
     border-radius: .3rem;
 
     & ul {
@@ -17,24 +17,33 @@
     }
 
     &--socials {
-        background-color: $color-primary-light;
+        background: linear-gradient(to bottom right, $color-primary, $color-secondary);
         border-radius: 3px;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 7rem;
-        box-shadow: 0 .3rem .5rem rgba($color-primary, .5);
+        box-shadow: 0 .3rem .5rem rgba($color-primary, .3);
 
         & a {
-            color: $color-primary-dark;
+            color: $color-primary-light;
             font-size: 4rem;
         }
 
         & a:hover,
         a:active,
         a:focus {
-            color: $color-white;
+            color: $color-secondary-light;
         }
+    }
+}
+
+.bio {
+    &--text-box {
+        background-color: $color-white;
+        width: 90%;
+        padding: 2rem 5rem;
+        margin: 0 auto;
     }
 }
 
@@ -54,23 +63,5 @@
     }
 }
 
-.project {
-    &-box {
-    box-shadow: 0 .3rem .7rem rgba($color-primary, .5);
-    padding: 2rem;
-    }
-    
-    &-tag {
-        font-size: 1.1rem;
 
-        padding: 2px .5rem;
-        margin-right: .5rem;
-        border: 1px solid $color-black;
-        border-radius: 2px;
-
-        &--box {
-            margin-bottom: 2rem;
-        }
-    }
-}
 

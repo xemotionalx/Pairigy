@@ -1,64 +1,35 @@
 .heading {
+
+    &-size {
+        &--xxl {
+        font-size: 10rem;
+        letter-spacing: 1.5rem;
+        }
+        &--xl {
+            font-size: 8rem;
+            letter-spacing: 1.2rem;
+        }
+        &--l {
+            font-size: 6rem;
+            letter-spacing: 1.2rem;
+        }
+        &--m {
+            font-size: 4.5rem;
+            letter-spacing: 1rem;
+        }
+        &--s {
+            font-size: 3.5rem;
+            letter-spacing: .8rem;
+        }
+        &--xs {
+            font-size: 2rem;
+            letter-spacing: .7rem;
+        }
+    }
+
     &-splash {
         color: $color-primary-light;
         text-shadow: .3rem .5rem 1rem rgba($color-black, .5);
-        &--main {
-            font-size: 10rem;
-            letter-spacing: 1.5rem;
-        }
-
-        &--sub {
-            font-size: 2rem;
-            letter-spacing: .3rem;
-        }
-    }
-
-    &-profile {
-        &--main {
-            font-size: 4rem;
-            font-weight: bold;
-            font-variant: small-caps;
-        }
-        &--sub {
-            font-size: 2.5rem;
-            font-weight: bold;
-        }
     }
     
-    &-project {
-        &--main {
-            font-size: 2.3rem;
-            font-variant: small-caps;
-
-            margin-bottom: 1.5rem;
-        }
-        &--sub {
-            font-size: 1.8rem;
-            font-weight: bold;
-            font-variant: small-caps;
-
-            margin-bottom: 1rem;
-        }
-    }
-
-    &-messages {
-        &--main {
-            font-size: 2.2rem;
-            font-weight: bold;
-
-            margin-bottom: 1rem;
-        }
-    }
-
-    &-dashboard--main {
-        font-size: 3.2rem
-    }
-
-    &-dashboard--sub {
-        font-size: 2.5rem
-    }
-
-    &-card--main {
-        font-size: 2.5rem;
-    }
 }
