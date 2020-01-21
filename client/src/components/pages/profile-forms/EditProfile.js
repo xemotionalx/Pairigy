@@ -72,11 +72,11 @@ const EditProfile = ({
     return (
         <div className="container mt-5 mb-5">
 
-             <section className="section-editprofile form-editprofile text-center">
-               <h1 className="heading-profile--main mb-5">Edit Your Profile</h1>
+             <section className="form-default--container text-center">
+               <h1 className="heading-size--l mb-5">Edit Your Profile</h1>
                 <hr />
-                <form className="form-group" onSubmit={e => onSubmit(e)}>
-                  <div className="row">
+                <form className="form form-default" onSubmit={e => onSubmit(e)}>
+                  <div className="row form-group">
                   <label htmlFor='location' className="form-editprofile--label">Title*:</label>
                     <input type="text" name='status' value={status} onChange={e => onChange(e)} className="form-control mb-4" required></input>
 

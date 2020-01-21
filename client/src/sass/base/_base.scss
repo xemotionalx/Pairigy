@@ -26,12 +26,14 @@ html {
 body {
     box-sizing: border-box;
     font-family: 'Nunito Sans', sans-serif;
+    background: linear-gradient(to top left, $color-primary, $color-primary-dark);
 }
 
 p {
-    font-size: 1.6rem;
+    font-size: $default-font-size;
 }
 
 li {
     list-style: none;
 }
+

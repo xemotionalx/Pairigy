@@ -2,21 +2,23 @@
     &__team {
         background-color: $color-white;
         padding: .3rem;
-        box-shadow: .3rem .3rem .5rem rgba($color-primary, .5);
+        box-shadow: $default-box-shadow;
         color: $color-black;
+        border: .5px solid $color-primary-light;
     }
 
     &__dashboard {
        text-align: center;
-       box-shadow: .3rem .3rem .5rem rgba($color-primary, .5);
+       box-shadow: $default-box-shadow;
        background-color: $color-white;
        padding: 2rem 1rem;
        border: 1px solid $color-primary-light;
+       border-radius: 2px;
     }
 
     &--icon {
-        font-size: 5rem;
-        color: $color-primary-dark;
+        font-size: 8rem;
+        @include gradientText(bottom right, $color-primary, $color-primary-dark)
     }
 
 }

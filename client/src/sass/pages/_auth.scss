@@ -6,7 +6,12 @@
   color: $color-primary-dark;
 
   & a {
-    color: $color-black;
+    color: $color-tertiary;
+  }
+
+  & a:hover {
+    text-decoration: none;
+    color: $color-secondary;
   }
 
   &__login {
