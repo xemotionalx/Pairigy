@@ -32,7 +32,7 @@ const Login = ({ login, isAuthenticated }) => {
       <p className='lead mb-5'>
         <i className='fas fa-user' /> Get connected.
       </p>
-      <form className='form form--auth' onSubmit={e => onSubmit(e)}>
+      <form className='form form-default' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='email'

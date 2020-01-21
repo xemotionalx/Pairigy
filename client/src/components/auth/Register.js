@@ -40,7 +40,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       <p className='lead mb-5'>
         <i className='fas fa-user' /> Create Your Account
       </p>
-      <form className='form' onSubmit={e => onSubmit(e)}>
+      <form className='form form-default' onSubmit={e => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='text'

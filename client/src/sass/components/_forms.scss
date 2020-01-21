@@ -1,24 +1,22 @@
 .form {
-    &-editprofile {
+
+    &-default,
+    & .form-control {
+        font-size: $default-font-size;
+
+        &--container {
         background-color: $color-primary-light;
         padding: 5rem 10rem;
         border-radius: 2px;
         box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
         font-size: $default-font-size;
-
-        &--label {
+    }
+        & label {
             color: $color-primary-dark;
             font-size: $default-font-size;
             font-weight: bold;
         }
-    }
-
-    &--editprofile {
-        font-size: $default-font-size;
-    }
-
-    &--auth {
-       font-size: $default-font-size; 
+    
     }
 }
 

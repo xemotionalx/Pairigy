@@ -152,11 +152,11 @@ const Profile = ({
             <div className="buttons  mb-5">
               <Link
                 to="/createmessage"
-                className="button button--user-action mr-3"
+                className="btn button button--main mr-3"
               >
                 <i className="far fa-envelope"></i> Message
               </Link>
-              <Link to="#" className="button button--user-action mr-3">
+              <Link to="#" className="btn button button--main mr-3">
                 <i className="far fa-star"></i> Favorite
               </Link>
             </div>
@@ -206,7 +206,9 @@ const Profile = ({
         {/* Bio - Heading */}
         <h2 className="heading-size--m">Bio</h2>
         {/* Bio - Text */}
+        <div className="bio--text-box">
         <p> {bio} </p>
+        </div>
       </section>
       <section className="section-profile mt-5">
         <h2 className="heading-size--m">Projects</h2>
