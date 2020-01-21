@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Search from '../search/SearchState';
+import { logout } from '../../actions/auth';
 
+const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
+}) => {
+    const authLinks = (
+        
+        <a onClick={logout} href='#!'>
+        <i className='fas fa-sign-out-alt' />{' '}
+        <span className='hide-sm'>Logout</span>
+      </a>
+    );
+    const guestLinks = (
 
-function Navbar({
-    auth: { user, loading }
-}) {
+        <div className="navbar__link">
+        {/* // <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
+        // <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
+        // <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link> */}
+        <Link to="logout">Logout</Link>
+    </div>
+    );
     return user ? (
         <nav className="navbar">
             <div className="navbar__logobox">
@@ -20,17 +35,20 @@ function Navbar({
                     <i className="fas fa-search fa-2x" aria-hidden="true"></i>
                     <input className="form-control form-control-lg ml-3 w-50" type="text" placeholder="Search"
                         aria-label="Search" id="user-query" />
-
                 </form>
             </div> */}
             <Search />
 
             <div className="navbar__link">
-                <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
-                <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
-                <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
-                <Link to="logout">Logout</Link>
-            </div>
+        <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
+        <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
+        <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
+    </div>
+
+            {!loading && (
+        <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
+      )}
+
         </nav>
     ) : ""
 }
@@ -46,4 +64,4 @@ const mapStateToProps = state => ({
     auth: state.auth,
 });
 
-export default connect( mapStateToProps)(Navbar);
+export default connect( mapStateToProps, { logout })(Navbar);
