@@ -10,14 +10,15 @@ function MyProjects({
   auth: { user },
   project: { projects, loading }
 }) {
-
   useEffect(() => {
     getProjectsByOwnerId();
   }, [getProjectsByOwnerId]);
 
   const setProjectState = async e => {
     e.preventDefault();
-    const { dataset: {projectid} } = e.target;
+    const {
+      dataset: { projectid }
+    } = e.target;
     await getProjectById(projectid);
     window.location.replace(`project/edit/${projectid}`);
   };
@@ -25,54 +26,62 @@ function MyProjects({
   return loading && projects === [] ? (
     <div>loading</div>
   ) : (
-    <div className="container mt-5 mb-5">
-      <h1>{user && user.name}, Edit And Manage The Projects You Own</h1>
+    <div className="container bg-col-light p-5">
+      <h1 className="heading-size--m mb-5 mt-5">Manage Your Projects</h1>
       {projects.map((project, index) => (
-        <div className="project-box mt-5">
-        <div className="project-box--header">
-          <h3 className="heading-size--s ml-5">{project.name}</h3>
-        </div>
+        <div className="project-box mb-5">
+          <div className="project-box--header">
+            <h3 className="heading-size--s ml-5">{project.name}</h3>
+              <input
+                type="button"
+                value="Edit Project"
+                data-projectid={project._id}
+                className="btn button button--main float-right" 
+                onClick={(e) => setProjectState(e)}
+              />
+          </div>
+          <div className="project-box--body">
+            <div className="project-tag--box">{project.website}</div>
 
-        <div className="project-box--body">
-        <div className="project-tag--box">{project.website}</div>
-        
-        <h3 className="project__sub-heading mb-3 ml-3"><b>Project Description</b></h3>
+            <h3 className="project__sub-heading mb-3 ml-3">
+              <b>Project Description</b>
+            </h3>
 
-          <p className="ml-5 mb-5">
-            {project.description}
-          </p>
+            <p className="ml-5 mb-5">{project.description}</p>
 
-          <hr className="mt-5" />
+            <hr className="mt-5" />
 
-          <h3 className="project__sub-heading mb-3 ml-3"><b>Team</b></h3>
-          <div className="row ml-3">
-            {project.team.map((role, index) => (
-              <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
-                <div className="card__team text-center mb-3">
-                  <img
-                    src={DefaultAvatar}
-                    alt="user avatar"
-                    className="avatar avatar--sm w-50"
-                  />
-                  <hr />
-                  {role.user ? (
+            <h3 className="project__sub-heading mb-3 ml-3">
+              <b>Team</b>
+            </h3>
+            <div className="row ml-3">
+              {project.team.map((role, index) => (
+                <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
+                  <div className="card__team text-center mb-3">
+                    <img
+                      src={DefaultAvatar}
+                      alt="user avatar"
+                      className="avatar avatar--sm w-50"
+                    />
+                    <hr />
+                    {role.user ? (
+                      <p>
+                        <b>Name: </b> {role.user.name}
+                      </p>
+                    ) : (
+                      <p>
+                        <b> Position Open </b>
+                      </p>
+                    )}
                     <p>
-                      <b>Name: </b> {role.user.name}
+                      <b>Role: </b> {role.role}{" "}
                     </p>
-                  ) : (
-                    <p>
-                      <b> Position Open </b>
-                    </p>
-                  )}
-                  <p>
-                    <b>Role: </b> {role.role}{" "}
-                  </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
       ))}
     </div>
   );
@@ -90,4 +99,7 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-export default connect(mapStateToProps, { getProjectsByOwnerId, getProjectById })(MyProjects);
+export default connect(mapStateToProps, {
+  getProjectsByOwnerId,
+  getProjectById
+})(MyProjects);

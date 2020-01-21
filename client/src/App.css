@@ -175,7 +175,7 @@ li {
   overflow: hidden;
   z-index: 100;
   text-align: center;
-  background-color: #0b0b0a;
+  background: linear-gradient(to right, #0b0b0a, #191D21);
   padding: 1rem 0; }
   .navbar__logobox {
     font-family: "Nunito Sans", sans-serif;
@@ -184,7 +184,7 @@ li {
     font-size: 2.5rem;
     color: #191D21;
     padding: .2rem 1.2rem;
-    background-image: linear-gradient(to bottom left, #778899, #191D21);
+    background-image: linear-gradient(to bottom left, #778899, #f7fbff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; }
@@ -208,7 +208,7 @@ li {
       font-size: 1.6rem;
       display: inline-block; }
     .navbar a:hover {
-      color: #778899; }
+      color: #539CAA; }
 
 .section-auth {
   position: relative;
