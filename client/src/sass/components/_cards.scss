@@ -4,6 +4,7 @@
         padding: .3rem;
         box-shadow: $default-box-shadow;
         color: $color-black;
+        border: .5px solid $color-primary-light;
     }
 
     &__dashboard {

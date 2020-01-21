@@ -28,60 +28,51 @@ function MyProjects({
     <div className="container mt-5 mb-5">
       <h1>{user && user.name}, Edit And Manage The Projects You Own</h1>
       {projects.map((project, index) => (
-        <div className="project-box row mt-5" key={index}>
-          <div className="col-sm-12">
-            <div className="project-box--header row">
-              <div className="col-sm-12">
-                <button
-                  className="button button--user-action float-right" 
-                  data-projectid={project._id}
-                  onClick={(e) => setProjectState(e)}
-                >
-                  Edit Project
-                </button>
-                <h3 className="heading-project--main ml-1 mt-2">
-                  {project.name}
-                </h3>
-                <div className="project-tag--box">{project.website}</div>
-                <p>
-                  <b>Description: </b>
-                  {project.description}
-                </p>
-              </div>
-            </div>
-            <div className="project-box--body row">
-              <div className="col-sm-12">
-                <h3 className="heading-project--sub">Team</h3>
-                <div className="row">
-                  {project.team.map((role, index) => (
-                    <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
-                      <div className="card__team mb-3 text-center">
-                        <img
-                          src={role.user ? role.user.avatar : DefaultAvatar}
-                          alt="user avatar"
-                          className="avatar avatar--sm w-50"
-                        />
-                        <hr />
-                        {role.user ? (
-                          <p>
-                            <b>Name: </b> {role.user.name}
-                          </p>
-                        ) : (
-                          <p>
-                            <b> Position Open </b>
-                          </p>
-                        )}
-                        <p>
-                          <b>Role: </b> {role.role}{" "}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+        <div className="project-box mt-5">
+        <div className="project-box--header">
+          <h3 className="heading-size--s ml-5">{project.name}</h3>
+        </div>
+
+        <div className="project-box--body">
+        <div className="project-tag--box">{project.website}</div>
+        
+        <h3 className="project__sub-heading mb-3 ml-3"><b>Project Description</b></h3>
+
+          <p className="ml-5 mb-5">
+            {project.description}
+          </p>
+
+          <hr className="mt-5" />
+
+          <h3 className="project__sub-heading mb-3 ml-3"><b>Team</b></h3>
+          <div className="row ml-3">
+            {project.team.map((role, index) => (
+              <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
+                <div className="card__team text-center mb-3">
+                  <img
+                    src={DefaultAvatar}
+                    alt="user avatar"
+                    className="avatar avatar--sm w-50"
+                  />
+                  <hr />
+                  {role.user ? (
+                    <p>
+                      <b>Name: </b> {role.user.name}
+                    </p>
+                  ) : (
+                    <p>
+                      <b> Position Open </b>
+                    </p>
+                  )}
+                  <p>
+                    <b>Role: </b> {role.role}{" "}
+                  </p>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
+      </div>
       ))}
     </div>
   );

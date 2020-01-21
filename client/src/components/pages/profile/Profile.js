@@ -131,9 +131,7 @@ const Profile = ({
         {/* Heading : Name & Title */}
         <div className="row mb-5">
           <div className="col-sm-12 text-center">
-            <h1 className="heading-size--xl mb-3">
-              {name}
-            </h1>
+            <h1 className="heading-size--xl mb-3">{name}</h1>
             <h2 className="heading-size--m">{status}</h2>
           </div>
         </div>
@@ -207,7 +205,7 @@ const Profile = ({
         <h2 className="heading-size--m">Bio</h2>
         {/* Bio - Text */}
         <div className="bio--text-box">
-        <p> {bio} </p>
+          <p> {bio} </p>
         </div>
       </section>
       <section className="section-profile mt-5">
@@ -215,17 +213,21 @@ const Profile = ({
         {projects.map(project => (
           <div className="project-box mt-5">
             <div className="project-box--header">
-              <h3 className="heading-size--s ml-1 mt-2">
-                {project.name}
-              </h3>
-              <div className="project-tag--box">{project.website}</div>
-              <p>
-                <b>Description: </b>
+              <h3 className="heading-size--s ml-5">{project.name}</h3>
+            </div>
+
+            <div className="project-box--body">
+            <div className="project-tag--box">{project.website}</div>
+            
+            <h3 className="project__sub-heading mb-3 ml-3"><b>Project Description</b></h3>
+
+              <p className="ml-5 mb-5">
                 {project.description}
               </p>
-            </div>
-            <div className="project-box--body">
-              <h3 className="heading-project--sub">Team</h3>
+
+              <hr className="mt-5" />
+
+              <h3 className="project__sub-heading mb-3 ml-3"><b>Team</b></h3>
               <div className="row ml-3">
                 {project.team.map((role, index) => (
                   <div className="col-lg-3 col-md-6 col-sm-12" key={index}>

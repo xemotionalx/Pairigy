@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Dashboard({ auth: { user, loading } }) {
   return (
     <div className="section-dashboard">
-      <div className="container mb-5">
+      <div className="container">
         <div className="row">
           <div className="col-sm-12">
             <h1 className="heading-size--l text-color-white mt-5 text-shadow">
@@ -21,7 +21,7 @@ function Dashboard({ auth: { user, loading } }) {
 
         <div className="row mt-5">
           <div className="col-md-4 col-sm-12">
-            <div className="card__dashboard">
+            <div className="card__dashboard mb-3">
               <h3 className="heading-size--s mb-4">Profile</h3>
               <i className="fas fa-user card--icon mb-1"></i>
               <hr className="mb-5" />
@@ -39,7 +39,7 @@ function Dashboard({ auth: { user, loading } }) {
           </div>
 
           <div className="col-md-4 col-sm-12">
-            <div className="card__dashboard">
+            <div className="card__dashboard mb-3">
               <h3 className="heading-size--s mb-4">Mail</h3>
               <i className="fas fa-mail-bulk card--icon mb-1"></i>
               <hr className="mb-5" />
@@ -54,7 +54,7 @@ function Dashboard({ auth: { user, loading } }) {
           </div>
 
           <div className="col-md-4 col-sm-12">
-            <div className="card__dashboard">
+            <div className="card__dashboard mb-5">
               <h3 className="heading-size--s mb-4">Projects</h3>
               <i className="fas fa-users card--icon mb-1"></i>
               <hr className="mb-5" />

@@ -1,8 +1,11 @@
 .form {
 
-    &-default,
-    & .form-control {
+    &-default {
         font-size: $default-font-size;
+
+        & .form-control {
+            font-size: $default-font-size;
+        }
 
         &--container {
         background-color: $color-primary-light;
@@ -11,12 +14,20 @@
         box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
         font-size: $default-font-size;
     }
-        & label {
+
+
+    & label {
             color: $color-primary-dark;
             font-size: $default-font-size;
             font-weight: bold;
         }
     
     }
+}
+
+.add-team {
+    border: 1px solid $color-primary;
+    margin: 3px;
+    padding: 1rem;
 }
 

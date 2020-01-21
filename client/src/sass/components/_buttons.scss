@@ -45,26 +45,26 @@
         }
     }
 
-    &--user-action {
-        padding: 1rem 1rem;
+    // &--user-action {
+    //     padding: 1rem 1rem;
         
-        background: linear-gradient(to bottom left, $color-primary-light, $color-white);
-        color: $color-primary-dark;
-        border: 3px solid $color-primary;
-        font-size: $default-font-size;
+    //     background: linear-gradient(to bottom left, $color-primary-light, $color-white);
+    //     color: $color-primary-dark;
+    //     border: 3px solid $color-primary;
+    //     font-size: $default-font-size;
 
-        transition: all .3s;
+    //     transition: all .3s;
 
-        &:hover {
-            box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
-            background: linear-gradient(to bottom right, $color-secondary, $color-secondary-light);
-            border: 3px solid $color-primary-light;
-            color: $color-white;
-            text-decoration: none;
-            font-weight: bold;
-        }
+    //     &:hover {
+    //         box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
+    //         background: linear-gradient(to bottom right, $color-secondary, $color-secondary-light);
+    //         border: 3px solid $color-primary-light;
+    //         color: $color-white;
+    //         text-decoration: none;
+    //         font-weight: bold;
+    //     }
 
-    }
+    // }
 
     &:active {
         box-shadow: 0 3rem .8rem rgba($color-primary, .3);

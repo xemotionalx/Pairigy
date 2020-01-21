@@ -1,0 +1,38 @@
+.project {
+    &-tag {
+        font-size: 1.1rem;
+
+        padding: 2px .5rem;
+        margin-right: .5rem;
+        border: 1px solid $color-black;
+        border-radius: 2px;
+
+        &--box {
+            margin-bottom: 2rem;
+        }
+    }
+
+    &-box {
+        box-shadow: 0 .3rem .7rem rgba($color-primary, .5);
+        border: 1px solid $color-primary;
+        border-radius: 2px;
+
+        &--header {
+            background-color: $color-primary;
+            color: $color-white;
+            padding: 2rem;
+            text-align: center;
+        }
+    
+        &--body {
+            background-color: $color-white;
+            color: $color-black;
+            padding: 1rem;
+        }
+    }
+
+    &__sub-heading {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+}
