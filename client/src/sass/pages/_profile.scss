@@ -17,7 +17,7 @@
     }
 
     &--socials {
-        background: linear-gradient(to bottom right, $color-primary, $color-secondary);
+        background: linear-gradient(to bottom right, $color-primary, $color-primary-dark);
         border-radius: 3px;
         display: flex;
         align-items: center;
@@ -25,19 +25,21 @@
         height: 7rem;
         box-shadow: 0 .3rem .5rem rgba($color-primary, .3);
         
-        & i {
-            margin: 1.5rem;
-        }
+        // & i {
+        //     margin: 1.5rem;
+        // }
 
         & a {
-            color: $color-primary-light;
+            color: $color-secondary-light;
+            text-shadow: 0 .3rem .3rem rgba($color-primary-light, .2);
             font-size: 4rem;
+            margin: 1.5rem;
         }
 
         & a:hover,
         a:active,
         a:focus {
-            color: $color-secondary-light;
+            color: $color-secondary;
         }
     }
 }

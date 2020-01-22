@@ -13,12 +13,12 @@
     }
 
     &-box {
-        box-shadow: 0 .3rem .7rem rgba($color-primary, .5);
-        border: 1px solid $color-primary-dark;
+        box-shadow: $default-box-shadow;
+        border: 1px solid $color-primary;
         border-radius: 2px;
 
         &--header {
-            background-color: $color-primary;
+            background: linear-gradient(to bottom right, $color-secondary, $color-secondary-light);
             color: $color-white;
             padding: 2rem;
             text-align: center;
