@@ -30,8 +30,8 @@ function CreateProject({ createProject, history }) {
       value
     } = e.target;
     const newTeamMember = team.slice();
-    newTeamMember[order] = { [name]: value };
-
+    newTeamMember[order] = { [name] : value } ;
+    console.log(newTeamMember);
     setFormData({ ...formData, team: newTeamMember });
   };
 
@@ -52,6 +52,7 @@ function CreateProject({ createProject, history }) {
     e.preventDefault();
     //this will submit all the fields in the formData state
     createProject(formData, history);
+
   };
 
   return (
@@ -60,7 +61,7 @@ function CreateProject({ createProject, history }) {
         <h1 className="heading-size--m mb-5">Create A New Project</h1>
         <form className="form-group form-default" onSubmit={e => onSubmit(e)}>
           <div className="row">
-            <label htmlFor="name" className="form-editprofile--label">
+            <label htmlFor="name">
               Project Name*:
             </label>
             <input
@@ -71,7 +72,7 @@ function CreateProject({ createProject, history }) {
               className="form-control mb-4"
               required
             ></input>
-            <label htmlFor="description" className="form-editprofile--label">
+            <label htmlFor="description">
               Description*:
             </label>
             <input
@@ -82,7 +83,7 @@ function CreateProject({ createProject, history }) {
               className="form-control mb-4"
               required
             ></input>
-            <label htmlFor="website" className="form-editprofile--label">
+            <label htmlFor="website">
               Website:
             </label>
             <input
@@ -92,7 +93,7 @@ function CreateProject({ createProject, history }) {
               onChange={e => onChange(e)}
               className="form-control mb-4"
             ></input>
-            <label htmlFor="status" className="form-editprofile--label">
+            <label htmlFor="status">
               Status:
             </label>
             <input
@@ -116,8 +117,8 @@ function CreateProject({ createProject, history }) {
           <div className="row">
             {team.map((teamMember, index) => (
               <div className="col-md-4 col-sm-12">
-                <div className="add-team">
-                  <label htmlFor="role" className="form-editprofile--label">
+                <div className="add-team" key={index}>
+                  <label htmlFor="role">
                     Role*:
                   </label>
                   <input
@@ -132,7 +133,7 @@ function CreateProject({ createProject, history }) {
                   ></input>
                   <label
                     htmlFor="user"
-                    className="form-editprofile--label mt-3"
+                 className="mt-3"
                   >
                     User:
                   </label>
@@ -167,7 +168,7 @@ function CreateProject({ createProject, history }) {
 }
 
 CreateProject.propTypes = {
-  createProject: PropTypes.func.isRequired
+  createProject: PropTypes.func.isRequired,
 };
 
 //with router allows for the redirect through the action
