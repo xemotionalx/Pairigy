@@ -162,11 +162,11 @@ li {
     margin-bottom: 2rem; }
 
 .project-box {
-  box-shadow: 0 0.3rem 0.7rem rgba(119, 136, 153, 0.5);
-  border: 1px solid #191D21;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5);
+  border: 1px solid #778899;
   border-radius: 2px; }
   .project-box--header {
-    background-color: #778899;
+    background: linear-gradient(to bottom right, #539CAA, #8CDAEA);
     color: #fff;
     padding: 2rem;
     text-align: center; }
@@ -218,7 +218,7 @@ li {
       font-size: 2rem;
       display: inline-block; }
     .navbar a:hover {
-      color: #539CAA; }
+      color: #8CDAEA; }
 
 .section-auth {
   position: relative;
@@ -305,22 +305,22 @@ li {
   .section-profile li {
     margin-bottom: 3px; }
   .section-profile--socials {
-    background: linear-gradient(to bottom right, #778899, #539CAA);
+    background: linear-gradient(to bottom right, #778899, #191D21);
     border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 7rem;
     box-shadow: 0 0.3rem 0.5rem rgba(119, 136, 153, 0.3); }
-    .section-profile--socials i {
-      margin: 1.5rem; }
     .section-profile--socials a {
-      color: #f7fbff;
-      font-size: 4rem; }
+      color: #8CDAEA;
+      text-shadow: 0 0.3rem 0.3rem rgba(247, 251, 255, 0.2);
+      font-size: 4rem;
+      margin: 1.5rem; }
     .section-profile--socials a:hover,
     .section-profile--socials a:active,
     .section-profile--socials a:focus {
-      color: #8CDAEA; }
+      color: #539CAA; }
 
 .bio--text-box {
   background-color: #fff;
