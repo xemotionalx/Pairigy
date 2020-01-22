@@ -11,7 +11,7 @@ const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
         <div className="navbar__link">
         <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
         <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
-        <Link to="/myprojects">Projects <i class="fas fa-project-diagram"></i></Link>
+        <Link to="/myprojects">Projects <i className="fas fa-project-diagram"></i></Link>
         <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
         <a onClick={logout} href='#!'>
         <i className='fas fa-sign-out-alt' />{' '}
