@@ -56,7 +56,7 @@ function CreateProject({ createProject, history }) {
 
   return (
     <div className="container mt-5 mb-5">
-      <div className="form-default--container mb-5">
+      <div className="container--inner mb-5">
         <h1 className="heading-size--m mb-5">Create A New Project</h1>
         <form className="form-group form-default" onSubmit={e => onSubmit(e)}>
           <div className="row">

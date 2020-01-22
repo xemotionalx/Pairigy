@@ -28,7 +28,7 @@ function MyProjects({
   ) : (
     <div className="container mb-5 mt-5">
       <div className="container--inner">
-        <h1 className="heading-size--m mb-5">Manage Your Projects</h1>
+        <h1 className="heading-size--l mb-5 text-center">Manage Your Projects</h1>
         {projects.map((project, index) => (
           <div className="project-box mb-5">
             <div className="project-box--header">
@@ -60,7 +60,7 @@ function MyProjects({
                   <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
                     <div className="card__team text-center mb-3">
                       <img
-                        src={DefaultAvatar}
+                        src={role.user ? role.user.avatar : DefaultAvatar}
                         alt="user avatar"
                         className="avatar avatar--sm w-50"
                       />
