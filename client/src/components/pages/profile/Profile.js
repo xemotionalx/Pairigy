@@ -157,9 +157,9 @@ const Profile = ({
               <Link to="#" className="btn button button--main mr-3">
                 <i className="far fa-star"></i> Favorite
               </Link>
-              <button className="btn button button--main">
+              {/* <button className="btn button button--main">
               <i className="fas fa-plus"></i> Add to Project
-              </button>
+              </button> */}
             </div>
             <ul>
               {/* city, state */}
