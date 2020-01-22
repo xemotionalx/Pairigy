@@ -157,6 +157,9 @@ const Profile = ({
               <Link to="#" className="btn button button--main mr-3">
                 <i className="far fa-star"></i> Favorite
               </Link>
+              <button className="btn button button--main">
+              <i className="fas fa-plus"></i> Add to Project
+              </button>
             </div>
             <ul>
               {/* city, state */}
@@ -229,11 +232,11 @@ const Profile = ({
 
               <h3 className="project__sub-heading mb-3 ml-3"><b>Team</b></h3>
               <div className="row ml-3">
-                {project.team.map((role, index) => (
+              {project.team.map((role, index) => (
                   <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
                     <div className="card__team text-center mb-3">
                       <img
-                        src={DefaultAvatar}
+                        src={role.user ? role.user.avatar : DefaultAvatar}
                         alt="user avatar"
                         className="avatar avatar--sm w-50"
                       />
