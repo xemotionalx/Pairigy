@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Search from '../search/SearchState';
 import { logout } from '../../actions/auth';
+import LogoSm from '../../images/logo-sm.gif';
 
 const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
 }) => {
@@ -21,15 +22,14 @@ const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
     );
     const guestLinks = (
         <div className="navbar__link">
-        <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
-        <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
-        <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
+        <Link to="/login">Login <i className="fas fa-star"></i></Link>
+        <Link to="/register">Sign Up <i className="fas fa-envelope"></i></Link>
     </div>
     );
     return user ? (
         <nav className="navbar">
             <div className="navbar__logobox">
-                <i className="fas fa-globe-europe"></i> &nbsp;
+                <img src={LogoSm} className="logo--xs mr-1" />
                     Pairigy
             </div>
 

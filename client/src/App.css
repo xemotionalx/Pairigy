@@ -64,6 +64,9 @@ li {
   .avatar--sm {
     max-width: 10rem; }
 
+.logo--xs {
+  max-width: 3rem; }
+
 .button {
   border-radius: .2rem;
   box-shadow: 0 0.3rem 0.8rem rgba(11, 11, 10, 0.3);
