@@ -3,25 +3,24 @@
     &-default {
         font-size: $default-font-size;
 
-        & .form-control {
+        & select {
             font-size: $default-font-size;
         }
 
-        &--container {
-        background-color: $color-primary-light;
-        padding: 5rem 10rem;
-        border-radius: 2px;
-        box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
-        font-size: $default-font-size;
-    }
-
+        & .form-control {
+            font-size: $default-font-size;
+        }
 
     & label {
             color: $color-primary-dark;
             font-size: $default-font-size;
             font-weight: bold;
         }
-    
+    }
+
+    &--mail {
+        width: 90%;
+        margin: 0 auto;
     }
 }
 

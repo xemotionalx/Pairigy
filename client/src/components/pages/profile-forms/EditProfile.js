@@ -72,7 +72,7 @@ const EditProfile = ({
     return (
         <div className="container mt-5 mb-5">
 
-             <section className="form-default--container text-center">
+             <section className="container--inner text-center">
                <h1 className="heading-size--l mb-5">Edit Your Profile</h1>
                 <hr />
                 <form className="form form-default" onSubmit={e => onSubmit(e)}>
@@ -148,7 +148,7 @@ const EditProfile = ({
                     </div>
                   </div>
 
-                  <input type='submit' className="btn btn-dark btn-lg" />
+                  <input type='submit' className="btn button button--main" />
 
                 </form>
 

@@ -59,7 +59,7 @@ function EditProject({
     <div>loading</div>
   ) : (
     <div className="container mt-5">
-      <div className="form-default--container mb-5">
+      <div className="container--inner mb-5">
       <input
           type="button"
           value="x Delete Project"

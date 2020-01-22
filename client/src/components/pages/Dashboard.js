@@ -43,8 +43,8 @@ function Dashboard({ auth: { user, loading } }) {
               <h3 className="heading-size--s mb-4">Mail</h3>
               <i className="fas fa-mail-bulk card--icon mb-1"></i>
               <hr className="mb-5" />
-              <Link to="/inbox" className="btn button button--main mb-3">
-                View Inbox
+              <Link to="/mail" className="btn button button--main mb-3">
+                View Mailbox
               </Link>
               <br />
               <Link to="/favorites" className="btn button button--main">

@@ -8,19 +8,22 @@ import { logout } from '../../actions/auth';
 const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
 }) => {
     const authLinks = (
-        
+        <div className="navbar__link">
+        <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
+        <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
+        <Link to="/myprojects">Projects <i class="fas fa-project-diagram"></i></Link>
+        <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
         <a onClick={logout} href='#!'>
         <i className='fas fa-sign-out-alt' />{' '}
         <span className='hide-sm'>Logout</span>
       </a>
+    </div>
     );
     const guestLinks = (
-
         <div className="navbar__link">
-        {/* // <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
-        // <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
-        // <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link> */}
-        <Link to="logout">Logout</Link>
+        <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
+        <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
+        <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
     </div>
     );
     return user ? (
@@ -39,11 +42,11 @@ const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
             </div> */}
             <Search />
 
-            <div className="navbar__link">
+            {/* <div className="navbar__link">
         <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
         <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
         <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
-    </div>
+    </div> */}
 
             {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>

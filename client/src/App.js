@@ -68,7 +68,7 @@ return (
         <Route path='/myprojects/project/edit/:projectId' exact component={EditProject} />
     
         <Route path='/createmessage/' exact component={CreateMessage} />
-        <Route path='/inbox/' exact component={Inbox} />
+        <Route path='/mail/' exact component={Inbox} />
 
       </Switch>
     </Fragment>
