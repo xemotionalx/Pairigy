@@ -31,7 +31,6 @@ function CreateProject({ createProject, history }) {
     } = e.target;
     const newTeamMember = [...formData.team];
     newTeamMember[order] = { ...team[order], [name]: value };
-    console.log(newTeamMember);
 
     setFormData({ ...formData, team: newTeamMember });
   };
