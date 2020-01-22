@@ -186,7 +186,7 @@ li {
   background: linear-gradient(to left, #191D21, #0b0b0a);
   padding: 1rem 0;
   border-bottom: solid 3px #539CAA;
-  height: 8rem; }
+  min-height: 8rem; }
   .navbar__logobox {
     font-family: "Nunito Sans", sans-serif;
     float: left;
