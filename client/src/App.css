@@ -134,12 +134,18 @@ li {
 
 .form-default {
   font-size: 2rem; }
+  .form-default select {
+    font-size: 2rem; }
   .form-default .form-control {
     font-size: 2rem; }
   .form-default label {
     color: #191D21;
     font-size: 2rem;
     font-weight: bold; }
+
+.form--mail {
+  width: 90%;
+  margin: 0 auto; }
 
 .add-team {
   border: 1px solid #778899;
@@ -179,20 +185,21 @@ li {
   text-align: center;
   background: linear-gradient(to left, #191D21, #0b0b0a);
   padding: 1rem 0;
-  border-bottom: solid 3px #539CAA; }
+  border-bottom: solid 3px #539CAA;
+  height: 8rem; }
   .navbar__logobox {
     font-family: "Nunito Sans", sans-serif;
     float: left;
     margin-left: 3rem;
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: #191D21;
     padding: .2rem 1.2rem;
-    background-image: linear-gradient(to bottom left, #778899, #539CAA);
+    background-image: linear-gradient(to bottom left, #778899, #f7fbff);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; }
     .navbar__logobox .fas {
-      background-image: linear-gradient(to top, #778899, #539CAA);
+      background-image: linear-gradient(to top, #778899, #f7fbff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent; }
@@ -208,7 +215,7 @@ li {
     .navbar a:link {
       padding: .2rem 1.2rem;
       text-decoration: none;
-      font-size: 1.6rem;
+      font-size: 2rem;
       display: inline-block; }
     .navbar a:hover {
       color: #539CAA; }
@@ -259,6 +266,23 @@ li {
     justify-content: center;
     text-align: center; }
 
+.mail__sidebar {
+  background-color: #fff;
+  min-height: 80vh;
+  border-radius: 2px;
+  padding: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5); }
+
+.mail__main {
+  background-color: #fff;
+  min-height: 80vh;
+  border-radius: 2px;
+  padding: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5); }
+
+.list-group {
+  font-size: 2rem; }
+
 .section-profile {
   color: #191D21;
   background-color: #fff;
@@ -280,6 +304,8 @@ li {
     justify-content: center;
     height: 7rem;
     box-shadow: 0 0.3rem 0.5rem rgba(119, 136, 153, 0.3); }
+    .section-profile--socials i {
+      margin: 1.5rem; }
     .section-profile--socials a {
       color: #f7fbff;
       font-size: 4rem; }

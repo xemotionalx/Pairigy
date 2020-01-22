@@ -3,6 +3,10 @@
     &-default {
         font-size: $default-font-size;
 
+        & select {
+            font-size: $default-font-size;
+        }
+
         & .form-control {
             font-size: $default-font-size;
         }
@@ -12,7 +16,11 @@
             font-size: $default-font-size;
             font-weight: bold;
         }
-    
+    }
+
+    &--mail {
+        width: 90%;
+        margin: 0 auto;
     }
 }
 

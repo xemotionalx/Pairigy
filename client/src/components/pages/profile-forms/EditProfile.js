@@ -148,7 +148,7 @@ const EditProfile = ({
                     </div>
                   </div>
 
-                  <input type='submit' className="btn btn-dark btn-lg" />
+                  <input type='submit' className="btn button button--main" />
 
                 </form>
 

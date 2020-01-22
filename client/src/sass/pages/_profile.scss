@@ -24,6 +24,10 @@
         justify-content: center;
         height: 7rem;
         box-shadow: 0 .3rem .5rem rgba($color-primary, .3);
+        
+        & i {
+            margin: 1.5rem;
+        }
 
         & a {
             color: $color-primary-light;

@@ -1,0 +1,22 @@
+.mail {
+    &__sidebar {
+        background-color: $color-white;
+        min-height: 80vh;
+        border-radius: 2px;
+        padding: 1rem;
+        box-shadow: $default-box-shadow;
+    }
+
+
+    &__main {
+        background-color: $color-white;
+        min-height: 80vh;
+        border-radius: 2px;
+        padding: 1rem;
+        box-shadow: $default-box-shadow;
+    }
+}
+
+.list-group {
+    font-size: $default-font-size;
+}
