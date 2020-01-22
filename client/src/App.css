@@ -11,7 +11,7 @@ html {
 body {
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
-  background: linear-gradient(to top left, #778899, #191D21); }
+  background-color: #ABBCCE; }
 
 p {
   font-size: 2rem; }
@@ -104,10 +104,10 @@ li {
 
 .card__team {
   background-color: #fff;
-  padding: .3rem;
+  padding: .5rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5);
   color: #0b0b0a;
-  border: 0.5px solid #f7fbff; }
+  border: 0.5px solid #778899; }
 
 .card__dashboard {
   text-align: center;
@@ -124,15 +124,17 @@ li {
   background-clip: text;
   color: transparent; }
 
+.container--inner {
+  background-color: #fff;
+  padding: 5rem 10rem;
+  border-radius: 2px;
+  box-shadow: 0 0.5rem 0.5rem rgba(119, 136, 153, 0.3);
+  font-size: 2rem;
+  border: 1px solid #778899; }
+
 .form-default {
   font-size: 2rem; }
   .form-default .form-control {
-    font-size: 2rem; }
-  .form-default--container {
-    background-color: #f7fbff;
-    padding: 5rem 10rem;
-    border-radius: 2px;
-    box-shadow: 0 0.5rem 1rem rgba(119, 136, 153, 0.5);
     font-size: 2rem; }
   .form-default label {
     color: #191D21;
@@ -155,7 +157,7 @@ li {
 
 .project-box {
   box-shadow: 0 0.3rem 0.7rem rgba(119, 136, 153, 0.5);
-  border: 1px solid #778899;
+  border: 1px solid #191D21;
   border-radius: 2px; }
   .project-box--header {
     background-color: #778899;
@@ -175,8 +177,9 @@ li {
   overflow: hidden;
   z-index: 100;
   text-align: center;
-  background: linear-gradient(to right, #0b0b0a, #191D21);
-  padding: 1rem 0; }
+  background: linear-gradient(to left, #191D21, #0b0b0a);
+  padding: 1rem 0;
+  border-bottom: solid 3px #539CAA; }
   .navbar__logobox {
     font-family: "Nunito Sans", sans-serif;
     float: left;
@@ -184,12 +187,12 @@ li {
     font-size: 2.5rem;
     color: #191D21;
     padding: .2rem 1.2rem;
-    background-image: linear-gradient(to bottom left, #778899, #f7fbff);
+    background-image: linear-gradient(to bottom left, #778899, #539CAA);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; }
     .navbar__logobox .fas {
-      background-image: linear-gradient(to top, #778899, #191D21);
+      background-image: linear-gradient(to top, #778899, #539CAA);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent; }

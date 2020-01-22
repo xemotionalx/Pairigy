@@ -46,7 +46,7 @@ const CreateProfile = ({ createProfile, history }) => {
     return (
         <div className="container mt-5 mb-5">
 
-             <section className="form-default--container text-center">
+             <section className="container--inner text-center">
                <h1 className="heading-size--l mb-5">Create A Profile</h1>
                 <hr />
                 <form className="form form-default" onSubmit={e => onSubmit(e)}>

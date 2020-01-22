@@ -1,10 +1,10 @@
 .card {
     &__team {
         background-color: $color-white;
-        padding: .3rem;
+        padding: .5rem;
         box-shadow: $default-box-shadow;
         color: $color-black;
-        border: .5px solid $color-primary-light;
+        border: .5px solid $color-primary;
     }
 
     &__dashboard {
