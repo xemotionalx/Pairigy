@@ -16,6 +16,8 @@ import EditProject from './components/pages/projects/EditProject';
 import Project from './components/pages/projects/Project';
 import ListProjects from './components/pages/projects/ListProjects';
 import MyProjects from './components/pages/projects/MyProjects';
+// Emails
+import Email from './components/emails/Emails';
 //dashboard
 import Dashboard from './components/pages/Dashboard';
 // messages
@@ -67,6 +69,7 @@ return (
         <PrivateRoute path='/createproject/' exact component={CreateProject} />
         <Route path='/myprojects/project/edit/:projectId' exact component={EditProject} />
     
+        <PrivateRoute path='/emails/' exact component={Email} />
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/mail/' exact component={Inbox} />
 
