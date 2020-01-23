@@ -8,12 +8,15 @@ class Search extends Component {
 
     constructor(props) {
         super(props);
+
+
         this.state = {
 
             // searchField: '',
             profile: [],
             error: "",
-            message: ""
+            message: "",
+
         };
     }
     componentWillMount() {
@@ -30,43 +33,35 @@ class Search extends Component {
     }
 
     handleSearch = e => {
-        this.setState({ q: e.target.value, data: this.state.data });
-        // Test
-        console.log(e.target.value);
+        const { value } = e.target;
+        console.log(value);
+        this.setState({
+            data: value
+        });
+
+        // this.setState({ q: e.target.value, data: this.state.data });
+        // // Test
+        // console.log(e.target.value);
+        // this.handleFormSubmit(data);
+
     };
+
 
     handleFormSubmit = event => {
         event.preventDefault();
 
 
-        this.props.getSearchProfile(this.state.q)
-        // .then(res => {
-        //     const profile = res;
-        //     console.log(profile);
-        //     if (profile === "error") {
-        //         throw new Error(profile);
-        //     }
-        //     else {
-        //         let results = profile
+        this.props.getSearchProfile(this.state.data);
 
-        //         //map through the array 
-        //         results = results.map(result => {
-        //             //stores book info in new object 
-        //             result = {
-        //                 user: profile
+        console.log(this.state.data);
+        console.log('ashsksdhsk');
 
-        //             }
-        //             return result;
-        //         })
-        //         // this.setState({q:this.state.q, data})
 
-        //         this.setState({ profile: results, error: "" })
-        //     }
-        // })
-        // .catch(err => this.setState({ error: err }));
-        //  Test
-        // console.log(handleFormSubmit);
-    }
+    };
+
+    // this.setState({ profile });
+
+
 
 
 
@@ -85,6 +80,7 @@ class Search extends Component {
             </button>
 
                 </form>
+
 
 
 

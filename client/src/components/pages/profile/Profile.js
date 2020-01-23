@@ -123,224 +123,143 @@ const Profile = ({
       </a>
     );
 
-<<<<<<< HEAD
-  return loading && profile === null ? (<div>loading</div>) : (
-    <div className="container mt-5 mb-5">
-      <section className="section-profile">
-        {/* Heading : Name & Title */}
-        <div className="row mb-5">
-          <div className="col-sm-12 text-center">
-            <h1 className="heading-profile heading-profile--main mb-3">{name}</h1>
-            <h2 className="heading-profile heading-profile--sub">{status}</h2>
-          </div>
-        </div>
-        <hr />
-        <div className="row mt-5">
-          {/* Col 1: Avatar */}
-          <div className="col-md-5 col-sm-12 text-center">
-            <img src={avatar} alt="user avatar" className="avatar avatar--lg w-75 mb-5" />
-          </div>
-          {/* Col 2: User overview */}
-          <div className="col-md-7 col-sm-12">
-            <div className="buttons  mb-5">
-              <Link to="/createmessage" className="button button--user-action mr-3">
-                <i className="far fa-envelope"></i> Message
-                                </Link>
-              <Link to="#" className="button button--user-action mr-3">
-                <i className="far fa-star"></i> Favorite
-                                </Link>
-            </div>
-            <ul>
-              {/* city, state */}
-              <li>
-                <span className="font-weight-bold">Location: </span>
-                {location}
-              </li>
-              {/* website */}
-              <li>
-                <span className="font-weight-bold">Website: </span>
-                <a href={website} target="_blank" rel="noopener noreferrer">
-                  {website}
-                </a>
-              </li>
-              {/* skills */}
-              <li>
-                {skills === null || skills === undefined || !skills ? "" :
-                  <Skills profile={profile} />
-                }
-              </li>
-            </ul>
-            {/* social media */}
-
-            {socials ?
-              <div className="section-profile--socials">
-                <ul>
-                  <li className="list-item--social mr-1">{twitterIcon}</li>
-                  <li className="list-item--social mr-1">{facebookIcon}</li>
-                  <li className="list-item--social mr-1">{linkedinIcon}</li>
-                  <li className="list-item--social mr-1">{instagramIcon}</li>
-                  <li className="list-item--social mr-1">{githubIcon}</li>
-                  <li className="list-item--social mr-1">{dribbbleIcon}</li>
-                </ul>
-              </div> : ""
-            }
-
-          </div>
-        </div>
-      </section>
-      {/* BIO */}
-      <section className="section-profile mt-5">
-        {/* Bio - Heading */}
-        <h2 className="heading-profile heading-profile--sub">
-          Bio
-                        </h2>
-        {/* Bio - Text */}
-        <p>
-          {bio}
-        </p>
-      </section>
-    </div>
-  )
-}
-=======
   return loading && profile === null ? (
     <div>loading</div>
   ) : (
-    <div className="container mt-5 mb-5">
-      <section className="section-profile">
-        {/* Heading : Name & Title */}
-        <div className="row mb-5">
-          <div className="col-sm-12 text-center">
-            <h1 className="heading-profile heading-profile--main mb-3">
-              {name}
-            </h1>
-            <h2 className="heading-profile heading-profile--sub">{status}</h2>
-          </div>
-        </div>
-        <hr />
-        <div className="row mt-5">
-          {/* Col 1: Avatar */}
-          <div className="col-md-5 col-sm-12 text-center">
-            <img
-              src={avatar}
-              alt="user avatar"
-              className="avatar avatar--lg w-75 mb-5"
-            />
-          </div>
-          {/* Col 2: User overview */}
-          <div className="col-md-7 col-sm-12">
-            <div className="buttons  mb-5">
-              <Link
-                to="/createmessage"
-                className="button button--user-action mr-3"
-              >
-                <i className="far fa-envelope"></i> Message
-              </Link>
-              <Link to="#" className="button button--user-action mr-3">
-                <i className="far fa-star"></i> Favorite
-              </Link>
-              <Link to="#" className="button button--user-action mr-3">
-                <i className="fas fa-plus-circle"></i> Add to Project
-              </Link>
+      <div className="container mt-5 mb-5">
+        <section className="section-profile">
+          {/* Heading : Name & Title */}
+          <div className="row mb-5">
+            <div className="col-sm-12 text-center">
+              <h1 className="heading-profile heading-profile--main mb-3">
+                {name}
+              </h1>
+              <h2 className="heading-profile heading-profile--sub">{status}</h2>
             </div>
-            <ul>
-              {/* city, state */}
-              <li>
-                <span className="font-weight-bold">Location: </span>
-                {location}
-              </li>
-              {/* website */}
-              <li>
-                <span className="font-weight-bold">Website: </span>
-                <a href={website} target="_blank" rel="noopener noreferrer">
-                  {website}
-                </a>
-              </li>
-              {/* skills */}
-              <li>
-                {skills === null || skills === undefined || !skills ? (
-                  ""
-                ) : (
-                  <Skills profile={profile} />
-                )}
-              </li>
-            </ul>
-            {/* social media */}
+          </div>
+          <hr />
+          <div className="row mt-5">
+            {/* Col 1: Avatar */}
+            <div className="col-md-5 col-sm-12 text-center">
+              <img
+                src={avatar}
+                alt="user avatar"
+                className="avatar avatar--lg w-75 mb-5"
+              />
+            </div>
+            {/* Col 2: User overview */}
+            <div className="col-md-7 col-sm-12">
+              <div className="buttons  mb-5">
+                <Link
+                  to="/createmessage"
+                  className="button button--user-action mr-3"
+                >
+                  <i className="far fa-envelope"></i> Message
+              </Link>
+                <Link to="#" className="button button--user-action mr-3">
+                  <i className="far fa-star"></i> Favorite
+              </Link>
+                <Link to="#" className="button button--user-action mr-3">
+                  <i className="fas fa-plus-circle"></i> Add to Project
+              </Link>
+              </div>
+              <ul>
+                {/* city, state */}
+                <li>
+                  <span className="font-weight-bold">Location: </span>
+                  {location}
+                </li>
+                {/* website */}
+                <li>
+                  <span className="font-weight-bold">Website: </span>
+                  <a href={website} target="_blank" rel="noopener noreferrer">
+                    {website}
+                  </a>
+                </li>
+                {/* skills */}
+                <li>
+                  {skills === null || skills === undefined || !skills ? (
+                    ""
+                  ) : (
+                      <Skills profile={profile} />
+                    )}
+                </li>
+              </ul>
+              {/* social media */}
 
-            {socials ? (
-              <div className="section-profile--socials">
-                <ul>
-                  <li className="list-item--social mr-1">{twitterIcon}</li>
-                  <li className="list-item--social mr-1">{facebookIcon}</li>
-                  <li className="list-item--social mr-1">{linkedinIcon}</li>
-                  <li className="list-item--social mr-1">{instagramIcon}</li>
-                  <li className="list-item--social mr-1">{githubIcon}</li>
-                  <li className="list-item--social mr-1">{dribbbleIcon}</li>
-                </ul>
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
-        </div>
-      </section>
-      {/* BIO */}
-      <section className="section-profile mt-5">
-        {/* Bio - Heading */}
-        <h2 className="heading-profile heading-profile--sub">Bio</h2>
-        {/* Bio - Text */}
-        <p> {bio} </p>
-      </section>
-      <section className="section-profile mt-5">
-        <h2 className="heading-profile heading-profile--sub">Projects</h2>
-        {projects.map(project => (
-          <div className="project-box mt-5">
-            <div className="project-box--header">
-              <h3 className="heading-project--main ml-1 mt-2">
-                {project.name}
-              </h3>
-              <div className="project-tag--box">{project.website}</div>
-              <p>
-                <b>Description: </b>
-                {project.description}
-              </p>
+              {socials ? (
+                <div className="section-profile--socials">
+                  <ul>
+                    <li className="list-item--social mr-1">{twitterIcon}</li>
+                    <li className="list-item--social mr-1">{facebookIcon}</li>
+                    <li className="list-item--social mr-1">{linkedinIcon}</li>
+                    <li className="list-item--social mr-1">{instagramIcon}</li>
+                    <li className="list-item--social mr-1">{githubIcon}</li>
+                    <li className="list-item--social mr-1">{dribbbleIcon}</li>
+                  </ul>
+                </div>
+              ) : (
+                  ""
+                )}
             </div>
-            <div className="project-box--body">
-              <h3 className="heading-project--sub">Team</h3>
-              <div className="row ml-3">
-                {project.team.map((role, index) => (
-                  <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
-                    <div className="card__team text-center mb-3">
-                      <img
-                        src={DefaultAvatar}
-                        alt="user avatar"
-                        className="avatar avatar--sm w-50"
-                      />
-                      <hr />
-                      {role.user ? (
+          </div>
+        </section>
+        {/* BIO */}
+        <section className="section-profile mt-5">
+          {/* Bio - Heading */}
+          <h2 className="heading-profile heading-profile--sub">Bio</h2>
+          {/* Bio - Text */}
+          <p> {bio} </p>
+        </section>
+        <section className="section-profile mt-5">
+          <h2 className="heading-profile heading-profile--sub">Projects</h2>
+          {projects.map(project => (
+            <div className="project-box mt-5">
+              <div className="project-box--header">
+                <h3 className="heading-project--main ml-1 mt-2">
+                  {project.name}
+                </h3>
+                <div className="project-tag--box">{project.website}</div>
+                <p>
+                  <b>Description: </b>
+                  {project.description}
+                </p>
+              </div>
+              <div className="project-box--body">
+                <h3 className="heading-project--sub">Team</h3>
+                <div className="row ml-3">
+                  {project.team.map((role, index) => (
+                    <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
+                      <div className="card__team text-center mb-3">
+                        <img
+                          src={DefaultAvatar}
+                          alt="user avatar"
+                          className="avatar avatar--sm w-50"
+                        />
+                        <hr />
+                        {role.user ? (
+                          <p>
+                            <b>Name: </b> {role.user.name}
+                          </p>
+                        ) : (
+                            <p>
+                              <b> Position Open </b>
+                            </p>
+                          )}
                         <p>
-                          <b>Name: </b> {role.user.name}
+                          <b>Role: </b> {role.role}{" "}
                         </p>
-                      ) : (
-                        <p>
-                          <b> Position Open </b>
-                        </p>
-                      )}
-                      <p>
-                        <b>Role: </b> {role.role}{" "}
-                      </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </section>
-    </div>
-  );
+          ))}
+        </section>
+      </div>
+    );
 };
->>>>>>> master
 
 //brings in the state/actions and defined what type they are
 Profile.propTypes = {
@@ -356,11 +275,7 @@ const mapStateToProps = state => ({
   project: state.project
 });
 
-<<<<<<< HEAD
-export default connect(mapStateToProps, { getProfileById })(Profile);
-=======
 export default connect(mapStateToProps, {
   getProfileById,
   getProjectsByUserId
 })(Profile);
->>>>>>> master
