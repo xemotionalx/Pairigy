@@ -144,6 +144,15 @@ function EditProject({
           </div>
 
           <div className="row">
+            <input
+              type="button"
+              value="+ Add Team Member"
+              onClick={addTeamMember}
+              className="btn btn-dark btn-lg my-3"
+            />
+          </div>
+
+          <div className="row">
             {team.map((teamMember, index) => (
               <div className="col-md-4 col-sm-12">
                 <div className="add-team">

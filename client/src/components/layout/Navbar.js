@@ -29,7 +29,7 @@ const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
     return user ? (
         <nav className="navbar">
             <div className="navbar__logobox">
-                <img src={LogoSm} className="logo--xs mr-1" />
+                <img src={LogoSm} alt="logo" className="logo--xs mr-1" />
                     Pairigy
             </div>
 

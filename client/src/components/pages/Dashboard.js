@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { getCurrentProfile } from '../../actions/profile';
 
-function Dashboard({ auth: { user, loading } }) {
+function Dashboard({ auth: { user, loading }, getCurrentProfile, profile: {profile} }) {
+  useEffect(() => {
+    getCurrentProfile();
+  }, [getCurrentProfile]);
   return (
     <div className="section-dashboard">
       <div className="container">
@@ -25,9 +29,14 @@ function Dashboard({ auth: { user, loading } }) {
               <h3 className="heading-size--s mb-4">Profile</h3>
               <i className="fas fa-user card--icon mb-1"></i>
               <hr className="mb-5" />
+              { profile === null ? <Link to="/createprofile" className="btn button button--main mb-3">
+                Create Profile
+              </Link> 
+              : 
               <Link to="/editprofile" className="btn button button--main mb-3">
                 Edit Profile
               </Link>
+              }
               <br />
               <Link
                 to={`/profile/${user && user._id}`}
@@ -78,12 +87,14 @@ function Dashboard({ auth: { user, loading } }) {
 
 //brings in the state/actions and defined what type they are
 Dashboard.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired
 };
 
 //connects state to be passed through as props
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
+  profile: state.profile
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps, {getCurrentProfile})(Dashboard);
