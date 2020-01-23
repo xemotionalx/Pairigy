@@ -8,6 +8,8 @@ import Footer from './components/layout/Footer';
 // Import pages
 import Dashboard from './components/pages/Dashboard';
 import Index from './components/pages/Index';
+//favorites
+import ListFavorites from './components/pages/favorites/ListFavorites';
 //profile
 import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
@@ -60,6 +62,8 @@ return (
         <Route path='/profile/:userId' exact component={Profile} />
         <PrivateRoute path='/editprofile/' exact component={EditProfile} />
         <PrivateRoute path='/createprofile/' exact component={CreateProfile} />
+
+        <PrivateRoute path='/favorites/' exact component={ListFavorites} />
 
         <Route path='/project/:projectId' exact component={Project} />
         <Route path='/projects/user/:userId' exact component={ListProjects} />
