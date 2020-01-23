@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchQuery from '../utils/APISearch';
+
 import { connect } from 'react-redux';
 import { getSearchProfile } from "../../actions/profile";
 
