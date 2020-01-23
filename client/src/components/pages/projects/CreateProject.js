@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProject } from "../../../actions/project";
+import { getCurrentFavorites } from "../../../actions/faves";
 
-function CreateProject({ createProject, history }) {
+function CreateProject({
+  createProject,
+  getCurrentFavorites,
+  favorites: { favorites },
+  auth,
+  history
+}) {
+  useEffect(() => {
+    getCurrentFavorites();
+  }, [getCurrentFavorites]);
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -19,6 +30,18 @@ function CreateProject({ createProject, history }) {
   });
 
   const { name, description, website, status, team } = formData;
+
+  const [favesData, setFavesData] = useState({
+    favesArr: ""
+  });
+
+  useEffect(() => {
+    setFavesData({
+      favesArr: favorites ? favorites.favorites : []
+    });
+  }, [favorites]);
+
+  const { favesArr } = favesData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -54,7 +77,7 @@ function CreateProject({ createProject, history }) {
     createProject(formData, history);
   };
 
-  return (
+  return favesArr ? (
     <div className="container mt-5 mb-5">
       <div className="container--inner mb-5">
         <h1 className="heading-size--m mb-5">Create A New Project</h1>
@@ -136,18 +159,21 @@ function CreateProject({ createProject, history }) {
                   >
                     User:
                   </label>
-                  <input
+                  <select
                     type="text"
                     name="user"
                     data-order={index}
-                    defaultValue={teamMember.user}
+                    // defaultValue={teamMember.user}
                     value={teamMember.user}
                     onChange={e => onTeamChange(e)}
                     className="form-control"
-                  />
-                  <small className="lead">
-                    (ID# of user who has filled the role)
-                  </small>
+                  >
+                    <option selected>Position Open</option>
+                    <option value={auth.user && auth.user._id}>{auth.user && auth.user.name}</option>
+                    {favesArr.map(fave => (
+                      <option value={fave.user._id}>{fave.user.name}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
             ))}
@@ -163,12 +189,22 @@ function CreateProject({ createProject, history }) {
         </form>
       </div>
     </div>
+  ) : (
+    "loading"
   );
 }
 
 CreateProject.propTypes = {
-  createProject: PropTypes.func.isRequired
+  createProject: PropTypes.func.isRequired,
+  getCurrentFavorites: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  favorites: state.favorites,
+  auth: state.auth
+});
+
 //with router allows for the redirect through the action
-export default connect(null, { createProject })(withRouter(CreateProject));
+export default connect(mapStateToProps, { createProject, getCurrentFavorites })(
+  withRouter(CreateProject)
+);
