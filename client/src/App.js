@@ -4,7 +4,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // Import components
 import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 // Import pages
+import Dashboard from './components/pages/Dashboard';
 import Index from './components/pages/Index';
 //profile
 import EditProfile from './components/pages/profile-forms/EditProfile';
@@ -18,8 +20,7 @@ import ListProjects from './components/pages/projects/ListProjects';
 import MyProjects from './components/pages/projects/MyProjects';
 // Emails
 import Email from './components/emails/Emails';
-//dashboard
-import Dashboard from './components/pages/Dashboard';
+
 // messages
 import CreateMessage from './components/pages/messages/CreateMsg';
 import Inbox from './components/pages/messages/Inbox';
@@ -69,11 +70,12 @@ return (
         <PrivateRoute path='/createproject/' exact component={CreateProject} />
         <Route path='/myprojects/project/edit/:projectId' exact component={EditProject} />
     
-        <PrivateRoute path='/emails/' exact component={Email} />
+        <PrivateRoute exact path='/emails/' exact component={Email} />
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/mail/' exact component={Inbox} />
 
       </Switch>
+      <Footer />
     </Fragment>
   </Router>
   </Provider>

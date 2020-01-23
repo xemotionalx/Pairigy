@@ -4,21 +4,21 @@ import { connect } from 'react-redux';
 // import Spinner from '../layout/Spinner';
 import { getEmails } from '../../actions/email';
 
-const Emails = ({ getEmail, email: { emails, loading }}) => {
-    useEffect(()=> {
+const Emails = ({ getEmails, email: { posts, loading }}) => {
+    useEffect(() => {
         getEmails();
     }, [getEmails]);
 
-
-    return <div>
+    return (
+        <div>
             
         </div>
-    
+    )
 }
 
 Emails.propTypes = {
-getEmails: PropTypes.func.isRequired,
-email: PropTypes.object.isRequired,
+getEmails:PropTypes.func.isRequired,
+email: PropTypes.object.isRequired
 }
 
 

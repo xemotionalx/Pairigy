@@ -104,7 +104,8 @@ router.post(
 router.get('/user/:user_id', async (req, res) => {
     try {
 
-        const project = await Project.find({ 'team.user' : { $lte: req.params.user_id } });
+        const project = await Project.find({ 'team.user' : { $lte: req.params.user_id } })
+        .populate('team.user', ['name', 'avatar']);
 
         if (!project) return res.status(400).json({ msg: 'project not found' });
         res.json(project);
@@ -125,7 +126,8 @@ router.get('/user/:user_id', async (req, res) => {
 router.get('/:project_id', async (req, res) => {
     try {
 
-        const project = await Project.findById(req.params.project_id);
+        const project = await Project.findById(req.params.project_id)
+        .populate('team.user', ['name', 'avatar']);
 
         if (!project) return res.status(400).json({ msg: 'project not found' });
 
