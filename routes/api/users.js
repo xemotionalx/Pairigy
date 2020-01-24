@@ -8,6 +8,7 @@ const config = require("config");
 
 const { check, validationResult } = require("express-validator");
 
+const Faves = require("../../models/Faves");
 const User = require("../../models/User");
 
 //@route   POST api/users
@@ -71,7 +72,9 @@ router.post(
       user.password = await bcrypt.hash(password, salt);
 
       //user saved to db, ANYTHING that returns a promise we put 'await' infront of to dry the .then usage
-      await user.save();
+      await user.save({
+        user: user
+      });
 
       //Return jsonwebtoken, used for frontend login
       const payload = {

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
     return (
@@ -7,14 +8,14 @@ function Footer() {
             <h4 className="logo">
                 Pairigy
             </h4>
-            <i class="fas fa-moon"></i>
+            <i className="fas fa-moon"></i>
         </div>
         <div className="row">
             <div className="col s6">
                 <div className="footer__navigation">
                     <ul className="footer__list">
-                        <li className="footer__item"><a href="#" className="footer__link">Company</a></li>
-                        <li className="footer__item"><a href="#" className="footer__link">Contact us</a></li>
+                        <li className="footer__item"><Link to="#!" className="footer__link">Company</Link></li>
+                        <li className="footer__item"><Link to="#!" className="footer__link">Contact us</Link></li>
                     </ul>
                 </div>
             </div>

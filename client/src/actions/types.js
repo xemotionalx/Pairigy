@@ -23,3 +23,6 @@ export const SEARCH_PROFILE_ERROR = 'SEARCH_PROFILE_ERROR';
 // email
 export const GET_EMAIL = 'GET_EMAIL';
 export const EMAIL_ERROR ='EMAIL_ERROR';
+//
+export const GET_FAVES = "GET_FAVES";
+export const FAV_ERROR = "FAV_ERROR"
