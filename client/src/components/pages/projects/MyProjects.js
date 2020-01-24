@@ -21,7 +21,8 @@ function MyProjects({
       dataset: { projectid }
     } = e.target;
     await getProjectById(projectid);
-    window.location.replace(`project/edit/${projectid}`);
+    window.location.href(`project/edit/${projectid}`);
+    return false;
   };
 
   return loading && projects === [] ? (
