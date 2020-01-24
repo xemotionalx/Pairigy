@@ -24,7 +24,7 @@ function CreateProject({
     team: [
       {
         role: "",
-        user: ""
+        user: null
       }
     ]
   });
@@ -53,7 +53,7 @@ function CreateProject({
       value
     } = e.target;
     const newTeamMember = [...formData.team];
-    newTeamMember[order] = { ...team[order], [name]: value };
+    newTeamMember[order] = { ...team[order], [name]: value || null };
 
     setFormData({ ...formData, team: newTeamMember });
   };
@@ -65,7 +65,7 @@ function CreateProject({
         ...team,
         {
           role: "",
-          user: ""
+          user: null
         }
       ]
     });
@@ -77,7 +77,7 @@ function CreateProject({
     createProject(formData, history);
   };
 
-  return favesArr ? (
+  return (
     <div className="container mt-5 mb-5">
       <div className="container--inner mb-5">
         <h1 className="heading-size--m mb-5">Create A New Project</h1>
@@ -153,6 +153,7 @@ function CreateProject({
                     className="form-control"
                     required
                   ></input>
+                  
                   <label
                     htmlFor="user"
                     className="form-editprofile--label mt-3"
@@ -163,17 +164,28 @@ function CreateProject({
                     type="text"
                     name="user"
                     data-order={index}
-                    // defaultValue={teamMember.user}
-                    value={teamMember.user}
+                    defaultValue={teamMember.role}
+                    value={teamMember.user || ""}
                     onChange={e => onTeamChange(e)}
                     className="form-control"
                   >
-                    <option selected>Position Open</option>
+                    <option value="" selected>Favorites</option>
                     <option value={auth.user && auth.user._id}>{auth.user && auth.user.name}</option>
-                    {favesArr.map(fave => (
+
+                    
+                    {
+                      favesArr ?
+                    
+                    favesArr.map(fave => (
                       <option value={fave.user._id}>{fave.user.name}</option>
-                    ))}
+                    ))
+                    
+                    : ""
+                    }
                   </select>
+                  <small className="lead">
+                    Leave blank if position is open.
+                  </small>
                 </div>
               </div>
             ))}
@@ -189,9 +201,7 @@ function CreateProject({
         </form>
       </div>
     </div>
-  ) : (
-    "loading"
-  );
+  ) 
 }
 
 CreateProject.propTypes = {
