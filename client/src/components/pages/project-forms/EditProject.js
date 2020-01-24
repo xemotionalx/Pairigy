@@ -222,24 +222,6 @@ function EditProject({
                   <small className="lead">
                     Leave blank if position is open.
                   </small>
-                  {/* <label
-                    htmlFor="user"
-                    className="form-editprofile--label mt-3"
-                  >
-                    User:
-                  </label>
-                  <input
-                    type="text"
-                    name="user"
-                    data-order={index}
-                    defaultValue={teamMember._id}
-                    value={teamMember._id}
-                    onChange={e => onTeamChange(e)}
-                    className="form-control"
-                  />
-                  <small className="lead">
-                    (ID# of user who has filled the role)
-                  </small> */}
                 </div>
               </div>
             ))}
