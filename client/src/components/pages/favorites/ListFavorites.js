@@ -6,7 +6,7 @@ import { getCurrentFavorites } from "../../../actions/faves";
 const ListFavorites = ({
   favorites: { favorites },
   getCurrentFavorites,
-  auth: { user }
+  auth: {user}
 }) => {
   useEffect(() => {
     getCurrentFavorites();
@@ -23,8 +23,6 @@ const ListFavorites = ({
   }, [favorites]);
 
   const { favesArr } = favesData;
-
-  console.log(favesArr);
 
   return favesArr ? (
     <div className="container mt-5 mb-5">
