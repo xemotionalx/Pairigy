@@ -171,15 +171,11 @@ function CreateProject({
                   >
                     <option value="" selected>Favorites</option>
                     <option value={auth.user && auth.user._id}>{auth.user && auth.user.name}</option>
-
-                    
                     {
                       favesArr ?
-                    
                     favesArr.map(fave => (
                       <option value={fave.user._id}>{fave.user.name}</option>
                     ))
-                    
                     : ""
                     }
                   </select>

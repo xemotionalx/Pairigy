@@ -6,6 +6,7 @@ import {
   createProject,
   deleteProject
 } from "../../../actions/project";
+import { getCurrentFavorites } from "../../../actions/faves";
 
 function EditProject({
   match,
@@ -13,6 +14,9 @@ function EditProject({
   project: { loading, project },
   createProject,
   deleteProject,
+  getCurrentFavorites,
+  favorites: { favorites },
+  auth,
   history
 }) {
   const [formData, setFormData] = useState({
@@ -29,6 +33,10 @@ function EditProject({
   }, [getProjectById, match]);
 
   useEffect(() => {
+    getCurrentFavorites();
+  }, [getCurrentFavorites]);
+
+  useEffect(() => {
     setFormData({
       projectId: loading || !project._id ? "" : project._id,
       name: loading || !project.name ? "" : project.name,
@@ -40,6 +48,22 @@ function EditProject({
   }, [project, loading]);
 
   const { projectId, name, description, website, status, team } = formData;
+
+  const [favesData, setFavesData] = useState({
+    favesArr: ""
+  });
+
+  // set favorites
+
+  useEffect(() => {
+    setFavesData({
+      favesArr: favorites ? favorites.favorites : []
+    });
+  }, [favorites]);
+
+  const { favesArr } = favesData;
+
+  //end set favorites
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -175,18 +199,47 @@ function EditProject({
                   >
                     User:
                   </label>
+                  <select
+                    type="text"
+                    name="user"
+                    data-order={index}
+                    defaultValue={teamMember.user ? teamMember.user._id : ""}
+                    value={teamMember.user ? teamMember.user._id : "" || ""}
+                    onChange={e => onTeamChange(e)}
+                    className="form-control"
+                  >      
+                    <option value={teamMember.user ? teamMember.user._id : ""}>{teamMember.user ? teamMember.user.name : "Position Open"}</option>
+                    {teamMember.user ? <option value="" selected>Position Open</option> : ""}
+                    <option value={auth.user && auth.user._id}>{auth.user && auth.user.name}</option> 
+                    {
+                      favesArr ?
+                    favesArr.map(fave => (
+                     <option value={fave.user._id}>{fave.user.name}</option>
+                    ))
+                    : ""
+                    }
+                  </select>
+                  <small className="lead">
+                    Leave blank if position is open.
+                  </small>
+                  {/* <label
+                    htmlFor="user"
+                    className="form-editprofile--label mt-3"
+                  >
+                    User:
+                  </label>
                   <input
                     type="text"
                     name="user"
                     data-order={index}
-                    defaultValue={teamMember.user}
-                    value={teamMember.user}
+                    defaultValue={teamMember._id}
+                    value={teamMember._id}
                     onChange={e => onTeamChange(e)}
                     className="form-control"
                   />
                   <small className="lead">
                     (ID# of user who has filled the role)
-                  </small>
+                  </small> */}
                 </div>
               </div>
             ))}
@@ -206,16 +259,21 @@ EditProject.propTypes = {
   getProjectById: PropTypes.func.isRequired,
   createProject: PropTypes.func.isRequired,
   deleteProject: PropTypes.func.isRequired,
-  project: PropTypes.object.isRequired
+  project: PropTypes.object.isRequired,
+  getCurrentFavorites: PropTypes.func.isRequired,
+  favorites: PropTypes.object.isRequired,
 };
 
 //connects state to be passed through as props
 const mapStateToProps = state => ({
-  project: state.project
+  project: state.project,
+  favorites: state.favorites,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, {
   getProjectById,
   createProject,
-  deleteProject
+  deleteProject,
+  getCurrentFavorites
 })(EditProject);
