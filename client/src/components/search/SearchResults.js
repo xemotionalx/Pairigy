@@ -22,7 +22,7 @@ const SearchResults = ({search: {results}}) => {
                 </div>
                 <div className="col-md-8 px-3">
                   <div className="card-block px-3">
-                    <Link to={`profile/{profile.user._id}`}>
+                    <Link to={`/profile/${profile.user._id}`}>
                     <h4 className="heading-size--s card-title">{profile.user.name}</h4>
                     </Link>
                     <p className="card-text">{profile.location} | {profile.status}</p>
