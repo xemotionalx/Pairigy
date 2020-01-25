@@ -7,7 +7,7 @@ import { getCurrentFavorites } from "../../../actions/faves";
 const ListFavorites = ({
   favorites: { favorites },
   getCurrentFavorites,
-  auth: { user }
+  auth: {user}
 }) => {
   useEffect(() => {
     getCurrentFavorites();
@@ -34,15 +34,15 @@ const ListFavorites = ({
           {favesArr.map((fave, index) => (
             <div className='col-lg-3 col-md-6 col-sm-12' key={index}>
               <div className='card__team text-center mb-3'>
-                <Link to={`/profile/${fave.user.id}`}>
+                <Link to={`/profile/${fave.user && fave.user._id}`}>
                   <img
-                    src={fave.user.avatar}
+                    src={fave.user && fave.user.avatar}
                     alt='user avatar'
                     className='avatar avatar--sm w-50'
                   />
                 </Link>
                 <p>
-                  <b>Name: </b> {fave.user.name}
+                  <b>Name: </b> {fave.user && fave.user.name}
                 </p>
               </div>
             </div>

@@ -24,4 +24,9 @@ export const ADVANCED_SEARCH = "ADVANCED_SEARCH";
 export const ADVANCED_SEARCH_ERROR = "ADVANCED_SEARCH_ERROR"
 //favorites
 export const GET_FAVES = "GET_FAVES";
-export const FAV_ERROR = "FAV_ERROR"
+export const FAV_ERROR = "FAV_ERROR";
+//messages
+export const GET_MESSAGE = "GET_MESSAGE";
+export const GET_RECEIVED = "GET_RECEIVED"
+export const MESSAGE_ERROR = "MESSAGE_ERROR";
+
