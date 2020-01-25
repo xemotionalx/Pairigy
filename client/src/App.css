@@ -67,6 +67,8 @@ li {
   box-shadow: 0 0.3rem 0.5rem rgba(119, 136, 153, 0.5); }
   .avatar--lg {
     max-width: 30rem; }
+  .avatar--m {
+    max-width: 20rem; }
   .avatar--sm {
     max-width: 10rem; }
 
