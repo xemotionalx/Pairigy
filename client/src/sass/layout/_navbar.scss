@@ -12,31 +12,37 @@
         font-size: 3rem;
         color: $color-primary-dark;
         padding: .2rem 1.2rem;
+        & a:link, a
+        {
+        font-family: $logo-font;
+        font-size: 3rem;
+        color: $color-primary-dark;
         @include gradientText(bottom left, $color-primary, $color-primary-light);
+        }
         & .fas {
             @include gradientText(top, $color-primary, $color-primary-light);
         }
     }
     &__link {
         float: right;
+        & a {
+            color: $color-primary-light;
+            &:link {
+                padding: .2rem 1.2rem;
+                text-decoration: none;
+                font-size: 2rem;
+                display: inline-block;
+            }
+            &:hover {
+                color: $color-secondary-light;
+            }
+        }
     }
     &__searchbox {
         width: 25%;
         float: left;
         & .fas {
             color: $color-primary-dark;
-        }
-    }
-    & a {
-        color: $color-primary-light;
-        &:link {
-            padding: .2rem 1.2rem;
-            text-decoration: none;
-            font-size: 2rem;
-            display: inline-block;
-        }
-        &:hover {
-            color: $color-secondary-light;
         }
     }
 }

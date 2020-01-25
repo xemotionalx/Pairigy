@@ -116,8 +116,9 @@ li {
   padding: .5rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5);
   color: #0b0b0a;
-  border: 0.5px solid #778899;
-  font-size: 1rem; }
+  border: 0.5px solid #778899; }
+  .card__team p {
+    font-size: 1.4rem; }
 
 .card__dashboard {
   text-align: center;
@@ -253,11 +254,15 @@ li {
     margin-left: 3rem;
     font-size: 3rem;
     color: #191D21;
-    padding: .2rem 1.2rem;
-    background-image: linear-gradient(to bottom left, #778899, #f7fbff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; }
+    padding: .2rem 1.2rem; }
+    .navbar__logobox a:link, .navbar__logobox a {
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 3rem;
+      color: #191D21;
+      background-image: linear-gradient(to bottom left, #778899, #f7fbff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent; }
     .navbar__logobox .fas {
       background-image: linear-gradient(to top, #778899, #f7fbff);
       -webkit-background-clip: text;
@@ -265,20 +270,20 @@ li {
       color: transparent; }
   .navbar__link {
     float: right; }
+    .navbar__link a {
+      color: #f7fbff; }
+      .navbar__link a:link {
+        padding: .2rem 1.2rem;
+        text-decoration: none;
+        font-size: 2rem;
+        display: inline-block; }
+      .navbar__link a:hover {
+        color: #8CDAEA; }
   .navbar__searchbox {
     width: 25%;
     float: left; }
     .navbar__searchbox .fas {
       color: #191D21; }
-  .navbar a {
-    color: #f7fbff; }
-    .navbar a:link {
-      padding: .2rem 1.2rem;
-      text-decoration: none;
-      font-size: 2rem;
-      display: inline-block; }
-    .navbar a:hover {
-      color: #8CDAEA; }
 
 .section-auth {
   position: relative;
