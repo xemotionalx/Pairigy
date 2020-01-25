@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import SearchQuery from '../utils/APISearch';
 import { connect } from 'react-redux';
 import { getSearchProfile } from "../../actions/profile";
 
+// import profile from '../pages/profile';
 
 class Search extends Component {
 
     constructor(props) {
         super(props);
+
+
         this.state = {
 
             // searchField: '',
             profile: [],
             error: "",
-            message: ""
+            message: "",
+
         };
     }
     componentWillMount() {
         // Test
         console.log(123);
         this.setState({ q: "", data: [] });
+
     }
 
     componentDidMount() {
@@ -30,45 +34,58 @@ class Search extends Component {
     }
 
     handleSearch = e => {
-        this.setState({ q: e.target.value, data: this.state.data });
+        const { value } = e.target;
+        this.setState({ data: value });
         // Test
-        console.log(e.target.value);
+
+        console.log(this.state.data);
+
+
     };
+
 
     handleFormSubmit = event => {
         event.preventDefault();
 
-
-        this.props.getSearchProfile(this.state.q)
-        // .then(res => {
-        //     const profile = res;
-        //     console.log(profile);
-        //     if (profile === "error") {
-        //         throw new Error(profile);
-        //     }
-        //     else {
-        //         let results = profile
-
-        //         //map through the array 
-        //         results = results.map(result => {
-        //             //stores book info in new object 
-        //             result = {
-        //                 user: profile
-
-        //             }
-        //             return result;
-        //         })
-        //         // this.setState({q:this.state.q, data})
-
-        //         this.setState({ profile: results, error: "" })
-        //     }
-        // })
-        // .catch(err => this.setState({ error: err }));
-        //  Test
-        // console.log(handleFormSubmit);
-    }
+        this.props.getSearchProfile(this.state.data);
 
 
+
+        // if (!this.state.data.length) return null;
+
+
+        // return this.state.data.find((res, index) => (
+        //     <div key={index}>
+        //         <h3>{res.name}</h3>
+        //         <p>{res.body}</p>
+        //     </div>
+
+
+        // ))
+
+        console.log(this.state.data);
+        this.setState({ data: this.state.data })
+
+    };
+
+
+
+    // displaySearchResults = (data) => {
+
+    //     if (!data.length) return null;
+
+
+    //     return data.map((datas, index) => (
+    //         <div key={index}>
+    //             <h3>{datas.name}</h3>
+    //             <p>{datas.body}</p>
+    //         </div>
+
+
+    //     ))
+
+
+    // }
 
 
 
@@ -86,6 +103,11 @@ class Search extends Component {
 
                 </form>
 
+                <div className="search-result">
+
+                    {/* {this.getProfileById(this.state.data)} */}
+
+                </div>
 
 
             </div>
@@ -104,5 +126,6 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { getSearchProfile }
+
 
 )(Search);

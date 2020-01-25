@@ -25,8 +25,6 @@ const ListFavorites = ({
 
   const { favesArr } = favesData;
 
-  console.log(favesArr);
-
   return favesArr ? (
     <div className='container mt-5 mb-5'>
       <div className='container--inner'>

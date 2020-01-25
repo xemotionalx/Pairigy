@@ -101,8 +101,23 @@ export const createProfile = (
 export const getSearchProfile = (query) => async dispatch => {
     try {
         //axios call to the route that will match profile to current user
-        const res = await axios.get("/api/search?q=" + query);
-        console.log(res);
+        const res = await axios.get("/api/search?name=" + query)
+
+
+        console.log(res.data);
+        console.log('a Data has been received');
+
+
+
+
+
+
+
+
+
+
+
+
 
         dispatch({
             type: SEARCH_PROFILE,

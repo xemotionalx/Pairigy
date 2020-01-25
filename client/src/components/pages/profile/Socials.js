@@ -55,16 +55,21 @@ const Socials = ({
     const githubIcon = !github ? "" : <a href={github} target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>;
     const dribbbleIcon = !dribbble ? "" : <a href={dribbble} target="_blank" rel="noopener noreferrer"><i class="fab fa-dribbble"></i></a>;
 
-    return !profile.social ? ( <span>""</span> ) : (
-        <div className="section-profile--socials">
-        {twitterIcon}
-        {facebookIcon}
-        {linkedinIcon}
-        {instagramIcon}
-        {githubIcon}
-        {dribbbleIcon}
-        </div>
-    )
+    return profile.socials ? (
+      <div className="section-profile--socials">
+        <ul>
+          <li className="list-item--social mr-1">{twitterIcon}</li>
+          <li className="list-item--social mr-1">{facebookIcon}</li>
+          <li className="list-item--social mr-1">{linkedinIcon}</li>
+          <li className="list-item--social mr-1">
+            {instagramIcon}
+          </li>
+          <li className="list-item--social mr-1">{githubIcon}</li>
+          <li className="list-item--social mr-1">{dribbbleIcon}</li>
+        </ul>
+      </div>
+    ) : (
+      "")
 
 }
 
