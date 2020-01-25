@@ -28,7 +28,7 @@ function MyProjects({
   return loading && projects === [] ? (
     <div>loading</div>
   ) : (
-    <div className="container mb-5 mt-5">   
+      <div className="container mb-5 mt-5">
         <Link
           to="/createproject"
           className="btn button button--main mb-3 float-right"
@@ -80,10 +80,10 @@ function MyProjects({
                           <b>Name: </b> {role.user.name}
                         </p>
                       ) : (
-                        <p>
-                          <b> Position Open </b>
-                        </p>
-                      )}
+                          <p>
+                            <b> Position Open </b>
+                          </p>
+                        )}
                       <p>
                         <b>Role: </b> {role.role}{" "}
                       </p>
@@ -93,9 +93,11 @@ function MyProjects({
               </div>
             </div>
           </div>
-        ))}
-    </div>
-  );
+
+        ))
+        }
+      </div >
+    );
 }
 
 MyProjects.propTypes = {

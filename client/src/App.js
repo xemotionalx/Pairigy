@@ -20,9 +20,6 @@ import EditProject from './components/pages/project-forms/EditProject';
 import Project from './components/pages/projects/Project';
 import ListProjects from './components/pages/projects/ListProjects';
 import MyProjects from './components/pages/projects/MyProjects';
-// Emails
-import Email from './components/emails/Emails';
-
 // messages
 import CreateMessage from './components/pages/messages/CreateMsg';
 import Inbox from './components/pages/messages/Inbox';
@@ -73,8 +70,7 @@ return (
         <PrivateRoute path='/myprojects' exact component={MyProjects} />
         <PrivateRoute path='/createproject/' exact component={CreateProject} />
         <Route path='/myprojects/project/edit/:projectId' exact component={EditProject} />
-    
-        <PrivateRoute exact path='/emails/' exact component={Email} />
+
         <Route path='/createmessage/' exact component={CreateMessage} />
         <Route path='/mail/' exact component={Inbox} />
 

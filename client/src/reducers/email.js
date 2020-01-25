@@ -24,7 +24,7 @@ export default function(state = inititialState, action) {
             case EMAIL_ERROR:
                 return {
                     ...state,
-                    emails: payload,
+                    error: payload,
                     loading: false
                 }
                 default:

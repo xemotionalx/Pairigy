@@ -6,7 +6,7 @@ import { getCurrentFavorites } from "../../../actions/faves";
 const ListFavorites = ({
   favorites: { favorites },
   getCurrentFavorites,
-  auth: { user }
+  auth: {user}
 }) => {
   useEffect(() => {
     getCurrentFavorites();
