@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import {searchByLocation} from "../../actions/search";
+import {searchByLocation, searchBySkill} from "../../actions/search";
 
 function AdvancedSearch({
     search,
     history,
-    searchByLocation
+    searchByLocation,
+    searchBySkill
 }) {
 
     const [formData, setFormData] = useState({
@@ -20,10 +21,13 @@ function AdvancedSearch({
 
     const onSubmit = e=> {
         e.preventDefault();
-        switch (searchCriteria) {
-          case "location":
-            searchByLocation(searchTerm, history);
-      }
+        console.log(searchCriteria);
+      //   switch (searchCriteria) {
+      //     case "location":
+      //       searchByLocation(searchTerm, history);
+      //     case "skill":
+      //       searchBySkill(searchTerm, history);
+      // }
     }
 
   return (
@@ -46,7 +50,7 @@ function AdvancedSearch({
             <div className="form-check" name="searchCriteria"
               value={searchCriteria}
               onChange={e => onChange(e)}>
-                <input className="form-check-input" type="radio" />
+                <input className="form-check-input" type="radio" checked={true} />
                     <label className="form-check-label ml-2" htmlFor="name">
                         Name
                     </label>
@@ -81,6 +85,7 @@ function AdvancedSearch({
 AdvancedSearch.propTypes = {
     search: PropTypes.object.isRequired,
     searchByLocation: PropTypes.func.isRequired,
+    searchBySkill: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -88,5 +93,5 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, {
-    searchByLocation
+    searchByLocation, searchBySkill
   })(AdvancedSearch);
