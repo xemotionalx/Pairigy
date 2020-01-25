@@ -1,10 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { createProject } from "../../../actions/project";
+import { getCurrentFavorites } from "../../../actions/faves";
 
-function CreateProject({ createProject, history }) {
+function CreateProject({
+  createProject,
+  getCurrentFavorites,
+  favorites: { favorites },
+  auth,
+  history
+}) {
+  useEffect(() => {
+    getCurrentFavorites();
+  }, [getCurrentFavorites]);
+
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -13,12 +24,24 @@ function CreateProject({ createProject, history }) {
     team: [
       {
         role: "",
-        user: ""
+        user: null
       }
     ]
   });
 
   const { name, description, website, status, team } = formData;
+
+  const [favesData, setFavesData] = useState({
+    favesArr: ""
+  });
+
+  useEffect(() => {
+    setFavesData({
+      favesArr: favorites ? favorites.favorites : []
+    });
+  }, [favorites]);
+
+  const { favesArr } = favesData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,9 +52,9 @@ function CreateProject({ createProject, history }) {
       name,
       value
     } = e.target;
-    const newTeamMember = team.slice();
-    newTeamMember[order] = { [name] : value } ;
-    console.log(newTeamMember);
+    const newTeamMember = [...formData.team];
+    newTeamMember[order] = { ...team[order], [name]: value || null };
+
     setFormData({ ...formData, team: newTeamMember });
   };
 
@@ -42,7 +65,7 @@ function CreateProject({ createProject, history }) {
         ...team,
         {
           role: "",
-          user: ""
+          user: null
         }
       ]
     });
@@ -131,23 +154,34 @@ function CreateProject({ createProject, history }) {
                     className="form-control"
                     required
                   ></input>
+                  
                   <label
                     htmlFor="user"
                  className="mt-3"
                   >
                     User:
                   </label>
-                  <input
+                  <select
                     type="text"
                     name="user"
                     data-order={index}
-                    defaultValue={teamMember.user}
-                    value={teamMember.user}
+                    defaultValue={teamMember.role}
+                    value={teamMember.user || ""}
                     onChange={e => onTeamChange(e)}
                     className="form-control"
-                  />
+                  >
+                    <option value="" selected>Favorites</option>
+                    <option value={auth.user && auth.user._id}>{auth.user && auth.user.name}</option>
+                    {
+                      favesArr ?
+                    favesArr.map(fave => (
+                      <option value={fave.user._id}>{fave.user.name}</option>
+                    ))
+                    : ""
+                    }
+                  </select>
                   <small className="lead">
-                    (ID# of user who has filled the role)
+                    Leave blank if position is open.
                   </small>
                 </div>
               </div>
@@ -164,12 +198,20 @@ function CreateProject({ createProject, history }) {
         </form>
       </div>
     </div>
-  );
+  ) 
 }
 
 CreateProject.propTypes = {
   createProject: PropTypes.func.isRequired,
+  getCurrentFavorites: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  favorites: state.favorites,
+  auth: state.auth
+});
+
 //with router allows for the redirect through the action
-export default connect(null, { createProject })(withRouter(CreateProject));
+export default connect(mapStateToProps, { createProject, getCurrentFavorites })(
+  withRouter(CreateProject)
+);

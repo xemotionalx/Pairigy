@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { getProjectsByOwnerId, getProjectById } from "../../../actions/project";
 import DefaultAvatar from "../../../images/default-profile-avatar.jpg";
 
@@ -21,6 +22,7 @@ function MyProjects({
     } = e.target;
     await getProjectById(projectid);
     window.location.replace(`project/edit/${projectid}`);
+    return false;
   };
 
   return loading && projects === [] ? (
@@ -28,7 +30,16 @@ function MyProjects({
   ) : (
     <div className="container mb-5 mt-5">
       <div className="container--inner">
-        <h1 className="heading-size--l mb-5 text-center">Manage Your Projects</h1>
+        <Link
+          to="/createproject"
+          className="btn button button--main mb-3 float-right"
+        >
+          <i className="fas fa-plus"></i> Create New Project
+        </Link>
+        <br />
+        <h1 className="heading-size--s mt-5 mb-5">
+          Your Projects
+        </h1>
         {projects.map((project, index) => (
           <div className="project-box mb-5">
             <div className="project-box--header">

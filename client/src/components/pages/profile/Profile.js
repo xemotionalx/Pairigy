@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getProfileById } from "../../../actions/profile";
+import { addNewFavorite, getCurrentFavorites } from "../../../actions/faves";
 import { getProjectsByUserId } from "../../../actions/project";
 import Skills from "./Skills";
 import DefaultAvatar from "../../../images/default-profile-avatar.jpg";
@@ -12,7 +13,9 @@ const Profile = ({
   getProfileById,
   profile: { profile, loading },
   getProjectsByUserId,
-  project: { projects }
+  project: { projects },
+  addNewFavorite,
+  getCurrentFavorites
 }) => {
   useEffect(() => {
     getProfileById(match.params.userId);
@@ -23,6 +26,7 @@ const Profile = ({
   }, [match, getProjectsByUserId]);
 
   const [profileData, setProfileData] = useState({
+    userId: "",
     name: "",
     avatar: "",
     status: "",
@@ -45,6 +49,7 @@ const Profile = ({
     //once getting the profile, if each item is loading or doesn't exist, leave the field blank
     //otherwise, will set the existing data into the form
     setProfileData({
+      userId: loading? "" : profile.user._id,
       name: loading ? "" : profile.user.name,
       avatar: loading ? "" : profile.user.avatar,
       status: loading || !profile.status ? "" : profile.status,
@@ -64,6 +69,7 @@ const Profile = ({
   //once loading is done (profile.loading = false), that is when useEffect runs
 
   const {
+    userId,
     name,
     avatar,
     status,
@@ -154,9 +160,12 @@ const Profile = ({
               >
                 <i className="far fa-envelope"></i> Message
               </Link>
-              <Link to="#" className="btn button button--main mr-3">
+              <button className="btn button button--main mr-3" onClick={() => addNewFavorite(userId)}>
                 <i className="far fa-star"></i> Favorite
-              </Link>
+              </button>
+              {/* <button className="btn button button--main">
+              <i className="fas fa-plus"></i> Add to Project
+              </button> */}
             </div>
             <ul>
               {/* city, state */}
@@ -229,11 +238,11 @@ const Profile = ({
 
               <h3 className="project__sub-heading mb-3 ml-3"><b>Team</b></h3>
               <div className="row ml-3">
-                {project.team.map((role, index) => (
+              {project.team.map((role, index) => (
                   <div className="col-lg-3 col-md-6 col-sm-12" key={index}>
                     <div className="card__team text-center mb-3">
                       <img
-                        src={DefaultAvatar}
+                        src={role.user ? role.user.avatar : DefaultAvatar}
                         alt="user avatar"
                         className="avatar avatar--sm w-50"
                       />
@@ -267,16 +276,20 @@ Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,
   getProjectsByUserId: PropTypes.func.isRequired,
-  project: PropTypes.object.isRequired
+  project: PropTypes.object.isRequired,
+  addNewFavorite: PropTypes.func.isRequired,
+  getCurrentFavorites: PropTypes.func.isRequired
 };
 
 //connects state to be passed through as props
 const mapStateToProps = state => ({
   profile: state.profile,
-  project: state.project
+  project: state.project,
 });
 
 export default connect(mapStateToProps, {
   getProfileById,
-  getProjectsByUserId
+  getProjectsByUserId,
+  addNewFavorite,
+  getCurrentFavorites
 })(Profile);
