@@ -10,11 +10,11 @@ const Index = ({
     return user ? (<Dashboard />) : (
         <section className="section-splash">
         <div className="section-splash--inner">
-        <h1 className="heading-splash heading-splash--main mb-4">Pairigy</h1>
-        <h3 className="heading-splash heading-splash--sub mb-5">A meeting point for tech people and projects</h3>
+        <h1 className="heading-splash heading-size--xxl mb-4">Pairigy</h1>
+        <h3 className="heading-splash heading-size--xs mb-5">A meeting point for tech people and projects</h3>
         <div className="buttons">
-        <Link to="/register/" className="button button--main mr-5 d-inline-block">Sign Up</Link>
-        <Link to="/login/" className="button button--main d-inline-block">Log In</Link>
+        <Link to="/register/" className="button button--splash mr-5 d-inline-block">Sign Up</Link>
+        <Link to="/login/" className="button button--splash d-inline-block">Log In</Link>
         </div>
     </div>
     </section>

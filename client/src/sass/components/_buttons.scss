@@ -4,7 +4,7 @@
     outline: none;
     overflow: hidden;
 
-    &--main {
+    &--splash {
         background: linear-gradient(to bottom right, $color-primary-light, $color-primary);
         padding: 1rem 2rem;
 
@@ -28,50 +28,48 @@
         }
     }
 
-    &--user-action {
-        padding: 1rem 1rem;
+    &--main {
+        border: none;
+        padding: .5rem 1rem;
+        background: linear-gradient(to bottom right, $color-primary-dark, $color-primary); 
+        font-size: $default-font-size;
+        color: $color-primary-light;
+        transition: all .5s;
+
+        &:hover {
+            box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
+            background: linear-gradient(to bottom right, $color-primary-dark, $color-secondary);
+            color: $color-white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+
+    // &--user-action {
+    //     padding: 1rem 1rem;
         
-        background-color: $color-primary-light;
-        color: $color-primary-dark;
-        border: 3px solid $color-primary;
-        font-size: $default-font-size;
+    //     background: linear-gradient(to bottom left, $color-primary-light, $color-white);
+    //     color: $color-primary-dark;
+    //     border: 3px solid $color-primary;
+    //     font-size: $default-font-size;
 
-        transition: all .3s;
+    //     transition: all .3s;
 
-        &:hover {
-            box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
-            background-color: $color-white;
+    //     &:hover {
+    //         box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
+    //         background: linear-gradient(to bottom right, $color-secondary, $color-secondary-light);
+    //         border: 3px solid $color-primary-light;
+    //         color: $color-white;
+    //         text-decoration: none;
+    //         font-weight: bold;
+    //     }
 
-            background-color: #F0F93B;
-            color: $color-black;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-    }
-
-    &--dashboard {
-        border: 2px solid $color-primary;
-        padding: .5rem;
-    
-        font-size: $default-font-size;
-        color: $color-primary-dark;
-
-        &:hover {
-            box-shadow: 0 .8rem 1.2rem rgba($color-black, .3);
-            background-color: $color-white;
-
-            background-color: #F0F93B;
-            color: $color-black;
-            text-decoration: none;
-            font-weight: bold;
-        }
-    }
+    // }
 
     &:active {
         box-shadow: 0 3rem .8rem rgba($color-primary, .3);
 
-        background-color: #F0F93B;
+        background: linear-gradient(to bottom right, $color-primary-dark, $color-secondary);
         color: $color-black;
         text-decoration: none;
     }

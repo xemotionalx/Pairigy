@@ -2,18 +2,19 @@
     overflow: hidden;
     z-index: 100;
     text-align: center;
-    background-color: $color-black;
+    background: linear-gradient(to left, $color-primary-dark, $color-black);
     padding: 1rem 0;
+    border-bottom: solid 3px $color-secondary;
     &__logobox {
         font-family: $logo-font;
         float: left;
         margin-left: 3rem;
-        font-size: 2.5rem;
+        font-size: 3rem;
         color: $color-primary-dark;
         padding: .2rem 1.2rem;
-        @include gradientText(bottom left, $color-primary, $color-primary-dark);
+        @include gradientText(bottom left, $color-primary, $color-primary-light);
         & .fas {
-            @include gradientText(top, $color-primary, $color-primary-dark);
+            @include gradientText(top, $color-primary, $color-primary-light);
         }
     }
     &__link {
@@ -31,11 +32,11 @@
         &:link {
             padding: .2rem 1.2rem;
             text-decoration: none;
-            font-size: 1.6rem;
+            font-size: 2rem;
             display: inline-block;
         }
         &:hover {
-            color: $color-primary;
+            color: $color-secondary-light;
         }
     }
 }

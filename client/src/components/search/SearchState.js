@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 import { getSearchProfile } from "../../actions/profile";
 
+// import profile from '../pages/profile';
 
 class Search extends Component {
 
@@ -23,6 +23,7 @@ class Search extends Component {
         // Test
         console.log(123);
         this.setState({ q: "", data: [] });
+
     }
 
     componentDidMount() {
@@ -34,15 +35,11 @@ class Search extends Component {
 
     handleSearch = e => {
         const { value } = e.target;
-        console.log(value);
-        this.setState({
-            data: value
-        });
+        this.setState({ data: value });
+        // Test
 
-        // this.setState({ q: e.target.value, data: this.state.data });
-        // // Test
-        // console.log(e.target.value);
-        // this.handleFormSubmit(data);
+        console.log(this.state.data);
+
 
     };
 
@@ -50,20 +47,45 @@ class Search extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
 
-
         this.props.getSearchProfile(this.state.data);
 
-        console.log(this.state.data);
-        console.log('ashsksdhsk');
 
+
+        // if (!this.state.data.length) return null;
+
+
+        // return this.state.data.find((res, index) => (
+        //     <div key={index}>
+        //         <h3>{res.name}</h3>
+        //         <p>{res.body}</p>
+        //     </div>
+
+
+        // ))
+
+        console.log(this.state.data);
+        this.setState({ data: this.state.data })
 
     };
 
-    // this.setState({ profile });
 
 
+    // displaySearchResults = (data) => {
+
+    //     if (!data.length) return null;
 
 
+    //     return data.map((datas, index) => (
+    //         <div key={index}>
+    //             <h3>{datas.name}</h3>
+    //             <p>{datas.body}</p>
+    //         </div>
+
+
+    //     ))
+
+
+    // }
 
 
 
@@ -81,7 +103,11 @@ class Search extends Component {
 
                 </form>
 
+                <div className="search-result">
 
+                    {/* {this.getProfileById(this.state.data)} */}
+
+                </div>
 
 
             </div>
@@ -100,5 +126,6 @@ const mapStateToProps = state => ({
 export default connect(
     mapStateToProps,
     { getSearchProfile }
+
 
 )(Search);

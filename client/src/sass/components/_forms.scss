@@ -1,24 +1,32 @@
 .form {
-    &-editprofile {
-        background-color: $color-primary-light;
-        padding: 5rem 10rem;
-        border-radius: 2px;
-        box-shadow: 0 .5rem 1rem rgba($color-primary, .5);
+
+    &-default {
         font-size: $default-font-size;
 
-        &--label {
+        & select {
+            font-size: $default-font-size;
+        }
+
+        & .form-control {
+            font-size: $default-font-size;
+        }
+
+    & label {
             color: $color-primary-dark;
             font-size: $default-font-size;
             font-weight: bold;
         }
     }
 
-    &--editprofile {
-        font-size: $default-font-size;
+    &--mail {
+        width: 90%;
+        margin: 0 auto;
     }
+}
 
-    &--auth {
-       font-size: $default-font-size; 
-    }
+.add-team {
+    border: 1px solid $color-primary;
+    margin: 3px;
+    padding: 1rem;
 }
 
