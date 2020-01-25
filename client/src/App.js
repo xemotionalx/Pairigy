@@ -9,7 +9,7 @@ import Footer from './components/layout/Footer';
 import Dashboard from './components/pages/Dashboard';
 import Index from './components/pages/Index';
 //favorites
-import AdvancedSearch from './components/pages/favorites/AdvancedSearch';
+import AdvancedSearch from './components/search/AdvancedSearch';
 //favorites
 import ListFavorites from './components/pages/favorites/ListFavorites';
 //profile

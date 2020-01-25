@@ -135,22 +135,24 @@ li {
   background-clip: text;
   color: transparent; }
 
-.container--inner {
-  background-color: #fff;
-  padding: 5rem 10rem;
-  border-radius: 2px;
-  box-shadow: 0 0.5rem 0.5rem rgba(119, 136, 153, 0.3);
-  font-size: 2rem;
-  border: 1px solid #778899; }
-
-.container--outer {
-  width: 100%;
-  min-height: 100vh;
-  background: linear-gradient(to top right, #f7fbff, #ABBCCE);
-  padding: 1rem; }
+.container {
+  min-height: 80vh; }
+  .container--inner {
+    background-color: #fff;
+    padding: 5rem 10rem;
+    border-radius: 2px;
+    box-shadow: 0 0.5rem 0.5rem rgba(119, 136, 153, 0.3);
+    font-size: 2rem;
+    border: 1px solid #778899; }
+  .container--outer {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(to top right, #f7fbff, #ABBCCE);
+    padding: 1rem; }
 
 .form-default {
-  font-size: 2rem; }
+  font-size: 2rem;
+  margin: 0 auto; }
   .form-default select {
     font-size: 2rem; }
   .form-default .form-control {
@@ -203,8 +205,7 @@ li {
   color: #f7fbff; }
   .footer__logobox {
     text-align: center;
-    margin-bottom: 1rem;
-    font-size: 3rem;
+    font-size: 2rem;
     background-image: linear-gradient(to bottom left, #778899, #f7fbff);
     -webkit-background-clip: text;
     background-clip: text;
@@ -215,10 +216,10 @@ li {
       background-clip: text;
       color: transparent; }
     .footer__logobox .logo {
-      font-size: 3rem; }
+      font-size: 2rem; }
   .footer__navigation {
     border-top: 1px solid #539CAA;
-    padding-top: 2rem;
+    padding-top: 1rem;
     display: inline-block; }
   .footer__list {
     list-style: none; }
@@ -240,7 +241,7 @@ li {
     padding-top: 1rem;
     width: 70%;
     float: right;
-    font-size: 1.6rem; }
+    font-size: 1rem; }
 
 .navbar {
   overflow: hidden;

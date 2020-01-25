@@ -170,4 +170,20 @@ router.delete('/', auth, async (req, res) => {
 });
 
 
+// SEARCH QUERIES
+// @route   GET api/profile
+// @desc    Get profiles that match search by location
+// @access  public
+
+router.get('/search/location/', async (req, res) => {
+    try {
+        const profiles = await Profile.find({ "location": { "$regex": req.body.location, "$options": "i" } }).populate('user', ['name', 'avatar']);
+        res.json(profiles);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
+
+
 module.exports = router;
