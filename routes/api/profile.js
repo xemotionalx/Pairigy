@@ -195,5 +195,16 @@ router.get('/search/location/:location', async (req, res) => {
     }
 })
 
+router.get('/search/skill/:skill', async (req, res) => {
+    const {skill} = req.params
+    try {   
+        const profiles = await Profile.find({ skills: skill }).populate('user', ['name', 'avatar']);
+        res.json(profiles);
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+})
+
 
 module.exports = router;

@@ -20,7 +20,9 @@ function AdvancedSearch({
 
     const onSubmit = e=> {
         e.preventDefault();
-        searchByLocation(searchTerm, history);
+       
+            searchByLocation(searchTerm, history);
+      
     }
 
   return (
