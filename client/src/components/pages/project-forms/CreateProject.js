@@ -80,7 +80,8 @@ function CreateProject({
 
   return (
     <div className="container mt-5 mb-5">     
-        <h1 className="heading-size--m heading--secondary-gradient mb-5">Create A New Project</h1>
+        <h1 className="heading-size--l heading--secondary-gradient text-center mb-5">Create A Project</h1>
+        <hr />
         <form className="form-group form-default" onSubmit={e => onSubmit(e)}>
           <div className="row">
             <label htmlFor="name">

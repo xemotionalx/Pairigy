@@ -73,7 +73,7 @@ const EditProfile = ({
   return (
     <div className="container mt-5 mb-5">
       <section className="heading--secondary-gradient text-center">
-        <h1 className="heading-size--l mb-5">Edit Your Profile</h1>
+      <h1 className="heading-size--l heading--secondary-gradient text-center mb-5">Edit Your Profile</h1>
         <hr />
         <form className="form form-default" onSubmit={e => onSubmit(e)}>
           <div className="row form-group">
