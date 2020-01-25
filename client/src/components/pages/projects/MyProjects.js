@@ -93,12 +93,12 @@ function MyProjects({
               </div>
             </div>
           </div>
-          </div>
-    ))
-}
-    </div >
-          );
+
+        ))
         }
+      </div >
+    );
+}
 
 MyProjects.propTypes = {
   getProjectsByOwnerId: PropTypes.func.isRequired,
