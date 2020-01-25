@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSearchProfile } from "../../actions/profile";
+import { getProfileById } from "../../actions/profile";
+import { getProjectsByUserId } from "../../actions/project";
+import { withRouter } from "react-router-dom";
 
-// import profile from '../pages/profile';
+
 
 class Search extends Component {
 
@@ -12,7 +15,7 @@ class Search extends Component {
 
         this.state = {
 
-            // searchField: '',
+
             profile: [],
             error: "",
             message: "",
@@ -47,49 +50,38 @@ class Search extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
 
-        this.props.getSearchProfile(this.state.data);
+        return this.props.getSearchProfile(this.state.data, this.props.history)
 
 
-
-        // if (!this.state.data.length) return null;
-
-
-        // return this.state.data.find((res, index) => (
-        //     <div key={index}>
-        //         <h3>{res.name}</h3>
-        //         <p>{res.body}</p>
-        //     </div>
-
-
-        // ))
-
-        console.log(this.state.data);
-        this.setState({ data: this.state.data })
 
     };
 
 
 
-    // displaySearchResults = (data) => {
-
-    //     if (!data.length) return null;
 
 
-    //     return data.map((datas, index) => (
-    //         <div key={index}>
-    //             <h3>{datas.name}</h3>
-    //             <p>{datas.body}</p>
-    //         </div>
+
+    // const setProfileState = async e => {
+    //     e.preventDefault();
+    //     const {
+    //         dataset: { projectid }
+    //     } = e.target;
+    //     await getProfileById(profileid);
+    //     window.location.replace(`profile/display/${projectid}`);
+    //     return false;
+    // };
 
 
-    //     ))
 
 
-    // }
+
+
+
 
 
 
     render() {
+
         return (
 
             <div className="navbar__searchbox">
@@ -105,7 +97,7 @@ class Search extends Component {
 
                 <div className="search-result">
 
-                    {/* {this.getProfileById(this.state.data)} */}
+
 
                 </div>
 
@@ -123,9 +115,10 @@ const mapStateToProps = state => ({
     loading: state.profile.loading
 });
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
-    { getSearchProfile }
+    { getSearchProfile, getProfileById, getProjectsByUserId }
 
 
-)(Search);
+
+)(Search));

@@ -29,7 +29,6 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 searchResults: payload,
-                loading: false,
                 error: {},
             };
         case SEARCH_PROFILE_ERROR:
