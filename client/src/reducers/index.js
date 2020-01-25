@@ -4,6 +4,7 @@ import auth from './auth';
 import favorites from './faves';
 import profile from './profile';
 import project from './project';
+import search from './search';
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
     auth,
     favorites,
     profile,
-    project
+    project,
+    search
 });
