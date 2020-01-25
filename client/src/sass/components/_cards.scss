@@ -5,6 +5,9 @@
         box-shadow: $default-box-shadow;
         color: $color-black;
         border: .5px solid $color-primary;
+        & p {
+            font-size: 1.4rem;
+        }
     }
 
     &__dashboard {

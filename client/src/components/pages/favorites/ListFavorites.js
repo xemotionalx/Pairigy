@@ -24,16 +24,16 @@ const ListFavorites = ({
 
   const { favesArr } = favesData;
 
-  console.log(favesArr);
-
   return favesArr ? (
-    <div className="container mt-5 mb-5">
-      <div className="container--inner">
-        {favesArr.map((fave, index) => (
-          <div key={index}>
-            <p>name: {fave.user.name}</p>
-          </div>
-        ))}
+    <div className="container--outer">
+      <div className="container mt-5 mb-5">
+        <div className="container--inner">
+          {favesArr.map((fave, index) => (
+            <div key={index}>
+              <p>name: {fave.user.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   ) : (

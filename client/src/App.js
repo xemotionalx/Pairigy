@@ -13,10 +13,10 @@ import ListFavorites from './components/pages/favorites/ListFavorites';
 //profile
 import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
-import Profile from './components/pages/profile/Profile';
+import Profile from './components/pages/profile/TestProfile';
 //projects
-import CreateProject from './components/pages/projects/CreateProject';
-import EditProject from './components/pages/projects/EditProject';
+import CreateProject from './components/pages/project-forms/CreateProject';
+import EditProject from './components/pages/project-forms/EditProject';
 import Project from './components/pages/projects/Project';
 import ListProjects from './components/pages/projects/ListProjects';
 import MyProjects from './components/pages/projects/MyProjects';

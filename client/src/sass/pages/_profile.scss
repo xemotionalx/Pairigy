@@ -5,6 +5,11 @@
     box-shadow: 0 .5rem 1rem rgba($color-primary-dark, .5);
     border-radius: .3rem;
 
+    &--header { 
+        background: linear-gradient(to bottom right, rgba($color-primary-dark, .5), rgba($color-primary, .5)),
+    url('./images/dashboard-bg.jpg') no-repeat center center/cover;
+    }
+
     & ul {
         font-size: $default-font-size;
         color: $color-primary-dark;
