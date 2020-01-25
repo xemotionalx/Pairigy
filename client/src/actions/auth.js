@@ -26,6 +26,7 @@ export const loadUser = () => async dispatch => {
             payload: res.data
         });
 
+
     } catch (err) {
         dispatch({
             type: AUTH_ERROR
@@ -99,7 +100,7 @@ export const login = (email, password) => async dispatch => {
     }
 };
 
-// Logout 
+// Logout
 export const logout = () => dispatch => {
-    dispatch ({ type: LOGOUT });
+    dispatch({ type: LOGOUT });
 };
