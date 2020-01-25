@@ -2,39 +2,12 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux" ;
-import { getMessageById } from "../../../actions/email";
 
 
 const ViewMessage = ({
     match,
-    getMessageById,
     message: { message, loading }
 }) => {
-    useEffect(() => {
-        getMessageById(match.params.userId);
-      }, [match, getMessageById]);
-
-      const [messageData, setMessageData] = useState({
-        userId: "",
-        subject: "",
-        message: ""
-
-      });
-
-useEffect(() => {
-    
-    setMessageData({
-        userId: loading ? "" : messages.user._id,
-        subject: loading ? "" : messages.user.subject,
-        message: loading  ? "" : messages.user.message
-    });
-}, [loading, message]);
-const {
-    userId,
-    subject,
-    messages
-} = messageData;
-
 
     return loading && message === null ? (
         <div> loading </div>
@@ -55,10 +28,8 @@ const {
         </div>
 
     
-        )
-        }
+        )}
     ViewMessage.propTypes = {
-        getMessageById: PropTypes.func.isRequired,
         message: PropTypes.object.isRequired,
         
     };
@@ -70,8 +41,6 @@ const {
     });
     
 
-export default connect(mapStatToProps, {
-    getMessageById
-})(ViewMessage);
+export default ViewMessage;
 
 
