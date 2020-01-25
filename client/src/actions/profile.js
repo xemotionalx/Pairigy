@@ -27,6 +27,7 @@ export const getCurrentProfile = () => async dispatch => {
 //get any profile
 export const getProfileById = userId => async dispatch => {
     try {
+
         //axios call to the route that will match profile to user's id
         const res = await axios.get(`/api/profile/user/${userId}`);
 
@@ -98,7 +99,7 @@ export const createProfile = (
 
 
 
-export const getSearchProfile = (query) => async dispatch => {
+export const getSearchProfile = (query, history) => async dispatch => {
     try {
         //axios call to the route that will match profile to current user
         const res = await axios.get("/api/search?name=" + query)
@@ -107,29 +108,19 @@ export const getSearchProfile = (query) => async dispatch => {
         console.log(res.data);
         console.log('a Data has been received');
 
-
-
-
-
-
-
-
-
-
-
-
-
         dispatch({
             type: SEARCH_PROFILE,
             payload: res.data //get this data from the database - above route
         });
 
+        history.push(`/profile/${res.data._id}`)
+
+
     } catch (err) {
         dispatch({
             type: SEARCH_PROFILE_ERROR,
             payload: {
-                msg: err.response.statusText,
-                status: err.response.status
+                msg: 'error on search',
             }
         })
     }

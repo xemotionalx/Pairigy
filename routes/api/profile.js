@@ -3,6 +3,7 @@ const request = require('request');
 const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');
+const mongoose = require('mongoose');
 
 const { check, validationResult } = require('express-validator');
 
@@ -134,7 +135,16 @@ router.get('/', async (req, res) => {
 router.get('/user/:user_id', async (req, res) => {
     try {
 
-        const profile = await Profile.findOne({ user: req.params.user_id }).populate('user',
+        console.log(req.params)
+        let id;
+        if (typeof req.params.user_id === "string") {
+            id = mongoose.Types.ObjectId(req.params.user_id);
+        } else {
+
+            id = req.params.user_id;
+        }
+
+        const profile = await Profile.findOne({ user: id }).populate('user',
             ['name', 'avatar']);
 
         if (!profile) return res.status(400).json({ msg: 'Profile not found' });
