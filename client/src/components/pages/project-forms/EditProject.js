@@ -20,7 +20,7 @@ function EditProject({
   history
 }) {
   const [formData, setFormData] = useState({
-    projectId: "",
+    project_id: "",
     name: "",
     description: "",
     website: "",
@@ -38,7 +38,7 @@ function EditProject({
 
   useEffect(() => {
     setFormData({
-      projectId: loading || !project._id ? "" : project._id,
+      project_id: loading || !project._id ? "" : project._id,
       name: loading || !project.name ? "" : project.name,
       description: loading || !project.description ? "" : project.description,
       website: loading || !project.website ? "" : project.website,
@@ -47,7 +47,7 @@ function EditProject({
     });
   }, [project, loading]);
 
-  const { projectId, name, description, website, status, team } = formData;
+  const { project_id, name, description, website, status, team } = formData;
 
   const [favesData, setFavesData] = useState({
     favesArr: ""
@@ -117,7 +117,7 @@ function EditProject({
           type="button"
           value="x Delete Project"
           className="btn btn-danger btn-lg float-right"
-          data-projectid={projectId}
+          data-projectid={project_id}
           onClick={e => deleteThisProject(e)}
         />
         <h1 className="heading-size--l heading--secondary-gradient text-center mb-5">Edit Your Project</h1>

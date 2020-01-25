@@ -1,4 +1,5 @@
-.container{
+.container {
+    min-height: 80vh;
     &--inner {
     background-color: $color-white;
     padding: 5rem 10rem;

@@ -3,7 +3,7 @@ const request = require("request");
 const config = require("config");
 const router = express.Router();
 const auth = require("../../middleware/auth");
-const Mail = require("../../models/Mail");
+const Message = require("../../models/Mail");
 const User = require("../../models/User");
 
 router.post(
@@ -23,7 +23,7 @@ router.post(
 
     try {
 
-      message = new Message(messageFields);
+      const message = new Message(messageFields);
 
             await message.save();
             res.json(message);
@@ -37,7 +37,7 @@ router.post(
 // Find all
   router.get('/me', auth, async (req, res) => {
     try {
-        const message = await .find({ receiver: req.user.id })
+        const message = await Message.find({ receiver: req.user.id })
             .populate('sender', ['name', 'avatar']);
             if (!message) {
               return res.status(400).json({ msg: 'there are no messages for this user' });

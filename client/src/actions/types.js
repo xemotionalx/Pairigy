@@ -20,7 +20,13 @@ export const PROJECT_ERROR = 'PROJECT_ERROR';
 // search
 export const SEARCH_PROFILE = 'SEARCH_PROFILE';
 export const SEARCH_PROFILE_ERROR = 'SEARCH_PROFILE_ERROR';
-//
+export const ADVANCED_SEARCH = "ADVANCED_SEARCH";
+export const ADVANCED_SEARCH_ERROR = "ADVANCED_SEARCH_ERROR"
+//favorites
 export const GET_FAVES = "GET_FAVES";
 export const FAV_ERROR = "FAV_ERROR";
+//messages
+export const GET_MESSAGE = "GET_MESSAGE";
+export const GET_RECEIVED = "GET_RECEIVED"
+export const MESSAGE_ERROR = "MESSAGE_ERROR";
 
