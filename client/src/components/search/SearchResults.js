@@ -1,16 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const SearchResults = props => {
+const SearchResults = ({search: {results}}) => {
   return (
     <div className="container mt-5">
       <h1 className="heading-size--l heading--secondary-gradient text-center mb-5">
-        Advanced Search
+        Search Results
       </h1>
+
+      {results ? 
+
+        results.map(profile => <p>{profile.user.name}</p>)
+        : ""
+        }
+
     </div>
   );
 };
 
-SearchResults.propTypes = {};
+SearchResults.propTypes = {
+    search: PropTypes.object.isRequired,
+};
 
-export default SearchResults;
+const mapStateToProps = state => ({
+    search: state.search
+})
+
+
+export default connect(mapStateToProps)(SearchResults);

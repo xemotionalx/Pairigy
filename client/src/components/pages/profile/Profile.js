@@ -17,9 +17,10 @@ const Profile = ({
   addNewFavorite,
   getCurrentFavorites
 }) => {
-  useEffect(() => {
-    getProfileById(match.params.userId);
-  }, [match, getProfileById]);
+  // useEffect(() => {
+  //   console.log(match.params, 'haherharhreahrehreahrahrhrae')
+  //   getProfileById(match.params.userId);
+  // }, [match, getProfileById]);
 
   useEffect(() => {
     getProjectsByUserId(match.params.userId);
@@ -185,13 +186,13 @@ const Profile = ({
                     </a>
                   </li>
                   {/* skills */}
-                  <li>
+                  {/* <li>
                     {skills === null || skills === undefined || !skills ? (
                       ""
                     ) : (
                         <Skills profile={profile} />
                       )}
-                  </li>
+                  </li> */}
                 </ul>
                 {/* social media */}
 
