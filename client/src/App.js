@@ -13,7 +13,7 @@ import ListFavorites from './components/pages/favorites/ListFavorites';
 //profile
 import EditProfile from './components/pages/profile-forms/EditProfile';
 import CreateProfile from './components/pages/profile-forms/CreateProfile';
-import Profile from './components/pages/profile/Profile';
+import Profile from './components/pages/profile/TestProfile';
 //projects
 import CreateProject from './components/pages/project-forms/CreateProject';
 import EditProject from './components/pages/project-forms/EditProject';

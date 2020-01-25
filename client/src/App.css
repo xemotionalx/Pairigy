@@ -20,7 +20,7 @@ li {
   list-style: none; }
 
 .heading-size--xxl {
-  font-size: 10rem;
+  font-size: 15rem;
   letter-spacing: 1.5rem; }
 
 .heading-size--xl {
@@ -46,6 +46,12 @@ li {
 .heading-splash {
   color: #f7fbff;
   text-shadow: 0.3rem 0.5rem 1rem rgba(11, 11, 10, 0.5); }
+
+.heading--secondary-gradient {
+  background-image: linear-gradient(to right, #539CAA, #8CDAEA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; }
 
 .bg-col-light {
   background-color: #f7fbff; }
@@ -134,6 +140,12 @@ li {
   box-shadow: 0 0.5rem 0.5rem rgba(119, 136, 153, 0.3);
   font-size: 2rem;
   border: 1px solid #778899; }
+
+.container--outer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to top right, #f7fbff, #ABBCCE);
+  padding: 1rem; }
 
 .form-default {
   font-size: 2rem; }
@@ -233,8 +245,7 @@ li {
   z-index: 100;
   text-align: center;
   background: linear-gradient(to left, #191D21, #0b0b0a);
-  padding: 1rem 0;
-  border-bottom: solid 3px #539CAA; }
+  padding: 1rem 0; }
   .navbar__logobox {
     font-family: "Nunito Sans", sans-serif;
     float: left;
@@ -305,7 +316,7 @@ li {
   background: url("./images/splash-bg.jpg") no-repeat center center/cover;
   height: 100vh; }
   .section-splash--inner {
-    height: 100%;
+    height: 96%;
     width: 80%;
     margin: auto;
     display: flex;
@@ -315,14 +326,14 @@ li {
     text-align: center; }
 
 .mail__sidebar {
-  background-color: #fff;
+  background: linear-gradient(to top right, #778899, #ABBCCE);
   min-height: 80vh;
   border-radius: 2px;
   padding: 1rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5); }
 
 .mail__main {
-  background-color: #fff;
+  background: linear-gradient(to top right, #778899, #ABBCCE);
   min-height: 80vh;
   border-radius: 2px;
   padding: 1rem;
@@ -337,6 +348,7 @@ li {
   margin: 0 auto; }
 
 .list-group {
+  background-color: #fff;
   font-size: 2rem; }
 
 .section-profile {
@@ -345,6 +357,8 @@ li {
   padding: 2rem;
   box-shadow: 0 0.5rem 1rem rgba(25, 29, 33, 0.5);
   border-radius: .3rem; }
+  .section-profile--header {
+    background: linear-gradient(to bottom right, rgba(25, 29, 33, 0.5), rgba(119, 136, 153, 0.5)), url("./images/dashboard-bg.jpg") no-repeat center center/cover; }
   .section-profile ul {
     font-size: 2rem;
     color: #191D21;

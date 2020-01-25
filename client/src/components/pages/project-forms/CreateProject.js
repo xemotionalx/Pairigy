@@ -79,9 +79,8 @@ function CreateProject({
   };
 
   return (
-    <div className="container mt-5 mb-5">
-      <div className="container--inner mb-5">
-        <h1 className="heading-size--m mb-5">Create A New Project</h1>
+    <div className="container mt-5 mb-5">     
+        <h1 className="heading-size--m heading--secondary-gradient mb-5">Create A New Project</h1>
         <form className="form-group form-default" onSubmit={e => onSubmit(e)}>
           <div className="row">
             <label htmlFor="name">
@@ -191,12 +190,11 @@ function CreateProject({
             <div className="col-sm-12 text-center">
               <input
                 type="submit"
-                className="btn button button--main btn-lg text-center"
+                className="btn button button--main btn-lg text-center mt-5 mb-5"
               />
             </div>
           </div>
         </form>
-      </div>
     </div>
   ) 
 }

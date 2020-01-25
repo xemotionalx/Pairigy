@@ -28,8 +28,7 @@ function MyProjects({
   return loading && projects === [] ? (
     <div>loading</div>
   ) : (
-    <div className="container mb-5 mt-5">
-      <div className="container--inner">
+    <div className="container mb-5 mt-5">   
         <Link
           to="/createproject"
           className="btn button button--main mb-3 float-right"
@@ -37,8 +36,8 @@ function MyProjects({
           <i className="fas fa-plus"></i> Create New Project
         </Link>
         <br />
-        <h1 className="heading-size--s mt-5 mb-5">
-          Your Projects
+        <h1 className="heading-size--xs mt-5 mb-5">
+          <b>Manage Your Projects</b>
         </h1>
         {projects.map((project, index) => (
           <div className="project-box mb-5">
@@ -95,7 +94,6 @@ function MyProjects({
             </div>
           </div>
         ))}
-      </div>
     </div>
   );
 }

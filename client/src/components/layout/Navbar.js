@@ -10,10 +10,11 @@ const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
 }) => {
     const authLinks = (
         <div className="navbar__link">
+        <Link to="/dashboard">Dashboard <i className="fas fa-tachometer-alt"></i></Link>
         <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
         <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
         <Link to="/myprojects">Projects <i className="fas fa-project-diagram"></i></Link>
-        <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
+        <Link to={`/profile/${user && user._id}`}>Profile<i className="fas fa-user"></i></Link>
         <a onClick={logout} href='/'>
         <i className='fas fa-sign-out-alt' />{' '}
         <span className='hide-sm'>Logout</span>
@@ -40,8 +41,7 @@ const  Navbar = ({ auth: { isAuthenticated, user, loading }, logout
                         aria-label="Search" id="user-query" />
                 </form>
             </div> */}
-            <Search />
-
+           <Search />
             {/* <div className="navbar__link">
         <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
         <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
