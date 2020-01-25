@@ -1,4 +1,4 @@
-import { ADVANCED_SEARCH } from '../actions/types';
+import { ADVANCED_SEARCH, ADVANCED_SEARCH_ERROR } from '../actions/types';
 
 const initialState = {
     results: [],
@@ -23,5 +23,7 @@ export default function (state = initialState, action) {
             results: [],
             loading: false
         }
+        default:
+            return state;
     }
 }

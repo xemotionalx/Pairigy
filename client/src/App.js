@@ -8,8 +8,9 @@ import Footer from './components/layout/Footer';
 // Import pages
 import Dashboard from './components/pages/Dashboard';
 import Index from './components/pages/Index';
-//favorites
+//search
 import AdvancedSearch from './components/search/AdvancedSearch';
+import SearchResults from './components/search/SearchResults';
 //favorites
 import ListFavorites from './components/pages/favorites/ListFavorites';
 //profile
@@ -60,7 +61,9 @@ return (
         <Route path='/register/' exact component={Register} />
 
         <PrivateRoute path='/dashboard' exact component={Dashboard} />
+
         <PrivateRoute path='/search/advanced' exact component={AdvancedSearch} />
+        <PrivateRoute path='/search/results' exact component={SearchResults} />
         
         <Route path='/profile/:userId' exact component={Profile} />
         <PrivateRoute path='/editprofile/' exact component={EditProfile} />

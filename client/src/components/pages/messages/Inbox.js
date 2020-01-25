@@ -1,5 +1,6 @@
 import React from "react";
 import CreateMessage from "./CreateMsg";
+// eslint-disable-next-line
 import ViewMessage from "./ViewMessage";
 
 function Inbox() {

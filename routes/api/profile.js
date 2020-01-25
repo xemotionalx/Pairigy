@@ -175,9 +175,9 @@ router.delete('/', auth, async (req, res) => {
 // @desc    Get profiles that match search by location
 // @access  public
 
-router.get('/search/location/', async (req, res) => {
+router.get('/search/location/:location', async (req, res) => {
     try {
-        const profiles = await Profile.find({ "location": { "$regex": req.body.location, "$options": "i" } }).populate('user', ['name', 'avatar']);
+        const profiles = await Profile.find({ "location": { "$regex": req.params.location, "$options": "i" } }).populate('user', ['name', 'avatar']);
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
