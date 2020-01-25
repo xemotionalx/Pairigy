@@ -20,9 +20,10 @@ function AdvancedSearch({
 
     const onSubmit = e=> {
         e.preventDefault();
-       
+        switch (searchCriteria) {
+          case "location":
             searchByLocation(searchTerm, history);
-      
+      }
     }
 
   return (
