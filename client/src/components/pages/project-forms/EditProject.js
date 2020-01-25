@@ -120,7 +120,8 @@ function EditProject({
           data-projectid={projectId}
           onClick={e => deleteThisProject(e)}
         />
-        <h1 className="heading-size--m mb-5"> Edit Your Project</h1>
+        <h1 className="heading-size--l heading--secondary-gradient text-center mb-5">Edit Your Project</h1>
+        <hr />
         <form className="form-group form-default" onSubmit={e => onSubmit(e)}>
           <div className="row">
             <label htmlFor="name" className="form-editprofile--label">

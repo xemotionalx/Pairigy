@@ -65,7 +65,7 @@ function Dashboard({ auth: { user, loading }, getCurrentProfile, profile: {profi
           <div className="col-md-4 col-sm-12">
             <div className="card__dashboard mb-5">
               <h3 className="heading-size--s mb-4">Projects</h3>
-              <i className="fas fa-users card--icon mb-1"></i>
+              <i className="fas fa-project-diagram card--icon"></i>
               <hr className="mb-5" />
               <Link
                 to={`/myprojects/`}

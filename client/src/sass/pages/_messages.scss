@@ -1,6 +1,6 @@
 .mail {
     &__sidebar {
-        background-color: $color-white;
+        background: linear-gradient(to top right, $color-primary, $color-primary-darker);
         min-height: 80vh;
         border-radius: 2px;
         padding: 1rem;
@@ -9,7 +9,7 @@
 
 
     &__main {
-        background-color: $color-white;
+        background: linear-gradient(to top right, $color-primary, $color-primary-darker);
         min-height: 80vh;
         border-radius: 2px;
         padding: 1rem;
@@ -27,5 +27,6 @@
 }
 
 .list-group {
+    background-color: $color-white;
     font-size: $default-font-size;
 }

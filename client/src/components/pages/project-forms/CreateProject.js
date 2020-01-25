@@ -75,15 +75,16 @@ function CreateProject({
     e.preventDefault();
     //this will submit all the fields in the formData state
     createProject(formData, history);
+
   };
 
   return (
-    <div className="container mt-5 mb-5">
-      <div className="container--inner mb-5">
-        <h1 className="heading-size--m mb-5">Create A New Project</h1>
+    <div className="container mt-5 mb-5">     
+        <h1 className="heading-size--l heading--secondary-gradient text-center mb-5">Create A Project</h1>
+        <hr />
         <form className="form-group form-default" onSubmit={e => onSubmit(e)}>
           <div className="row">
-            <label htmlFor="name" className="form-editprofile--label">
+            <label htmlFor="name">
               Project Name*:
             </label>
             <input
@@ -94,7 +95,7 @@ function CreateProject({
               className="form-control mb-4"
               required
             ></input>
-            <label htmlFor="description" className="form-editprofile--label">
+            <label htmlFor="description">
               Description*:
             </label>
             <input
@@ -105,7 +106,7 @@ function CreateProject({
               className="form-control mb-4"
               required
             ></input>
-            <label htmlFor="website" className="form-editprofile--label">
+            <label htmlFor="website">
               Website:
             </label>
             <input
@@ -115,7 +116,7 @@ function CreateProject({
               onChange={e => onChange(e)}
               className="form-control mb-4"
             ></input>
-            <label htmlFor="status" className="form-editprofile--label">
+            <label htmlFor="status">
               Status:
             </label>
             <input
@@ -139,8 +140,8 @@ function CreateProject({
           <div className="row">
             {team.map((teamMember, index) => (
               <div className="col-md-4 col-sm-12">
-                <div className="add-team">
-                  <label htmlFor="role" className="form-editprofile--label">
+                <div className="add-team" key={index}>
+                  <label htmlFor="role">
                     Role*:
                   </label>
                   <input
@@ -156,7 +157,7 @@ function CreateProject({
                   
                   <label
                     htmlFor="user"
-                    className="form-editprofile--label mt-3"
+                 className="mt-3"
                   >
                     User:
                   </label>
@@ -190,12 +191,11 @@ function CreateProject({
             <div className="col-sm-12 text-center">
               <input
                 type="submit"
-                className="btn button button--main btn-lg text-center"
+                className="btn button button--main btn-lg text-center mt-5 mb-5"
               />
             </div>
           </div>
         </form>
-      </div>
     </div>
   ) 
 }
