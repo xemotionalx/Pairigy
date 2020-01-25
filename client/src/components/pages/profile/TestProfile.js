@@ -89,142 +89,156 @@ const Profile = ({
   const twitterIcon = !twitter ? (
     ""
   ) : (
-      <a href={twitter} target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-twitter"></i>
-      </a>
-    );
+    <a href={twitter} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-twitter"></i>
+    </a>
+  );
   const facebookIcon = !facebook ? (
     ""
   ) : (
-      <a href={facebook} target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-facebook"></i>
-      </a>
-    );
+    <a href={facebook} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-facebook"></i>
+    </a>
+  );
   const linkedinIcon = !linkedin ? (
     ""
   ) : (
-      <a href={linkedin} target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    );
+    <a href={linkedin} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin"></i>
+    </a>
+  );
   const instagramIcon = !instagram ? (
     ""
   ) : (
-      <a href={instagram} target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-instagram"></i>
-      </a>
-    );
+    <a href={instagram} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
+  );
   const githubIcon = !github ? (
     ""
   ) : (
-      <a href={github} target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-github"></i>
-      </a>
-    );
+    <a href={github} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-github"></i>
+    </a>
+  );
   const dribbbleIcon = !dribbble ? (
     ""
   ) : (
-      <a href={dribbble} target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-dribbble"></i>
-      </a>
-    );
+    <a href={dribbble} target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-dribbble"></i>
+    </a>
+  );
 
   return loading && profile === null ? (
     <div>loading</div>
   ) : (
-      <div className="container--outer">
-        <div className="container">
-          <section className="section-profile mt-5">
-            {/* Heading : Name & Title */}
-            <div className="row mb-5">
-              <div className="col-sm-12 text-center">
-                <h1 className="heading-size--xl mb-3">{name}</h1>
-                <h2 className="heading-size--m">{status}</h2>
-              </div>
-            </div>
-            <hr />
-            <div className="row mt-5">
-              {/* Col 1: Avatar */}
-              <div className="col-md-5 col-sm-12 text-center">
+    <div className="container--outer">
+      <div className="container">
+        <div className="row">
+          {/* SIDE COLUMN */}
+          <div className="col-sm-4">
+            <section className="section-profile mt-5">
+              <div className="row d-flex justify-content-center">
+                {/* Avatar */}
                 <img
                   src={avatar}
                   alt="user avatar"
-                  className="avatar avatar--lg w-75 mb-5"
+                  className="avatar avatar--lg w-75 mb-5 "
                 />
               </div>
-              {/* Col 2: User overview */}
-              <div className="col-md-7 col-sm-12">
+              {/* Col 2: User Buttons */}
+              <div className="row d-flex justify-content-center">
                 <div className="buttons  mb-5">
                   <Link
                     to="/createmessage"
                     className="btn button button--main mr-3"
                   >
                     <i className="far fa-envelope"></i> Message
-                </Link>
+                  </Link>
                   <button
                     className="btn button button--main mr-3"
                     onClick={() => addNewFavorite(userId)}
                   >
                     <i className="far fa-star"></i> Favorite
-                </button>
-                  {/* <button className="btn button button--main">
-              <i className="fas fa-plus"></i> Add to Project
-              </button> */}
+                  </button>
                 </div>
+              </div>
+              <div className="row mb-4">
                 <ul>
-                  {/* city, state */}
-                  <li>
-                    <span className="font-weight-bold">Location: </span>
-                    {location}
-                  </li>
-                  {/* website */}
-                  <li>
-                    <span className="font-weight-bold">Website: </span>
-                    <a href={website} target="_blank" rel="noopener noreferrer">
-                      {website}
-                    </a>
-                  </li>
                   {/* skills */}
-                  <li>
-                    {skills === null || skills === undefined || !skills ? (
-                      ""
-                    ) : (
-                        <Skills profile={profile} />
-                      )}
-                  </li>
+                  {skills === null || skills === undefined || !skills ? (
+                    ""
+                  ) : (
+                    <Skills profile={profile} />
+                  )}
                 </ul>
+              </div>
+              <div className="row d-flex justify-content-center">
                 {/* social media */}
-
                 {socials ? (
                   <div className="section-profile--socials">
                     <ul>
                       <li className="list-item--social mr-1">{twitterIcon}</li>
                       <li className="list-item--social mr-1">{facebookIcon}</li>
                       <li className="list-item--social mr-1">{linkedinIcon}</li>
-                      <li className="list-item--social mr-1">{instagramIcon}</li>
+                      <li className="list-item--social mr-1">
+                        {instagramIcon}
+                      </li>
                       <li className="list-item--social mr-1">{githubIcon}</li>
                       <li className="list-item--social mr-1">{dribbbleIcon}</li>
                     </ul>
                   </div>
                 ) : (
-                    ""
-                  )}
+                  ""
+                )}
               </div>
-            </div>
-          </section>
-          {/* BIO */}
-          <section className="section-profile mt-5">
-            {/* Bio - Heading */}
-            <h2 className="heading-size--m">Bio</h2>
-            {/* Bio - Text */}
-            <div className="bio--text-box">
-              <p> {bio} </p>
-            </div>
-          </section>
-          <section className="section-profile mt-5 mb-5">
-            <h2 className="heading-size--m">Projects</h2>
+            </section>
+            <section className="section-profile mt-3 text-center">
+              <ul>
+                {/* city, state */}
+                <li>
+                  <h3 className="heading-size--xs font-weight-bold">
+                    Location:{" "}
+                  </h3>
+                  {location}
+                </li>
+                {/* website */}
+                <li>
+                  <span className="heading-size--xs font-weight-bold">
+                    Website:{" "}
+                  </span>
+                  <a href={website} target="_blank" rel="noopener noreferrer">
+                    {website}
+                  </a>
+                </li>
+              </ul>
+            </section>
+          </div>
+
+          <div className="col-sm-8 mb-5">
+            {/* Heading : Name & Title */}
+            <section className="section-profile section-profile--header mt-5">
+              <div className="row mb-5">
+                <div className="col-sm-12 text-center">
+                  <h1 className="heading-size--l heading-splash mb-3">
+                    {name}
+                  </h1>
+                  <h2 className="heading-size--s  heading-splash">{status}</h2>
+                </div>
+              </div>
+            </section>
+            {/* BIO */}
+            <section className="section-profile mt-4">
+              {/* Bio - Text */}
+              <div className="bio--text-box">
+                <p> {bio} </p>
+              </div>
+            </section>
+            <section className="section-profile mt-4">
+              <h2 className="heading-size--s text-center">Projects</h2>
+            </section>
             {projects.map(project => (
-              <div className="project-box mt-5">
+              <div className="project-box mt-3">
                 <div className="project-box--header">
                   <h3 className="heading-size--s ml-5">{project.name}</h3>
                 </div>
@@ -258,10 +272,10 @@ const Profile = ({
                               <b>Name: </b> {role.user.name}
                             </p>
                           ) : (
-                              <p>
-                                <b> Position Open </b>
-                              </p>
-                            )}
+                            <p>
+                              <b> Position Open </b>
+                            </p>
+                          )}
                           <p>
                             <b>Role: </b> {role.role}{" "}
                           </p>
@@ -272,10 +286,11 @@ const Profile = ({
                 </div>
               </div>
             ))}
-          </section>
+          </div>
         </div>
       </div>
-    );
+    </div>
+  );
 };
 
 //brings in the state/actions and defined what type they are

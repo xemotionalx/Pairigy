@@ -11,7 +11,7 @@ html {
 body {
   box-sizing: border-box;
   font-family: 'Nunito Sans', sans-serif;
-  background-color: #ABBCCE; }
+  background-color: #fff; }
 
 p {
   font-size: 2rem; }
@@ -20,7 +20,7 @@ li {
   list-style: none; }
 
 .heading-size--xxl {
-  font-size: 10rem;
+  font-size: 15rem;
   letter-spacing: 1.5rem; }
 
 .heading-size--xl {
@@ -46,6 +46,12 @@ li {
 .heading-splash {
   color: #f7fbff;
   text-shadow: 0.3rem 0.5rem 1rem rgba(11, 11, 10, 0.5); }
+
+.heading--secondary-gradient {
+  background-image: linear-gradient(to right, #539CAA, #8CDAEA);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; }
 
 .bg-col-light {
   background-color: #f7fbff; }
@@ -111,6 +117,8 @@ li {
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5);
   color: #0b0b0a;
   border: 0.5px solid #778899; }
+  .card__team p {
+    font-size: 1.4rem; }
 
 .card__dashboard {
   text-align: center;
@@ -134,6 +142,12 @@ li {
   box-shadow: 0 0.5rem 0.5rem rgba(119, 136, 153, 0.3);
   font-size: 2rem;
   border: 1px solid #778899; }
+
+.container--outer {
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(to top right, #f7fbff, #ABBCCE);
+  padding: 1rem; }
 
 .form-default {
   font-size: 2rem; }
@@ -233,19 +247,22 @@ li {
   z-index: 100;
   text-align: center;
   background: linear-gradient(to left, #191D21, #0b0b0a);
-  padding: 1rem 0;
-  border-bottom: solid 3px #539CAA; }
+  padding: 1rem 0; }
   .navbar__logobox {
     font-family: "Nunito Sans", sans-serif;
     float: left;
     margin-left: 3rem;
     font-size: 3rem;
     color: #191D21;
-    padding: .2rem 1.2rem;
-    background-image: linear-gradient(to bottom left, #778899, #f7fbff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent; }
+    padding: .2rem 1.2rem; }
+    .navbar__logobox a:link, .navbar__logobox a {
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 3rem;
+      color: #191D21;
+      background-image: linear-gradient(to bottom left, #778899, #f7fbff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent; }
     .navbar__logobox .fas {
       background-image: linear-gradient(to top, #778899, #f7fbff);
       -webkit-background-clip: text;
@@ -253,20 +270,20 @@ li {
       color: transparent; }
   .navbar__link {
     float: right; }
+    .navbar__link a {
+      color: #f7fbff; }
+      .navbar__link a:link {
+        padding: .2rem 1.2rem;
+        text-decoration: none;
+        font-size: 2rem;
+        display: inline-block; }
+      .navbar__link a:hover {
+        color: #8CDAEA; }
   .navbar__searchbox {
     width: 25%;
     float: left; }
     .navbar__searchbox .fas {
       color: #191D21; }
-  .navbar a {
-    color: #f7fbff; }
-    .navbar a:link {
-      padding: .2rem 1.2rem;
-      text-decoration: none;
-      font-size: 2rem;
-      display: inline-block; }
-    .navbar a:hover {
-      color: #8CDAEA; }
 
 .section-auth {
   position: relative;
@@ -292,7 +309,7 @@ li {
     padding: 5rem 8rem;
     border-radius: 3px;
     box-shadow: 0.3 0.8rem 1rem rgba(25, 29, 33, 0.8);
-    border: 1rem solid #191D21; }
+    border: 0.1rem solid #ABBCCE; }
 
 .section-dashboard {
   position: relative;
@@ -305,7 +322,7 @@ li {
   background: url("./images/splash-bg.jpg") no-repeat center center/cover;
   height: 100vh; }
   .section-splash--inner {
-    height: 100%;
+    height: 96%;
     width: 80%;
     margin: auto;
     display: flex;
@@ -315,14 +332,14 @@ li {
     text-align: center; }
 
 .mail__sidebar {
-  background-color: #fff;
+  background: linear-gradient(to top right, #778899, #ABBCCE);
   min-height: 80vh;
   border-radius: 2px;
   padding: 1rem;
   box-shadow: 0.3rem 0.3rem 0.5rem rgba(25, 29, 33, 0.5); }
 
 .mail__main {
-  background-color: #fff;
+  background: linear-gradient(to top right, #778899, #ABBCCE);
   min-height: 80vh;
   border-radius: 2px;
   padding: 1rem;
@@ -337,6 +354,7 @@ li {
   margin: 0 auto; }
 
 .list-group {
+  background-color: #fff;
   font-size: 2rem; }
 
 .section-profile {
@@ -345,6 +363,8 @@ li {
   padding: 2rem;
   box-shadow: 0 0.5rem 1rem rgba(25, 29, 33, 0.5);
   border-radius: .3rem; }
+  .section-profile--header {
+    background: linear-gradient(to bottom right, rgba(25, 29, 33, 0.5), rgba(119, 136, 153, 0.5)), url("./images/dashboard-bg.jpg") no-repeat center center/cover; }
   .section-profile ul {
     font-size: 2rem;
     color: #191D21;

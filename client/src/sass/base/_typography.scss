@@ -2,7 +2,7 @@
 
     &-size {
         &--xxl {
-        font-size: 10rem;
+        font-size: 15rem;
         letter-spacing: 1.5rem;
         }
         &--xl {
@@ -30,6 +30,10 @@
     &-splash {
         color: $color-primary-light;
         text-shadow: .3rem .5rem 1rem rgba($color-black, .5);
+    }
+
+    &--secondary-gradient {
+        @include gradientText(right, $color-secondary, $color-secondary-light)
     }
     
 }
