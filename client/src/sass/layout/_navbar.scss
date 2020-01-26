@@ -1,5 +1,4 @@
 .navbar {
-    overflow: hidden;
     z-index: 100;
     text-align: center;
     background: linear-gradient(to left, $color-primary-dark, $color-black);
@@ -25,6 +24,7 @@
     }
     &__link {
         float: right;
+        margin-right: 1rem;
         & a {
             color: $color-primary-light;
             &:link {
@@ -44,5 +44,18 @@
         & .fas {
             color: $color-primary-dark;
         }
+    }
+
+    & .dropdown-menu {
+        background-color: $color-black;
+    }
+
+    & .dropdown {
+        float: right;
+        font-size: $default-font-size;
+    }
+
+    & .btn  { 
+        font-size: $default-font-size;
     }
 }

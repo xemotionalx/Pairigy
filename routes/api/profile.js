@@ -134,8 +134,6 @@ router.get('/', async (req, res) => {
 
 router.get('/user/:user_id', async (req, res) => {
     try {
-
-        console.log(req.params)
         let id;
         if (typeof req.params.user_id === "string") {
             id = mongoose.Types.ObjectId(req.params.user_id);
@@ -193,18 +191,40 @@ router.get('/search/location/:location', async (req, res) => {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
-})
+});
 
 router.get('/search/skill/:skill', async (req, res) => {
     const {skill} = req.params
     try {   
-        const profiles = await Profile.find({ skills: skill }).populate('user', ['name', 'avatar']);
+        const profiles = await Profile.find({ skills: { "$regex": skill, "$options": "i" }}).populate('user', ['name', 'avatar']);
         res.json(profiles);
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Server Error');
     }
-})
+});
+
+router.get('/search/name/:name', async (req, res) => {
+    const {name} = req.params
+    const profiles = [];
+    try {   
+        const users = await User.find({ name: { "$regex": name, "$options": "i" }}).populate('user', ['name', 'avatar']);
+        
+        users.forEach( async user  => {
+            try{
+                let profile = await Profile.find({ "user": user._id }).populate('user', ['name', 'avatar']);
+                profiles.push(profile);
+                res.json(profile);
+            } catch(err) {
+                console.log(err);
+            }
+        })
+
+    } catch (err) {
+        console.error(err.message);
+        res.status(500).send('Server Error');
+    }
+});
 
 
 module.exports = router;
