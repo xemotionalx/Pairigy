@@ -26,3 +26,23 @@ export const createMessage = (formData, history) => async dispatch => {
     })
 }
 }
+
+export const getReceived = formData => async dispatch => {
+    try {
+    const res = await axios.get('/api/mail/me');
+
+    dispatch({
+        type: GET_RECEIVED,
+        payload: res.data //get this data from the database - above route
+    });
+
+} catch (err) {
+    dispatch({
+        type: MESSAGE_ERROR,
+        payload: {
+            msg: err.response.statusText,
+            status: err.response.status
+        }
+    })
+}
+}

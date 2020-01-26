@@ -1,32 +1,32 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import CreateMessage from "./CreateMsg";
 // eslint-disable-next-line
 import ViewMessage from "./ViewMessage";
+import { getReceived } from "../../../actions/messages";
 
-function Inbox() {
+
+function Inbox({ getReceived, messages:{received} }) {
+
+  useEffect(() => {
+    getReceived()
+  }, []);
+
   return (
     <div className="container">
       <div className="row">
         <div className="col-sm-4">
           <div className="mail__sidebar mt-5 mb-5">
-            <h1 className="heading-size--s mb-4">Inbox</h1>
-            
+            <h1 className="heading-size--s mb-4">Inbox</h1>          
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <b>Subject</b>
+              {received ? received.map(message => (
+                <li class="list-group-item">
+                <b>{message.subject}</b>
                 <br />
-                Name of Sender
-              </li>
-              <li class="list-group-item">
-                <b>Subject</b>
-                <br />
-                Name of Sender
-              </li>
-              <li class="list-group-item">
-                <b>Subject</b>
-                <br />
-                Name of Sender
-              </li>
+                From: {message.sender.name}
+                </li>
+              )) : (<li class="list-group-item"> You have no messages </li>) }
             </ul>
           </div>
         </div>
@@ -41,4 +41,13 @@ function Inbox() {
   );
 }
 
-export default Inbox;
+Inbox.propTypes = {
+  messages: PropTypes.object.isRequired,
+  getReceived: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = state => ({
+  messages: state.messages
+})
+
+export default connect(mapStateToProps, {getReceived})(Inbox);
