@@ -138,7 +138,6 @@ router.get('/user/:user_id', async (req, res) => {
         if (typeof req.params.user_id === "string") {
             id = mongoose.Types.ObjectId(req.params.user_id);
         } else {
-
             id = req.params.user_id;
         }
 

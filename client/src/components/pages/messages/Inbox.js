@@ -1,4 +1,5 @@
 import React, {useEffect} from "react";
+import  { Link } from 'react-router-dom';
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import CreateMessage from "./CreateMsg";
@@ -7,11 +8,11 @@ import ViewMessage from "./ViewMessage";
 import { getReceived } from "../../../actions/messages";
 
 
-function Inbox({ getReceived, messages:{received} }) {
+function Inbox({ getReceived, messages:{received, messageSelected}, match }) {
 
   useEffect(() => {
     getReceived()
-  }, []);
+  }, [getReceived]);
 
   return (
     <div className="container">
@@ -22,7 +23,9 @@ function Inbox({ getReceived, messages:{received} }) {
             <ul class="list-group list-group-flush">
               {received ? received.map(message => (
                 <li class="list-group-item">
-                <b>{message.subject}</b>
+                  <Link to={`mail/${message._id}`}>
+                  <b>{message.subject}</b>
+                  </Link>
                 <br />
                 From: {message.sender.name}
                 </li>
@@ -33,7 +36,6 @@ function Inbox({ getReceived, messages:{received} }) {
         <div className="col-sm-8">
           <div className="mail__main mt-5 mb-5">
             <CreateMessage />
-            {/* <ViewMessage /> */}
           </div>
         </div>
       </div>

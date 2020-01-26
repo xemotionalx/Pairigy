@@ -24,7 +24,7 @@ import Project from './components/pages/projects/Project';
 import ListProjects from './components/pages/projects/ListProjects';
 import MyProjects from './components/pages/projects/MyProjects';
 // messages
-import CreateMessage from "./components/pages/messages/CreateMsg";
+import ViewMessage from "./components/pages/messages/ViewMessage";
 import Inbox from "./components/pages/messages/Inbox";
 //auth
 import Login from "./components/auth/Login";
@@ -92,8 +92,8 @@ const App = () => {
               component={EditProject}
             />
 
-            <Route path='/createmessage/' exact component={CreateMessage} />
             <Route path='/mail/' exact component={Inbox} />
+            <Route path='/mail/:message_id' exact component={ViewMessage} />
           </Switch>
           <Footer />
         </Fragment>
