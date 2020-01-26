@@ -5,15 +5,13 @@ import { Link } from "react-router-dom";
 import Search from "../search/SearchState";
 import { logout } from "../../actions/auth";
 import LogoSm from "../../images/logo-sm.gif";
+import Dropdown from "react-bootstrap/Dropdown";
 
 const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
   const authLinks = (
     <div className="navbar__link">
-      <Link to="/dashboard">
-        Dashboard <i className="fas fa-tachometer-alt"></i>
-      </Link>
-      <Link to="/favorites">
-        Favorites <i className="fas fa-star"></i>
+      <Link to="/search/advanced">
+        Search <i className="fas fa-search"></i>
       </Link>
       <Link to="/mail">
         Mail <i className="fas fa-envelope"></i>
@@ -21,13 +19,28 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
       <Link to="/myprojects">
         Projects <i className="fas fa-project-diagram"></i>
       </Link>
-      <Link to={`/profile/${user && user._id}`}>
-        Profile<i className="fas fa-user"></i>
-      </Link>
-      <a onClick={logout} href="/">
-        <i className="fas fa-sign-out-alt" />{" "}
-        <span className="hide-sm">Logout</span>
-      </a>
+      <Dropdown>
+        <Dropdown.Toggle variant="outline-light" id="dropdown-basic">
+          Dashboard <i className="fas fa-tachometer-alt"></i>
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          <Dropdown.Item href="/dashboard" className="text-center">
+            <i className="fas fa-tachometer-alt"></i> Dashboard{" "}
+          </Dropdown.Item>
+          <Dropdown.Item href="/favorites" className="text-center">
+            <i className="fas fa-star"></i> Favorites{" "}
+          </Dropdown.Item>
+          <Dropdown.Item href="/profile" className="text-center">
+            <i className="fas fa-user"></i> Profile{" "}
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <a onClick={logout} href="/">
+              <i className="fas fa-sign-out-alt" />{" "}
+              <span className="hide-sm">Logout</span>
+            </a>
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
     </div>
   );
   const guestLinks = (
@@ -49,19 +62,7 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
         </Link>
       </div>
 
-      {/* <div className="navbar__searchbox">
-                <form className="form-inline">
-                    <i className="fas fa-search fa-2x" aria-hidden="true"></i>
-                    <input className="form-control form-control-lg ml-3 w-50" type="text" placeholder="Search"
-                        aria-label="Search" id="user-query" />
-                </form>
-            </div> */}
       <Search />
-      {/* <div className="navbar__link">
-        <Link to="/favorites">Favorites <i className="fas fa-star"></i></Link>
-        <Link to="/mail">Mail <i className="fas fa-envelope"></i></Link>
-        <Link to="/dashboard">Dashboard <i className="fas fa-user"></i></Link>
-    </div> */}
 
       {!loading && (
         <Fragment>{isAuthenticated ? authLinks : guestLinks}</Fragment>
