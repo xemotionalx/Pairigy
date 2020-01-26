@@ -5,7 +5,7 @@ import { createMessage } from "../../../actions/messages";
 import { getCurrentFavorites } from "../../../actions/faves";
 
 
-const CreateMessage = ({ createMessage, history, favorites: {favorites} }) => {
+const CreateMessage = ({ createMessage, getCurrentFavorites, history, favorites: {favorites} }) => {
 
   const [formData, setFormData] = useState({
     receiver: "",
@@ -16,6 +16,10 @@ const CreateMessage = ({ createMessage, history, favorites: {favorites} }) => {
   const { receiver, subject, body } = formData;
 
   // favorites
+  useEffect(() => {
+    getCurrentFavorites();
+  }, [getCurrentFavorites]);
+
   const [favesData, setFavesData] = useState({
     favesArr: ""
   });

@@ -3,6 +3,7 @@ import { GET_MESSAGE, GET_RECEIVED, MESSAGE_ERROR } from "../actions/types";
 const initialState = {
     received: [],
     message: null,
+    messageSelected: false,
     error: {},
 };
 
@@ -15,9 +16,9 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 message: payload,
+                messageSelected: true,
                 loading: false
             };
-
             case GET_RECEIVED:
             return {
                 ...state,
