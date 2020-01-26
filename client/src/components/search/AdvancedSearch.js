@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { searchByLocation, searchBySkill } from "../../actions/search";
+import { searchByLocation, searchBySkill, searchByName } from "../../actions/search";
 
-function AdvancedSearch({ search, history, searchByLocation, searchBySkill }) {
+function AdvancedSearch({ search, history, searchByLocation, searchBySkill, searchByName }) {
   const [formData, setFormData] = useState({
     searchTerm: "",
     searchCriteria: ""
@@ -11,18 +11,24 @@ function AdvancedSearch({ search, history, searchByLocation, searchBySkill }) {
 
   const { searchTerm, searchCriteria } = formData;
 
-  const onChange = e =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = e =>{
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+    };
 
   const onSubmit = e => {
     e.preventDefault();
-    console.log(searchCriteria);
-    //   switch (searchCriteria) {
-    //     case "location":
-    //       searchByLocation(searchTerm, history);
-    //     case "skill":
-    //       searchBySkill(searchTerm, history);
-    // }
+   
+      switch (searchCriteria) {
+        case "location":
+          searchByLocation(searchTerm, history)
+          break;
+        case "skill":
+          searchBySkill(searchTerm, history)
+          break;
+          case "name":
+          default:
+            searchByName(searchTerm, history) 
+    }
   };
 
   return (
@@ -55,10 +61,10 @@ function AdvancedSearch({ search, history, searchByLocation, searchBySkill }) {
             onChange={e => onChange(e)}
             className="form-control"
           >
+            <option value="">Search By...</option>
             <option value="name">Name</option>
-            <option value="name">E-Mail</option>
-            <option value="name">Skill</option>
-            <option value="name">Location</option>
+            <option value="skill">Skill</option>
+            <option value="location">Location</option>
            
           </select>
         </div>
@@ -73,7 +79,8 @@ function AdvancedSearch({ search, history, searchByLocation, searchBySkill }) {
 AdvancedSearch.propTypes = {
   search: PropTypes.object.isRequired,
   searchByLocation: PropTypes.func.isRequired,
-  searchBySkill: PropTypes.func.isRequired
+  searchBySkill: PropTypes.func.isRequired,
+  searchByName: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
@@ -82,5 +89,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   searchByLocation,
-  searchBySkill
+  searchBySkill,
+  searchByName
 })(AdvancedSearch);

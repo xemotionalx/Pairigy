@@ -30,7 +30,7 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
           <Dropdown.Item href="/favorites" className="text-center">
             <i className="fas fa-star"></i> Favorites{" "}
           </Dropdown.Item>
-          <Dropdown.Item href="/profile" className="text-center">
+          <Dropdown.Item href={`/profile/${user && user._id}`} className="text-center">
             <i className="fas fa-user"></i> Profile{" "}
           </Dropdown.Item>
           <Dropdown.Item>

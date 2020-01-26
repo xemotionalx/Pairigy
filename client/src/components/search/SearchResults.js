@@ -33,6 +33,9 @@ const SearchResults = ({search: {results}}) => {
           )
         : ""
         }
+
+        {results === [] || "" ? ("Sorry, no users match your search criteria :(") : ("")}
+
       </div>
     </div>
   );
