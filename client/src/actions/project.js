@@ -49,6 +49,8 @@ export const getProjectById = projectId => async dispatch => {
         //axios call to the route that will match profile to user's id
         const res = await axios.get(`/api/project/${projectId}`);
 
+        console.log(res.data);
+
         dispatch ({
             type: GET_PROJECT,
             payload: res.data //get this data from the database - above route

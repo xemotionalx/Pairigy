@@ -87,7 +87,7 @@ const App = () => {
               component={CreateProject}
             />
             <Route
-              path='/myprojects/project/edit/:projectId'
+              path='/project/edit/:projectId'
               exact
               component={EditProject}
             />
