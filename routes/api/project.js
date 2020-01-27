@@ -4,6 +4,7 @@ const config = require('config');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
+const mongoose = require('mongoose');
 
 const Project = require('../../models/Project');
 const User = require('../../models/User');
@@ -126,7 +127,14 @@ router.get('/user/:user_id', async (req, res) => {
 router.get('/:project_id', async (req, res) => {
     try {
 
-        const project = await Project.findById(req.params.project_id)
+        let id;
+        if (typeof req.params.project_id === "string") {
+            id = mongoose.Types.ObjectId(req.params.project_id);
+        } else {
+            id = req.params.project_id;
+        }
+
+        const project = await Project.findById(id)
         .populate('team.user', ['name', 'avatar']);
 
         if (!project) return res.status(400).json({ msg: 'project not found' });
