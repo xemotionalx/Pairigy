@@ -54,7 +54,7 @@ router.post(
         }
 
         const {
-            projectId,
+            project_id,
             name,
             description,
             website,
@@ -65,7 +65,7 @@ router.post(
         // Build project object
         const projectFields = {};
         projectFields.owner = req.user.id;
-        if (projectId) projectFields.id = projectId;
+        if (project_id) projectFields.id = project_id;
         if (name) projectFields.name = name;
         if (description) projectFields.description = description;
         if (website) projectFields.website = website;
@@ -73,12 +73,12 @@ router.post(
         if (team) projectFields.team = team;
         
         try {
-           let project = await Project.findOne({ _id: projectId });
+           let project = await Project.findOne({ _id: project_id });
 
             if (project) {
                 // Update
                 project = await Project.findOneAndUpdate(
-                    { _id: projectId },
+                    { _id: project_id },
                     { $set: projectFields },
                     { new: true, upsert: true }
                 );
