@@ -2,20 +2,25 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from "prop-types";
 import { Link } from 'react-router-dom';
 import { connect } from "react-redux" ;
-import { getMessageById } from "../../../actions/messages";
+import { getMessageById, deleteMessage } from "../../../actions/messages";
 
 
 const ViewMessage = ({
-    messages: {message, loading}, getMessageById, match
+    messages: {message, loading}, getMessageById, deleteMessage, match, history
 }) => {
 
     useEffect(() => {
         getMessageById(match.params.message_id);
       }, [getMessageById]);
 
+    const handleDelete = () => {
+        const messageId = match.params.message_id;
+        deleteMessage(messageId, history);
+    }
+
     return message && !loading ? (
         <div className="container">
-            <h1 className="heading-size--s m-4">{message.subject}</h1>
+            <h1 className="heading-size--s m-4"> <input type="button" value="X" onClick={handleDelete} />  {message.subject}</h1>
             <h2 className="heading-size--xs m-4">From: {message.sender.name}</h2>
             <div className="mail--text-box mt-3">
                 <p>
@@ -33,6 +38,7 @@ const ViewMessage = ({
     ViewMessage.propTypes = {
         messages: PropTypes.object.isRequired,
         getMessageById: PropTypes.func.isRequired,
+        deleteMessage: PropTypes.func.isRequired,
     };
 
     const mapStateToProps = state => ({
@@ -40,4 +46,4 @@ const ViewMessage = ({
     });
     
 
-export default connect(mapStateToProps, {getMessageById})(ViewMessage);
+export default connect(mapStateToProps, {getMessageById, deleteMessage})(ViewMessage);

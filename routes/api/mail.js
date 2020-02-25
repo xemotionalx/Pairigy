@@ -51,6 +51,23 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
+// @route   DELETE api/mail/mail_id
+// @desc    Delete one message by id
+// @access  private
+router.delete("/:message_id", auth, async (req, res) => {
+  try {
+
+    // Remove message
+    await Message.findOneAndRemove({ _id: req.params.message_id });
+
+    res.json({ msg: 'Message deleted' });    
+
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route   GET api/mail/:message_id
 // @desc    Get message by its id
 // @access  private
