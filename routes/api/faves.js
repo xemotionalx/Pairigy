@@ -15,26 +15,24 @@ router.post("/", auth, async (req, res) => {
 
     if (faves) {
 
-      // let existingFav = await Faves.findOne(
-      //   {user: req.user.id }, 
-      //   {favorites: { user: {$in: req.body.newFav} }}
-      //   )
+      let existingFav = false;
 
-      //   console.log(existingFav);
+      faves.favorites.map(favorite => {
+        let favoriteUser = favorite.user.toString();   
+        if (favoriteUser === req.body.newFav) {
+          existingFav = true;
+        };
+      });
 
-      // if (existingFav) {
-      //   return res.status(400).send("User already added to favorites");
-      // } else {
-      //   faves = await Faves.findOneAndUpdate(
-      //     { user: req.user.id },
-      //     { $push: { favorites: { user: req.body.newFav } } }
-      //   );
-      // }
-
-      faves = await Faves.findOneAndUpdate(
-        { user: req.user.id },
-        { $push: { favorites: { user: req.body.newFav } } }
-      );
+      if (existingFav) {
+        console.log(`${req.body.newFav} already exists in favorites`);
+      } 
+      else {
+       faves = await Faves.findOneAndUpdate(
+          { user: req.user.id },
+          { $push: { favorites: { user: req.body.newFav } } }
+        );
+      }
 
       return res.json(faves);
     }
@@ -46,8 +44,8 @@ router.post("/", auth, async (req, res) => {
     });
 
     await faves.save();
-
     res.json(faves.favorites);
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
