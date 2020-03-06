@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/auth", require("./routes/api/auth"));
 app.use("/api/profile", require("./routes/api/profile"));
-app.use("/api/posts", require("./routes/api/posts"));
 app.use("/api/project", require("./routes/api/project"));
 app.use("/api/search", require("./routes/api/search"));
 app.use("/api/faves", require("./routes/api/faves"));

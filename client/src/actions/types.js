@@ -27,6 +27,8 @@ export const GET_FAVES = "GET_FAVES";
 export const FAV_ERROR = "FAV_ERROR";
 //messages
 export const GET_MESSAGE = "GET_MESSAGE";
-export const GET_RECEIVED = "GET_RECEIVED"
+export const DELETE_MESSAGE = "DELETE_RECEIVED";
+export const GET_RECEIVED = "GET_RECEIVED";
 export const MESSAGE_ERROR = "MESSAGE_ERROR";
+
 

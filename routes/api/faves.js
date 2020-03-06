@@ -14,11 +14,26 @@ router.post("/", auth, async (req, res) => {
     let faves = await Faves.findOne({ user: req.user.id });
 
     if (faves) {
-      // Update
-      faves = await Faves.findOneAndUpdate(
-        { user: req.user.id },
-        { $push: { favorites: { user: req.body.newFav } } }
-      );
+
+      let existingFav = false;
+
+      faves.favorites.map(favorite => {
+        let favoriteUser = favorite.user.toString();   
+        if (favoriteUser === req.body.newFav) {
+          existingFav = true;
+        };
+      });
+
+      if (existingFav) {
+        console.log(`${req.body.newFav} already exists in favorites`);
+      } 
+      else {
+       faves = await Faves.findOneAndUpdate(
+          { user: req.user.id },
+          { $push: { favorites: { user: req.body.newFav } } }
+        );
+      }
+
       return res.json(faves);
     }
 
@@ -29,8 +44,8 @@ router.post("/", auth, async (req, res) => {
     });
 
     await faves.save();
-
     res.json(faves.favorites);
+
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
@@ -56,6 +71,27 @@ router.get("/me", auth, async (req, res) => {
     console.error(err.message);
     res.status(500).send("server error");
   }
+});
+
+// @route   DELETE api/faves/:fave_id
+// @desc    find fav by id and delete
+// @access  private
+router.delete("/:fav_id", auth, async (req, res) => {
+  
+  try {
+    await Faves.findOneAndUpdate(
+      {user: req.user.id},
+       {$pull: {favorites:  {user: req.params.fav_id}}}
+    )
+
+    res.json(`successfully removed ${req.params.fav_id}`);
+    
+
+  } catch {
+    console.error(err.message);
+    res.status(500).send("server error");
+  }
+
 });
 
 module.exports = router;
